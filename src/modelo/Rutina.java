@@ -3,7 +3,7 @@ package modelo;
 import java.util.List;
 
 import datos.Dia;
-import modelo.objetivo.ObjetivoStrategy;
+import modelo.ModuloObjetivo.ObjetivoStrategy;
 
 public class Rutina {
 	private ObjetivoStrategy objetivo;
