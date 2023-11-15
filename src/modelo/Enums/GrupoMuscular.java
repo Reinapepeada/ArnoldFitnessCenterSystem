@@ -1,4 +1,4 @@
-package datos;
+package modelo.Enums;
 
 public enum GrupoMuscular {
 	BRAZOS,
