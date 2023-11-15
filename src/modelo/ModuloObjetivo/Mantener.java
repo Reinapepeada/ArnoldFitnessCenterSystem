@@ -1,4 +1,4 @@
-package modelo.objetivo;
+package modelo.ModuloObjetivo;
 
 public class Mantener extends ObjetivoStrategy {
     private float pesoInicial;
@@ -13,6 +13,7 @@ public class Mantener extends ObjetivoStrategy {
     @Override
     public void calcularMedidaIdeal(){
         // TODO - calcular medida ideal
+        
     }
     @Override
     public boolean verificarObjetivo(){
