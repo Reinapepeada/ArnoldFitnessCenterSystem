@@ -8,12 +8,10 @@ public class Medida {
     private double peso;
     private AdapterMedida medicion;
 
-    //Metodos de acceso y modifiacion
-    private boolean authUsuario(String email, String psw){
-        // TODO - implement Medida.authUsuario
-        return false;
+    public Medida(){
+        this.medicion = new BalanzaSystemAdapter();
     }
-
+    //Metodos de acceso y modifiacion
     public double getAltura(){
         return this.altura;
     }
