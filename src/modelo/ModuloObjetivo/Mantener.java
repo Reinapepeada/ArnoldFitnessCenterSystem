@@ -11,13 +11,18 @@ public class Mantener extends ObjetivoStrategy {
         this.toleraciaVsPesoInicial = tol;
     }
     @Override
-    public void calcularMedidaIdeal(){
-        // TODO - calcular medida ideal
-        
+    public double calcularMedidaIdeal(){
+        return this.getPesoInicial() + this.getToleraciaVsPesoInicial();
     }
     @Override
     public boolean verificarObjetivo(){
-        return true;
+        // TODO - verificar si el peso actual esta entre el rango pasado por parametro 
+        // como hacemos para acceder a la medida actual
+        int medidaActual = 0; // deberia ir la medida actual
+        if(medidaActual > pesoInicial - toleraciaVsPesoInicial && medidaActual < pesoInicial + toleraciaVsPesoInicial ){
+            return true;
+        }
+        return false;
     }
 
     public float getPesoInicial() {
@@ -26,6 +31,11 @@ public class Mantener extends ObjetivoStrategy {
     public float getToleraciaVsPesoInicial() {
         return this.toleraciaVsPesoInicial;
     }
+	@Override
+	public void chequearTrofeo() {
+		// TODO Auto-generated method stub
+		
+	}
 
     
 }
