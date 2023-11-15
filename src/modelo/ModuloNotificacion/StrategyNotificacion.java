@@ -1,5 +1,5 @@
 
 
 public interface StrategyNotificacion {
-    void notificar();
+    void notificar(String n);
 }

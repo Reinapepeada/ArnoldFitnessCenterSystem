@@ -9,8 +9,8 @@ public class Notificador{
         this.notificacion = notificacion;
     }
 
-    public void notificar(){
-        this.notificacion.notificar();
+    public void notificar(String n){
+        this.notificacion.notificar(n);
     }
 
 }

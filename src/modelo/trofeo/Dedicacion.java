@@ -1,4 +1,4 @@
-package modelo.trofeo;
+package modelo.Trofeo;
 
 public class Dedicacion implements Trofeo {
 	public void otorgarTrofeo() {

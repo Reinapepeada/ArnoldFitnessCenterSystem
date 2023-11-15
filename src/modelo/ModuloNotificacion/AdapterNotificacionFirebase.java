@@ -1,4 +1,4 @@
 
 public interface AdapterNotificacionFirebase {
-    void enviaNotificacion();
+    void enviaNotificacion(String n);
 }

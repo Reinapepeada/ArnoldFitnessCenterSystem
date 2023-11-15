@@ -2,9 +2,9 @@ package modelo.ModuloObjetivo;
 
 import java.util.List;
 
-import datos.Exigencia;
 import modelo.Rutina;
-import modelo.trofeo.TrofeoIObservador;
+import modelo.Enums.Exigencia;
+import modelo.Trofeo.TrofeoIObservador;
 
 public abstract class ObjetivoStrategy {
 	private double duracion;
