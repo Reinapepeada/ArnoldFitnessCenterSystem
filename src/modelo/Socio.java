@@ -2,7 +2,8 @@ package modelo;
 
 import java.util.List;
 
-import modelo.objetivo.ObjetivoStrategy;
+import modelo.ModuloMedicion.Medida;
+import modelo.ModuloObjetivo.ObjetivoStrategy;
 import modelo.trofeo.Trofeo;
 
 public class Socio {
