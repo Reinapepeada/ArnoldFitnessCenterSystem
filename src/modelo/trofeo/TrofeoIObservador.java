@@ -1,4 +1,4 @@
-package modelo.trofeo;
+package modelo.Trofeo;
 
 public interface TrofeoIObservador {
     public void chequearTrofeo();

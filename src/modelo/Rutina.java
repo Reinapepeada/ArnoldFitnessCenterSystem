@@ -2,7 +2,7 @@ package modelo;
 
 import java.util.List;
 
-import datos.Dia;
+import modelo.Enums.Dia;
 import modelo.ModuloObjetivo.ObjetivoStrategy;
 
 public class Rutina {

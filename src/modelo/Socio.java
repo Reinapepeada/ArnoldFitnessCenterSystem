@@ -4,7 +4,7 @@ import java.util.List;
 
 import modelo.ModuloMedicion.Medida;
 import modelo.ModuloObjetivo.ObjetivoStrategy;
-import modelo.trofeo.Trofeo;
+import modelo.Trofeo.Trofeo;
 
 public class Socio {
 	private int edad;
