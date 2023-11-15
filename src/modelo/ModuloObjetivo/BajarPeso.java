@@ -12,13 +12,20 @@ public class BajarPeso extends ObjetivoStrategy {
 
 	
 	@Override
-	public void calcularMedidaIdeal(){
-		// TODO - 
+	public double calcularMedidaIdeal() {
+        // Fórmula del IMC: peso / (altura^2)
+        return this.getPesoInicial() / (this.getAlturaInicial() * this.getAlturaInicial());
 	}
 
 	@Override
 	public boolean verificarObjetivo(){
-		return true;
+		// TODO - verificar con la medida actual contra la medida medida ideal
+		// como hacemos para acceder a la medida actual
+		int medidaActual = 0; // deberia ir la medida actual
+		if(calcularMedidaIdeal() < medidaActual){
+			return true;
+		}
+		return false;
 	}
 
 	public float getAlturaInicial(){
@@ -27,5 +34,12 @@ public class BajarPeso extends ObjetivoStrategy {
 
 	public float getPesoInicial() {
 		return this.pesoInicial;
+	}
+
+
+	@Override
+	public void chequearTrofeo() {
+		// TODO Auto-generated method stub
+		
 	}
 }

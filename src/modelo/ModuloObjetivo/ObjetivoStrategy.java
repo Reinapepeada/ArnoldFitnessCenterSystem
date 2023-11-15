@@ -4,15 +4,14 @@ import java.util.List;
 
 import modelo.Rutina;
 import modelo.Enums.Exigencia;
-import modelo.Trofeo.TrofeoIObservador;
+import modelo.ModuloTrofeo.TrofeoObservador;
 
-public abstract class ObjetivoStrategy {
+public abstract class ObjetivoStrategy extends TrofeoObservador {
 	private double duracion;
 	private int nAerobicMin;
 	private int nAerobicMax;
 	private Rutina rutina;
 	private List<Exigencia> exigencia;
-	private List<TrofeoIObservador> observadores;
 
 	protected ObjetivoStrategy(double duracion, int nMin, int nMax){
 		this.duracion = duracion;
@@ -20,16 +19,16 @@ public abstract class ObjetivoStrategy {
 		this.nAerobicMax = nMax;
 	}
 
-	public void calcularMedidaIdeal() {
-		// TODO - implement ObjetivoStrategy.calcularMedidaIdeal
-		throw new UnsupportedOperationException();
-	}
+	//metodos para implemetar en los objetivos 
+	abstract double calcularMedidaIdeal();
 
-	public boolean verificarObjetivo() {
-		// TODO - implement ObjetivoStrategy.verificarObjetivo
-		throw new UnsupportedOperationException();
-		
-	}
+	abstract boolean verificarObjetivo();
+	
+	@Override
+	protected abstract void chequearTrofeo();
+	
+	
+	
 
 	public double getDuracion() {
 		return duracion;
@@ -52,12 +51,6 @@ public abstract class ObjetivoStrategy {
 	}
 	public void setExigencia(List<Exigencia> exigencia) {
 		this.exigencia = exigencia;
-	}
-	public List<TrofeoIObservador> getObservadores() {
-		return observadores;
-	}
-	public void setObservadores(List<TrofeoIObservador> observadores) {
-		this.observadores = observadores;
 	}
 	public int getnAerobicMin() {
 		return nAerobicMin;
