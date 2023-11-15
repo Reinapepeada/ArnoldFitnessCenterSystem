@@ -8,9 +8,20 @@ public class Medida {
     private double peso;
     private AdapterMedida medicion;
 
-    public Medida(){
-        this.medicion = new BalanzaSystemAdapter();
+    //Constructor
+    public Medida(double altura, double peso,double porcetajeGrasa, double porcentajeMusculo, AdapterMedida medicion) {
+        this.altura = altura;
+        this.peso = peso;
+        this.bmi = peso/(altura*altura);
+        this.porcetajeGrasa = porcetajeGrasa;
+        this.porcentajeMusculo = porcentajeMusculo;
+        this.medicion = medicion;
     }
+    // public Medida(){
+    //     this.medicion = new BalanzaSystemAdapter();
+    // }
+
+
     //Metodos de acceso y modifiacion
     public double getAltura(){
         return this.altura;
