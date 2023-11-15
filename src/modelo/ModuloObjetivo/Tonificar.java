@@ -1,4 +1,4 @@
-package modelo.objetivo;
+package modelo.ModuloObjetivo;
 
 public class Tonificar extends ObjetivoStrategy {
     public Tonificar(double duracion,  float peso, float altura) {
@@ -8,7 +8,7 @@ public class Tonificar extends ObjetivoStrategy {
     
     @Override
     public void calcularMedidaIdeal(){
-    	// TODO - 
+    	// TODO 
 
     }
 

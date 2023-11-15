@@ -1,4 +1,4 @@
-package modelo.objetivo;
+package modelo.ModuloObjetivo;
 
 import java.util.List;
 
