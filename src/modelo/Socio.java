@@ -2,18 +2,18 @@ package modelo;
 
 import java.util.List;
 
+import modelo.excepciones.CredencialesInvalidasException;
+import modelo.moduloMediciones.Medida;
+import modelo.moduloObjetivo.ObjetivoStrategy;
 
-import modelo.ModuloMedicion.Medida;
-import modelo.ModuloObjetivo.ObjetivoStrategy;
-
-public class Socio {
+public class Socio extends UsuarioArnold {
 	private int edad;
 	private String nombre;
 	private String apellido;
 	private String dni;
 	private String email;
 	private String password;
-	private String Sexo;
+	private String sexo;
 	private float altura;
 	private float peso;
 	private float porcentajeGrasa;
@@ -22,8 +22,28 @@ public class Socio {
 	private ObjetivoStrategy objetivo;
 	private Rutina rutina;
 
+	public Socio(int edad, String nombre, String apellido, String dni, String email, String password, String sexo, float altura, float peso){
+		super(dni, password);
+		this.edad = edad;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.email = email;
+		this.sexo = sexo;
+		this.altura = altura;
+		this.peso = peso;
+	}
+
+	public UsuarioArnold autenticarUsuario(String usuario, String contrasena) throws CredencialesInvalidasException {
+	for (UsuarioArnold usr: this.usuarios) {
+		if (usr.soyEsteUsuario(usuario, contrasena)) {
+			return usr;
+		}
+	}
+	throw new CredencialesInvalidasException("Las credenciales ingresadas son invÃ¡lidas.");
+	}
+
 	public int getEdad() {
-		return edad;
+		return this.edad;
 	}
 
 	public void setEdad(int edad) {
@@ -31,7 +51,7 @@ public class Socio {
 	}
 
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}
 
 	public void setNombre(String nombre) {
@@ -39,7 +59,7 @@ public class Socio {
 	}
 
 	public String getApellido() {
-		return apellido;
+		return this.apellido;
 	}
 
 	public void setApellido(String apellido) {
@@ -47,7 +67,7 @@ public class Socio {
 	}
 
 	public String getDni() {
-		return dni;
+		return this.dni;
 	}
 
 	public void setDni(String dni) {
@@ -55,7 +75,7 @@ public class Socio {
 	}
 
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
 	public void setEmail(String email) {
@@ -63,7 +83,7 @@ public class Socio {
 	}
 
 	public String getPassword() {
-		return password;
+		return this.password;
 	}
 
 	public void setPassword(String password) {
@@ -71,15 +91,15 @@ public class Socio {
 	}
 
 	public String getSexo() {
-		return Sexo;
+		return this.sexo;
 	}
 
 	public void setSexo(String sexo) {
-		Sexo = sexo;
+		this.sexo = sexo;
 	}
 
 	public float getAltura() {
-		return altura;
+		return this.altura;
 	}
 
 	public void setAltura(float altura) {
@@ -87,7 +107,7 @@ public class Socio {
 	}
 
 	public float getPeso() {
-		return peso;
+		return this.peso;
 	}
 
 	public void setPeso(float peso) {
@@ -95,7 +115,7 @@ public class Socio {
 	}
 
 	public float getPorcentajeGrasa() {
-		return porcentajeGrasa;
+		return this.porcentajeGrasa;
 	}
 
 	public void setPorcentajeGrasa(float porcentajeGrasa) {
@@ -103,7 +123,7 @@ public class Socio {
 	}
 
 	public float getPorcentajeMusculo() {
-		return porcentajeMusculo;
+		return this.porcentajeMusculo;
 	}
 
 	public void setPorcentajeMusculo(float porcentajeMusculo) {
@@ -111,7 +131,7 @@ public class Socio {
 	}
 
 	public List<Medida> getMedidas() {
-		return medidas;
+		return this.medidas;
 	}
 
 	public void setMedidas(List<Medida> medidas) {
@@ -119,7 +139,7 @@ public class Socio {
 	}
 
 	public ObjetivoStrategy getObjetivo() {
-		return objetivo;
+		return this.objetivo;
 	}
 
 	public void setObjetivo(ObjetivoStrategy objetivo) {
@@ -127,14 +147,11 @@ public class Socio {
 	}
 
 	public Rutina getRutina() {
-		return rutina;
+		return this.rutina;
 	}
 
 	public void setRutina(Rutina rutina) {
 		this.rutina = rutina;
-	}
-
-	public Socio() {
 	}
 
 	public void cambiarObjetivo(ObjetivoStrategy objetivo) {
@@ -143,5 +160,9 @@ public class Socio {
 
 	public void registrarPeso(float peso) {
 		this.peso = peso;
+	}
+
+	public boolean soySocio() {
+		return true;
 	}
 }
