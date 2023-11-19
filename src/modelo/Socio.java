@@ -2,9 +2,9 @@ package modelo;
 
 import java.util.List;
 
+
 import modelo.ModuloMedicion.Medida;
 import modelo.ModuloObjetivo.ObjetivoStrategy;
-import modelo.Trofeo.Trofeo;
 
 public class Socio {
 	private int edad;
@@ -19,7 +19,6 @@ public class Socio {
 	private float porcentajeGrasa;
 	private float porcentajeMusculo;
 	private List<Medida> medidas;
-	private List<Trofeo> trofeos;
 	private ObjetivoStrategy objetivo;
 	private Rutina rutina;
 
@@ -117,14 +116,6 @@ public class Socio {
 
 	public void setMedidas(List<Medida> medidas) {
 		this.medidas = medidas;
-	}
-
-	public List<Trofeo> getTrofeos() {
-		return trofeos;
-	}
-
-	public void setTrofeos(List<Trofeo> trofeos) {
-		this.trofeos = trofeos;
 	}
 
 	public ObjetivoStrategy getObjetivo() {
