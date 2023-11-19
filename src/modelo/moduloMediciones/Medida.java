@@ -1,4 +1,4 @@
-package modelo.ModuloMedicion;
+package modelo.moduloMediciones;
 
 public class Medida {
     private double bmi;
