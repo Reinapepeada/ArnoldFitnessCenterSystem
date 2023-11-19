@@ -1,10 +1,10 @@
-package modelo.moduloObjetivo;
+package modelo.ModuloObjetivo;
 
 import java.util.List;
 
 import modelo.Rutina;
-import modelo.enums.Exigencia;
-import modelo.moduloTrofeo.TrofeoObservador;
+import modelo.Enums.Exigencia;
+import modelo.ModuloTrofeo.TrofeoObservador;
 
 public abstract class ObjetivoStrategy extends TrofeoObservador {
 	private double duracion;

@@ -1,4 +1,4 @@
-package modelo.moduloNNN;
+package modelo.ModuloNNN;
 
 
 public interface StrategyNotificacion {

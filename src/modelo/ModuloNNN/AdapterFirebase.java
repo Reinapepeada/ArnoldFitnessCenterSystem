@@ -1,4 +1,4 @@
-package modelo.moduloNNN;
+package modelo.ModuloNNN;
 public class AdapterFirebase {
     
     public static void enviaNotificacion(String n){

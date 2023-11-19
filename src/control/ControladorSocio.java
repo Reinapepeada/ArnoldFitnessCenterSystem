@@ -7,11 +7,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import modelo.UsuarioArnold;
-import modelo.excepciones.SocioExistenteException;
+import modelo.Excepciones.SocioExistenteException;
 
 public class ControladorSocio {
 
-    protected List<UsuarioArnold> usuarios;
+    public static List<UsuarioArnold> usuarios;
 
     public static void crearCliente(JTextField usuario, JTextField contrasena, JTextField nombre, JTextField documento, JComboBox<Plan> plan) {
     String usrCliente = usuario.getText();

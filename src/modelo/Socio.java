@@ -2,9 +2,9 @@ package modelo;
 
 import java.util.List;
 
-import modelo.excepciones.CredencialesInvalidasException;
-import modelo.moduloMediciones.Medida;
-import modelo.moduloObjetivo.ObjetivoStrategy;
+import modelo.Excepciones.CredencialesInvalidasException;
+import modelo.ModuloMediciones.Medida;
+import modelo.ModuloObjetivo.ObjetivoStrategy;
 
 public class Socio extends UsuarioArnold {
 	private int edad;
@@ -14,15 +14,15 @@ public class Socio extends UsuarioArnold {
 	private String email;
 	private String password;
 	private String sexo;
-	private float altura;
-	private float peso;
+	private double altura;
+	private double peso;
 	private float porcentajeGrasa;
 	private float porcentajeMusculo;
 	private List<Medida> medidas;
 	private ObjetivoStrategy objetivo;
 	private Rutina rutina;
 
-	public Socio(int edad, String nombre, String apellido, String dni, String email, String password, String sexo, float altura, float peso){
+	public Socio(int edad, String nombre, String apellido, String dni, String email, String password, String sexo, double altura, double peso){
 		super(dni, password);
 		this.edad = edad;
 		this.nombre = nombre;
@@ -34,11 +34,11 @@ public class Socio extends UsuarioArnold {
 	}
 
 	public UsuarioArnold autenticarUsuario(String usuario, String contrasena) throws CredencialesInvalidasException {
-	for (UsuarioArnold usr: this.usuarios) {
-		if (usr.soyEsteUsuario(usuario, contrasena)) {
-			return usr;
+		for (UsuarioArnold usr: this.usuarios) {
+			if (usr.soyEsteUsuario(usuario, contrasena)) {
+				return usr;
+			}
 		}
-	}
 	throw new CredencialesInvalidasException("Las credenciales ingresadas son invÃ¡lidas.");
 	}
 
@@ -98,19 +98,19 @@ public class Socio extends UsuarioArnold {
 		this.sexo = sexo;
 	}
 
-	public float getAltura() {
+	public double getAltura() {
 		return this.altura;
 	}
 
-	public void setAltura(float altura) {
+	public void setAltura(double altura) {
 		this.altura = altura;
 	}
 
-	public float getPeso() {
+	public double getPeso() {
 		return this.peso;
 	}
 
-	public void setPeso(float peso) {
+	public void setPeso(double peso) {
 		this.peso = peso;
 	}
 

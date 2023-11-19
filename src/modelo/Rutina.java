@@ -2,8 +2,8 @@ package modelo;
 
 import java.util.List;
 
-import modelo.enums.Dia;
-import modelo.moduloObjetivo.ObjetivoStrategy;
+import modelo.Enums.Dia;
+import modelo.ModuloObjetivo.ObjetivoStrategy;
 
 public class Rutina {
 	private ObjetivoStrategy objetivo;
