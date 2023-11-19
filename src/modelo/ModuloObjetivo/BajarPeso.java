@@ -1,4 +1,4 @@
-package modelo.moduloObjetivo;
+package Modelo.ModuloObjetivo;
 
 public class BajarPeso extends ObjetivoStrategy {
 	private float pesoInicial;
@@ -7,9 +7,7 @@ public class BajarPeso extends ObjetivoStrategy {
 		super(duracion, 0, 3);
 		this.pesoInicial = peso;
 		this.alturaInicial = altura;
-		
 	}
-
 	
 	@Override
 	public double calcularMedidaIdeal() {
@@ -36,10 +34,8 @@ public class BajarPeso extends ObjetivoStrategy {
 		return this.pesoInicial;
 	}
 
-
 	@Override
 	public void chequearTrofeo() {
 		// TODO Auto-generated method stub
-		
 	}
 }

@@ -1,5 +1,5 @@
 
-import vistas.VistaInicioSesion;
+import Vistas.VistaInicioSesion;
 
 public class App {
     public static void main(String[] args) throws Exception {

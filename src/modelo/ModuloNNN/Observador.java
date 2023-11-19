@@ -1,7 +1,7 @@
-package modelo.moduloNNN;
+package Modelo.ModuloNNN;
 import java.util.List;
 
-import modelo.moduloTrofeo.TrofeoObservador;
+import Modelo.ModuloTrofeo.TrofeoObservador;
 
 abstract class Observador {
     protected List<TrofeoObservador> observadores;

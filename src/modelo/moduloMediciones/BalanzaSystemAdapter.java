@@ -1,4 +1,4 @@
-package modelo.moduloMediciones;
+package Modelo.ModuloMediciones;
 
 public class BalanzaSystemAdapter implements AdapterMedida {
 
