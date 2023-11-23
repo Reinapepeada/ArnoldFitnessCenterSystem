@@ -4,34 +4,26 @@ public abstract class UsuarioArnold {
 
     private static int contador = 0;
 	protected int id;
-	protected String usuario;
-	protected String contrasena;
+	private Object password;
+	private String dni;
 	
-	protected UsuarioArnold(String usuario, String contrasena) {
+	protected UsuarioArnold(String dni, String password) {
 		this.id = contador;
 		contador++;
-		this.usuario = usuario;
-		this.contrasena = contrasena;
+		this.dni = dni;
+		this.password = password;
 	}
 
-	protected boolean soyEsteUsuario(int id) {
-		return this.id == id;
+	protected boolean soyEsteUsuario(String dni) {
+		return this.dni == dni;
 	}
 	
-	protected boolean soyEsteUsuario(String usuario, String contrasena) {
-		return this.usuario.equals(usuario) && this.contrasena.equals(contrasena);
-	}
-	
-	public boolean soyAdmin(){
-		return false;
-	}
-	
-	public boolean soySocio() {
-		return false;
+	protected boolean soyEsteUsuario(String dni, String password) {
+		return this.dni.equals(dni) && this.password.equals(password);
 	}
 
-	public int obtenerId() {
-		return this.id;
+	public String obtenerDNI() {
+		return this.dni;
 	}
     
 }

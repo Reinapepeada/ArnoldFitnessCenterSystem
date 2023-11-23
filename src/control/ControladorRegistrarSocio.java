@@ -1,7 +1,5 @@
 package Control;
 
-import java.util.List;
-
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
@@ -12,19 +10,15 @@ import Modelo.Socio;
 import Modelo.UsuarioArnold;
 import Modelo.Enums.Objetivo;
 import Modelo.Excepciones.SocioExistenteException;
+import Modelo.Excepciones.CredencialesInvalidasException;
 import Modelo.ModuloObjetivo.ObjetivoStrategy;
 import Vistas.VistaAdmin;
 import Vistas.VistaRegistrarSocio;
+import Vistas.VistaSocio;
 
-public class ControladorSocio {
-    private Socio socio;
-    public static List<Socio> usuarios;
-
-    public ControladorSocio(){
-
-    }
-
-     public static void registrarSocio(JTextField nombre, JTextField apellido, JTextField email, JTextField dni, JTextField edad, JTextField sexo, JPasswordField password, JSpinner peso, JSpinner altura, JComboBox<Objetivo> objetivo) {
+public class ControladorRegistrarSocio {
+	
+    public static void registrarSocio(JTextField nombre, JTextField apellido, JTextField email, JTextField dni, JTextField edad, JTextField sexo, JPasswordField password, JSpinner peso, JSpinner altura, JComboBox<Objetivo> objetivo) {
         String nombreSocio = nombre.getText();
         String apellidoSocio = apellido.getText();
 		String emailSocio = email.getText();
@@ -49,7 +43,7 @@ public class ControladorSocio {
 		}
 	}
 
-	public static void disponivilizarVistaRegistrarSocio() {
+	public static void disponibilizarVistaRegistrarSocio() {
 		VistaRegistrarSocio vRS = new VistaRegistrarSocio();
 		vRS.setVisible(true);
 		vRS.setSize(500, 500);
@@ -63,6 +57,4 @@ public class ControladorSocio {
 		vADM.setSize(500, 500);
 		vADM.setLocation(0, 0);
 	}
-
-
 }

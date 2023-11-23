@@ -15,16 +15,16 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import Control.ControladorInicioSesion;
+import Control.ControladorIniciarSesion;
 
-public class VistaInicioSesion extends JFrame {
+public class VistaIniciarSesion extends JFrame {
 
     private JTextField usuario;
 	private JPasswordField contrasena;
 	
-	public VistaInicioSesion() {
+	public VistaIniciarSesion() {
 		super ("Arnold Fitness Center - Inicio de sesion");
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setLayout(new BorderLayout());
 		JPanel panel1=new JPanel();
 		panel1.setLayout(new GridLayout(3,1,2,2));
@@ -47,28 +47,39 @@ public class VistaInicioSesion extends JFrame {
 		
 		
 		Container contBotones=new Container();
-		contBotones.setLayout(new GridLayout(4,2,2,2));
+		contBotones.setLayout(new GridLayout(4,2,2,4));
 		
 		//CONSTRUCCION DEL BOTON INICIAR SESION//
 		JButton btnIniciarSesion=new JButton("Iniciar Sesion");
+		JButton btnRegistrarse=new JButton("Registrarse");
 		
 		//CLASE INTERNA//
 		class HandlerBtnIniciarSesion implements ActionListener{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ControladorInicioSesion.autenticarUsuario(usuario, contrasena);
+				ControladorIniciarSesion.autenticarUsuario(usuario, contrasena);
 			}
 		}
 		
+		class HandlerBtnRegistrarse implements ActionListener{
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ControladorIniciarSesion.autenticarUsuario(usuario, contrasena);
+			}
+		}
+
 		//INSTANCIACION DEL MANEJADOR//
-		HandlerBtnIniciarSesion handlerBtnIniciarSesion=new HandlerBtnIniciarSesion();
+		HandlerBtnIniciarSesion handlerBtnIniciarSesion = new HandlerBtnIniciarSesion();
+		HandlerBtnRegistrarse handlerBtnRegistrarse = new HandlerBtnRegistrarse();
 		
 		//ASIGNACION DEL MANEJADOR AL BOTON//
 		btnIniciarSesion.addActionListener(handlerBtnIniciarSesion);
-		
+		btnRegistrarse.addActionListener(handlerBtnRegistrarse);
 		
 		contBotones.add(btnIniciarSesion);
+		contBotones.add(btnRegistrarse);
 		
 		panel1.add(contBotones);
 		

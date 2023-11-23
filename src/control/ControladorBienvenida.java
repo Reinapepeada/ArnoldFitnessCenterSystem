@@ -8,10 +8,12 @@ import Modelo.Socio;
 import Modelo.UsuarioArnold;
 import Modelo.Excepciones.CredencialesInvalidasException;
 import Vistas.VistaAdmin;
+import Vistas.VistaIniciarSesion;
+import Vistas.VistaRegistrarSocio;
 import Vistas.VistaSocio;
 import ar.edu.uade.modelo.Gimnasio;
 
-public class ControladorInicioSesion {
+public class ControladorBienvenida {
 	
 	static Gimnasio supertlon = Gimnasio.getInstancia();
 	
@@ -38,18 +40,18 @@ public class ControladorInicioSesion {
 		}
 	}
 
-	private static void disponibilizarVistaSocio(String documento) {
-		VistaSocio vCL = new VistaSocio(documento);
-		vCL.setVisible(true);
-		vCL.setSize(500, 500);
-		vCL.setLocation(0, 0);
+	private static void disponibilizarVistaInicioSesion(String documento) {
+		VistaIniciarSesion vIC = new VistaIniciarSesion();
+		vIC.setVisible(true);
+		vIC.setSize(500, 500);
+		vIC.setLocation(0, 0);
 		
 	}
 
-	private static void disponibilizarVistaAdmin(int idAdm) {
-		VistaAdmin vADM= new VistaAdmin(idAdm);
-		vADM.setVisible(true);
-		vADM.setSize(500, 500);
-		vADM.setLocation(0, 0);
+	private static void disponibilizarVistaRegistrarse(int idAdm) {
+		VistaRegistrarSocio vREG= new VistaRegistrarSocio(null);
+		vREG.setVisible(true);
+		vREG.setSize(500, 500);
+		vREG.setLocation(0, 0);
 	}
 }
