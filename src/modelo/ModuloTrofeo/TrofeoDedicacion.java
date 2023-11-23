@@ -7,7 +7,7 @@ public class TrofeoDedicacion extends TrofeoObservador {
 	
 	@Override
 	public void chequearTrofeo() {
-		
+		objetivo.chequearTrofeo();
 	}
 	
 }
