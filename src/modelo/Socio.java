@@ -1,10 +1,10 @@
-package Modelo;
+package modelo;
 
 import java.util.List;
 
-import Modelo.Excepciones.CredencialesInvalidasException;
-import Modelo.ModuloMediciones.Medida;
-import Modelo.ModuloObjetivo.ObjetivoStrategy;
+import modelo.Excepciones.CredencialesInvalidasException;
+import modelo.ModuloMediciones.Medida;
+import modelo.ModuloObjetivo.ObjetivoStrategy;
 
 public class Socio extends UsuarioArnold {
 	private int edad;

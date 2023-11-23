@@ -1,7 +1,7 @@
-package Modelo;
+package modelo;
 
-import Modelo.Enums.Exigencia;
-import Modelo.Enums.GrupoMuscular;
+import modelo.Enums.Exigencia;
+import modelo.Enums.GrupoMuscular;
 
 public class Ejercicio {
 	private String nombre;

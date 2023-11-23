@@ -1,5 +1,5 @@
-package Modelo.ModuloTrofeo;
-import Modelo.ModuloNNN.Notificador; 
+package modelo.ModuloTrofeo;
+import modelo.ModuloNNN.Notificador; 
 
 public abstract class TrofeoObservador {
     private Notificador notificador;

@@ -1,12 +1,12 @@
-package Control;
+package control;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import Modelo.Socio;
-import Modelo.UsuarioArnold;
-import Modelo.Excepciones.CredencialesInvalidasException;
+import modelo.Socio;
+import modelo.UsuarioArnold;
+import modelo.Excepciones.CredencialesInvalidasException;
 import Vistas.VistaAdmin;
 import Vistas.VistaSocio;
 import ar.edu.uade.modelo.Gimnasio;

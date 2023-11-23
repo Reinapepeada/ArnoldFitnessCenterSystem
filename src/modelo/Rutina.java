@@ -1,9 +1,9 @@
-package Modelo;
+package modelo;
 
 import java.util.List;
 
-import Modelo.Enums.Dia;
-import Modelo.ModuloObjetivo.ObjetivoStrategy;
+import modelo.Enums.Dia;
+import modelo.ModuloObjetivo.ObjetivoStrategy;
 
 public class Rutina {
 	private ObjetivoStrategy objetivo;
@@ -16,6 +16,7 @@ public class Rutina {
 	}
 
 	public void reforzarRutina() {
+
 	}
 
 	public Entrenamiento entrenamientoDiario() {
@@ -27,6 +28,7 @@ public class Rutina {
 			int repeticiones,
 			float peso,
 			boolean completado) {
+				
 	}
 
 	public void comenzarDia() {
