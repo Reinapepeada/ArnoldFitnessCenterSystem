@@ -1,4 +1,4 @@
-package Control;
+package control;
 
 import java.util.List;
 
@@ -8,13 +8,13 @@ import javax.swing.JPasswordField;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
-import Modelo.Socio;
-import Modelo.UsuarioArnold;
-import Modelo.Enums.Objetivo;
-import Modelo.Excepciones.SocioExistenteException;
-import Modelo.ModuloObjetivo.ObjetivoStrategy;
-import Vistas.VistaAdmin;
-import Vistas.VistaRegistrarSocio;
+import modelo.Socio;
+import modelo.UsuarioArnold;
+import modelo.enums.Objetivo;
+import modelo.excepciones.SocioExistenteException;
+import modelo.moduloObjetivo.ObjetivoStrategy;
+import vistas.VistaAdmin;
+import vistas.VistaRegistrarSocio;
 
 public class ControladorSocio {
     private Socio socio;

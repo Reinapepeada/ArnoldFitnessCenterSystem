@@ -1,43 +1,42 @@
-package Control;
+package control;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import Modelo.Socio;
-import Modelo.UsuarioArnold;
-import Modelo.Excepciones.CredencialesInvalidasException;
-import Vistas.VistaAdmin;
-import Vistas.VistaIniciarSesion;
-import Vistas.VistaRegistrarSocio;
-import Vistas.VistaSocio;
-import ar.edu.uade.modelo.Gimnasio;
+import modelo.Socio;
+import modelo.UsuarioArnold;
+import modelo.excepciones.CredencialesInvalidasException;
+import vistas.VistaAdmin;
+import vistas.VistaIniciarSesion;
+import vistas.VistaRegistrarSocio;
+import vistas.VistaSocio;
 
 public class ControladorBienvenida {
 	
-	static Gimnasio supertlon = Gimnasio.getInstancia();
+	// static Gimnasio supertlon = Gimnasio.getInstancia();
 	
 	public static void autenticarUsuario(JTextField usuario, JPasswordField contrasena)  {
 		String usr = usuario.getText();
 		String password = new String(contrasena.getPassword());
 		Socio usrA;
-		try {
-			usrA = usrA.autenticarUsuario(usr, password);
-			JOptionPane.showMessageDialog(null, "¡Bienvenido a Gimnasio Supertlon!");
-			//VistaInicioSesion vistaInicioSesion = (VistaInicioSesion) SwingUtilities.getWindowAncestor(usuario);
-		    //vistaInicioSesion.setVisible(false);
-			if (usrA.soyAdmin()){
-				int idAdm = usrA.obtenerId();
-				disponibilizarVistaAdmin(idAdm);
-			}else if(usrA.soySocio()) {
-				Socio socio = (Socio) usrA;
-				String documento = socio.getDni();
-				disponibilizarVistaSocio(documento);
-			}
-		} catch (CredencialesInvalidasException e) {
-			//e.printStackTrace();
-			JOptionPane.showMessageDialog(null, e.getMessage());
-		}
+		// try {
+		// 	usrA = usrA.autenticarUsuario(usr, password);
+		// 	JOptionPane.showMessageDialog(null, "¡Bienvenido a Gimnasio Supertlon!");
+		// 	//VistaInicioSesion vistaInicioSesion = (VistaInicioSesion) SwingUtilities.getWindowAncestor(usuario);
+		//     //vistaInicioSesion.setVisible(false);
+		// 	if (usrA.soyAdmin()){
+		// 		int idAdm = usrA.obtenerId();
+		// 		disponibilizarVistaAdmin(idAdm);
+		// 	}else if(usrA.soySocio()) {
+		// 		Socio socio = (Socio) usrA;
+		// 		String documento = socio.getDni();
+		// 		disponibilizarVistaSocio(documento);
+		// 	}
+		// } catch (CredencialesInvalidasException e) {
+		// 	//e.printStackTrace();
+		// 	JOptionPane.showMessageDialog(null, e.getMessage());
+		// }
 	}
 
 	private static void disponibilizarVistaInicioSesion(String documento) {
@@ -45,11 +44,10 @@ public class ControladorBienvenida {
 		vIC.setVisible(true);
 		vIC.setSize(500, 500);
 		vIC.setLocation(0, 0);
-		
 	}
 
 	private static void disponibilizarVistaRegistrarse(int idAdm) {
-		VistaRegistrarSocio vREG= new VistaRegistrarSocio(null);
+		VistaRegistrarSocio vREG = new VistaRegistrarSocio(); // Updated code
 		vREG.setVisible(true);
 		vREG.setSize(500, 500);
 		vREG.setLocation(0, 0);

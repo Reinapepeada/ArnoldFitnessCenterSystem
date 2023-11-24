@@ -1,4 +1,4 @@
-package Vistas;
+package vistas;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import Control.ControladorIniciarSesion;
+import control.ControladorIniciarSesion;
 
 public class VistaIniciarSesion extends JFrame {
 

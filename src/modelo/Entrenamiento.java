@@ -1,9 +1,9 @@
-package Modelo;
+package modelo;
 
 import java.util.List;
 
-import Modelo.Enums.GrupoMuscular;
-import Modelo.ModuloObjetivo.ObjetivoStrategy;
+import modelo.enums.GrupoMuscular;
+import modelo.moduloObjetivo.ObjetivoStrategy;
 
 public class Entrenamiento {
 	private ObjetivoStrategy objetivo;

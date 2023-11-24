@@ -1,7 +1,7 @@
 
-import Modelo.Socio;
-import Vistas.VistaBienvenida;
-import Vistas.VistaIniciarSesion;
+import modelo.Socio;
+import vistas.VistaBienvenida;
+import vistas.VistaIniciarSesion;
 
 public class App {
     public static void main(String[] args) throws Exception {

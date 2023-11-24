@@ -1,15 +1,15 @@
-package Control;
+package control;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import Modelo.Socio;
-import Modelo.UsuarioArnold;
-import Modelo.Excepciones.CredencialesInvalidasException;
-import Vistas.VistaAdmin;
-import Vistas.VistaIniciarSesion;
-import Vistas.VistaSocio;
+import modelo.Socio;
+import modelo.UsuarioArnold;
+import modelo.excepciones.CredencialesInvalidasException;
+import vistas.VistaAdmin;
+import vistas.VistaIniciarSesion;
+import vistas.VistaSocio;
 
 public class ControladorIniciarSesion {
 	
