@@ -1,7 +1,8 @@
-package modelo;
+package modelo.moduloRutina;
 
 import java.util.List;
 
+import modelo.Entrenamiento;
 import modelo.enums.Dia;
 import modelo.moduloObjetivo.ObjetivoStrategy;
 
@@ -11,7 +12,7 @@ public class Rutina {
 	private List<Dia> dias;
 	private int semanas;
 
-	public Rutina(ObjetivoStrategy objetivo) {
+	public Rutina(ObjetivoStrategy objetivo, List<Dia> dias2) {
 		this.objetivo = objetivo;
 	}
 

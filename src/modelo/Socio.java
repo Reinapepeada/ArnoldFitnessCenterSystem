@@ -7,6 +7,7 @@ import modelo.excepciones.SocioExistenteException;
 import modelo.excepciones.CredencialesInvalidasException;
 import modelo.moduloMediciones.Medida;
 import modelo.moduloObjetivo.ObjetivoStrategy;
+import modelo.moduloRutina.Rutina;
 
 public class Socio {
 	private String edad;

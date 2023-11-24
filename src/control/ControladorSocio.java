@@ -26,8 +26,8 @@ public class ControladorSocio {
 		String edadSocio = edad.getText();
         String sexoSocio = sexo.getText();
 		String passwordSocio = new String(password.getPassword());
-        float pesoSocio = (float) peso.getValue();
-		float alturaSocio = (float) altura.getValue();
+        Double pesoSocio = (Double) peso.getValue();
+		Double alturaSocio = (Double) altura.getValue();
 
 		try {
 			Socio.registrarSocio(nombreSocio, apellidoSocio, emailSocio, dniSocio, edadSocio, sexoSocio, passwordSocio, pesoSocio, alturaSocio);
