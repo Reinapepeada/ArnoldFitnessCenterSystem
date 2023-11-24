@@ -6,8 +6,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
-import modelo.roles.Socio;
-import modelo.roles.UsuarioArnold;
+import modelo.Socio;
+import modelo.UsuarioArnold;
 import modelo.enums.Objetivo;
 import modelo.excepciones.SocioExistenteException;
 import modelo.excepciones.CredencialesInvalidasException;
@@ -33,7 +33,6 @@ public class ControladorRegistrarSocio {
 		try {
 			Socio.registrarSocio(nombreSocio, apellidoSocio, emailSocio, dniSocio, edadSocio, sexoSocio, passwordSocio, pesoSocio, alturaSocio, objetivoSocio);
 			JOptionPane.showMessageDialog(null, "¡El cliente se ha creado con Exito!");
-			//disponibilizarVistaRegistrarSocio();
 			//VistaCreacionCliente vistaCreacionCliente = (VistaCreacionCliente) SwingUtilities.getWindowAncestor(nombre);
 			//vistaCreacionCliente.setVisible(false);
 			//VistaCreacionUsuario vistaCreacionUsuario = (VistaCreacionUsuario) SwingUtilities.getWindowAncestor(usuario);

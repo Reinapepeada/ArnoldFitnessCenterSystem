@@ -1,4 +1,4 @@
-package modelo.moduloRutina;
+package modelo;
 
 import java.util.List;
 

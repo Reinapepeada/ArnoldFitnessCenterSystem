@@ -1,4 +1,4 @@
-package modelo.roles;
+package modelo;
 
 public abstract class UsuarioArnold {
 
