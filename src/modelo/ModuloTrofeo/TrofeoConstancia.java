@@ -1,4 +1,4 @@
-package modelo.ModuloTrofeo;
+package modelo.moduloTrofeo;
 
 import modelo.moduloRutina.Rutina;
 

@@ -3,7 +3,7 @@ package modelo;
 import java.util.List;
 
 import modelo.Enums.GrupoMuscular;
-import modelo.ModuloObjetivo.ObjetivoStrategy;
+import modelo.moduloObjetivo.ObjetivoStrategy;
 
 public class Entrenamiento {
 	private ObjetivoStrategy objetivo;

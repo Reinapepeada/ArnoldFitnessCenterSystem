@@ -4,7 +4,7 @@ import java.util.List;
 
 import modelo.Entrenamiento;
 import modelo.Enums.Dia;
-import modelo.ModuloObjetivo.ObjetivoStrategy;
+import modelo.moduloObjetivo.ObjetivoStrategy;
 
 public class Rutina {
 	private ObjetivoStrategy objetivo;
