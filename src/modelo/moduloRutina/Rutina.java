@@ -4,22 +4,30 @@ import java.util.List;
 
 import modelo.enums.Dia;
 import modelo.moduloObjetivo.ObjetivoStrategy;
+import modelo.Entrenamiento;
 
 public class Rutina {
 	private ObjetivoStrategy objetivo;
 	private List<Entrenamiento> entrenamientos;
 	private List<Dia> dias;
+	private int diaEntre;
 	private int semanas;
 
-	public Rutina(ObjetivoStrategy objetivo) {
+	public Rutina(ObjetivoStrategy objetivo, List<Dia> dias) {
 		this.objetivo = objetivo;
+		this.dias = dias;
 	}
 
 	public void reforzarRutina() {
+		if(semanas == 0){
+			semanas +=4;
+		}
 	}
 
 	public Entrenamiento entrenamientoDiario() {
-		return null;
+		Entrenamiento ent = entrenamientos.remove(diaEntre);
+		this.diaEntre +=1;
+		return ent;
 	}
 
 	public void registrarEjercicio(
