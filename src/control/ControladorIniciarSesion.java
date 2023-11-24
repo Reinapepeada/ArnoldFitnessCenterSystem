@@ -1,4 +1,4 @@
-package Control;
+package control;
 
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
