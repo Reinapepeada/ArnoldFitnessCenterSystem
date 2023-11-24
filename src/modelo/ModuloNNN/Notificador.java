@@ -1,4 +1,4 @@
-package modelo.ModuloNNN;
+package modelo.moduloNNN;
 public class Notificador{
     private StrategyNotificacion notificacion;
     

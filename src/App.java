@@ -1,5 +1,5 @@
 
-import Vistas.VistaInicioSesion;
+import vistas.VistaInicioSesion;
 import control.ControladorSocio;
 import modelo.Socio;
 

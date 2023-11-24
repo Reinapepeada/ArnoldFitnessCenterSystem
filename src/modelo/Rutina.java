@@ -3,7 +3,7 @@ package modelo;
 import java.util.List;
 
 import modelo.Enums.Dia;
-import modelo.ModuloObjetivo.ObjetivoStrategy;
+import modelo.moduloObjetivo.ObjetivoStrategy;
 
 public class Rutina {
 	private ObjetivoStrategy objetivo;

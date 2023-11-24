@@ -2,9 +2,9 @@ package modelo;
 
 import java.util.List;
 
-import modelo.Excepciones.CredencialesInvalidasException;
-import modelo.ModuloMediciones.Medida;
-import modelo.ModuloObjetivo.ObjetivoStrategy;
+import modelo.excepciones.CredencialesInvalidasException;
+import modelo.moduloMediciones.Medida;
+import modelo.moduloObjetivo.ObjetivoStrategy;
 
 public class Socio extends UsuarioArnold {
 	private int edad;
@@ -34,11 +34,11 @@ public class Socio extends UsuarioArnold {
 	}
 
 	public UsuarioArnold autenticarUsuario(String usuario, String contrasena) throws CredencialesInvalidasException {
-		for (UsuarioArnold usr: this.usuarios) {
-			if (usr.soyEsteUsuario(usuario, contrasena)) {
-				return usr;
-			}
-		}
+		// for (UsuarioArnold usr: this.usuarios) {
+		// 	if (usr.soyEsteUsuario(usuario, contrasena)) {
+		// 		return usr;
+		// 	}
+		// }
 	throw new CredencialesInvalidasException("Las credenciales ingresadas son invÃ¡lidas.");
 	}
 
