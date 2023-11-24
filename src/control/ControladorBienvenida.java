@@ -4,8 +4,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import modelo.Socio;
-import modelo.UsuarioArnold;
+import modelo.roles.Socio;
+import modelo.roles.UsuarioArnold;
 import modelo.excepciones.CredencialesInvalidasException;
 import vistas.VistaAdmin;
 import vistas.VistaIniciarSesion;

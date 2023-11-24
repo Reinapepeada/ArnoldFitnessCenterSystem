@@ -6,8 +6,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
-import modelo.Socio;
-import modelo.UsuarioArnold;
+import modelo.roles.Socio;
+import modelo.roles.UsuarioArnold;
 import modelo.enums.Objetivo;
 import modelo.excepciones.SocioExistenteException;
 import modelo.excepciones.CredencialesInvalidasException;

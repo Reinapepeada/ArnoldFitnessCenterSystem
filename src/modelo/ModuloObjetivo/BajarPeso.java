@@ -1,5 +1,7 @@
 package modelo.moduloObjetivo;
-import modelo.Rutina;
+
+import java.util.ArrayList;
+import modelo.moduloRutina.Rutina;
 import modelo.moduloObjetivo.ObjetivoStrategy;
 
 

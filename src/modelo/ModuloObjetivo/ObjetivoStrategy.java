@@ -1,8 +1,7 @@
 package modelo.moduloObjetivo;
 
 import java.util.List;
-
-import modelo.Rutina;
+import modelo.moduloRutina.Rutina;
 import modelo.enums.Exigencia;
 import modelo.moduloTrofeo.TrofeoObservador;
 

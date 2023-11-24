@@ -1,5 +1,5 @@
 
-import modelo.Socio;
+import modelo.roles.Socio;
 import vistas.VistaBienvenida;
 import vistas.VistaIniciarSesion;
 
