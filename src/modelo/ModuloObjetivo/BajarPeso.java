@@ -1,4 +1,4 @@
-package Modelo.ModuloObjetivo;
+package modelo.moduloObjetivo;
 
 public class BajarPeso extends ObjetivoStrategy {
 	private float pesoInicial;

@@ -1,4 +1,4 @@
-package Control;
+package control;
 
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -6,15 +6,15 @@ import javax.swing.JPasswordField;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
-import Modelo.Socio;
-import Modelo.UsuarioArnold;
-import Modelo.Enums.Objetivo;
-import Modelo.Excepciones.SocioExistenteException;
-import Modelo.Excepciones.CredencialesInvalidasException;
-import Modelo.ModuloObjetivo.ObjetivoStrategy;
-import Vistas.VistaAdmin;
-import Vistas.VistaRegistrarSocio;
-import Vistas.VistaSocio;
+import modelo.roles.Socio;
+import modelo.roles.UsuarioArnold;
+import modelo.enums.Objetivo;
+import modelo.excepciones.SocioExistenteException;
+import modelo.excepciones.CredencialesInvalidasException;
+import modelo.moduloObjetivo.ObjetivoStrategy;
+import vistas.VistaAdmin;
+import vistas.VistaRegistrarSocio;
+import vistas.VistaSocio;
 
 public class ControladorRegistrarSocio {
 	
@@ -33,6 +33,7 @@ public class ControladorRegistrarSocio {
 		try {
 			Socio.registrarSocio(nombreSocio, apellidoSocio, emailSocio, dniSocio, edadSocio, sexoSocio, passwordSocio, pesoSocio, alturaSocio, objetivoSocio);
 			JOptionPane.showMessageDialog(null, "¡El cliente se ha creado con Exito!");
+			//disponibilizarVistaRegistrarSocio();
 			//VistaCreacionCliente vistaCreacionCliente = (VistaCreacionCliente) SwingUtilities.getWindowAncestor(nombre);
 			//vistaCreacionCliente.setVisible(false);
 			//VistaCreacionUsuario vistaCreacionUsuario = (VistaCreacionUsuario) SwingUtilities.getWindowAncestor(usuario);

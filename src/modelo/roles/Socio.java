@@ -1,30 +1,29 @@
-package Modelo;
+package modelo.roles;
 
 import java.util.List;
 
-import Control.ControladorSocio;
-import Modelo.Excepciones.SocioExistenteException;
-import Modelo.Excepciones.CredencialesInvalidasException;
-import Modelo.ModuloMediciones.Medida;
-import Modelo.ModuloObjetivo.ObjetivoStrategy;
+import modelo.moduloRutina.Rutina;
+import modelo.excepciones.CredencialesInvalidasException;
+import modelo.moduloMediciones.Medida;
+import modelo.moduloObjetivo.ObjetivoStrategy;
 
 public class Socio extends UsuarioArnold {
-	private String edad;
+	private int edad;
 	private String nombre;
 	private String apellido;
 	private String dni;
 	private String email;
 	private String password;
 	private String sexo;
-	private float altura;
-	private float peso;
+	private double altura;
+	private double peso;
 	private float porcentajeGrasa;
 	private float porcentajeMusculo;
 	private List<Medida> medidas;
 	private ObjetivoStrategy objetivo;
 	private Rutina rutina;
 
-	public Socio(String nombre, String apellido, String email, String dni, String edad, String password, String sexo, float altura, float peso, ObjetivoStrategy objetivo){
+	public Socio(int edad, String nombre, String apellido, String dni, String email, String password, String sexo, double altura, double peso){
 		super(dni, password);
 		this.edad = edad;
 		this.nombre = nombre;
@@ -35,47 +34,20 @@ public class Socio extends UsuarioArnold {
 		this.peso = peso;
 	}
 
-	//registrarSocio(nombreSocio, apellidoSocio, emailSocio, dniSocio, edadSocio, sexoSocio, passwordSocio, pesoSocio, alturaSocio, objetivoSocio);
-
-	public static void registrarSocio(String nombre, String apellido, String email, String dni, String edad, String sexo, String password, float peso, float altura, ObjetivoStrategy objetivo) throws SocioExistenteException{
-		
-		if (buscarSocio(dni) == null) {
-			Socio socio = new Socio(nombre, apellido, email, dni, edad, sexo, password, peso, altura, objetivo);
-			ControladorSocio.usuarios.add(socio);
-			return;
-		}
-		throw new SocioExistenteException("Error. Ya existe un Socio con el numero de documento ingresado.");
-	}
-
-	private static Socio buscarSocio(String dni) {
-		for (Socio socio: ControladorSocio.usuarios) {
-			if (socio.soyEseSocio(dni)) {
-				return socio;
-			}
-		}
-		return null;
-	}
-
-	public boolean soyEseSocio(String dni) {
-		return this.dni.equals(dni);
-	}
-
 	public UsuarioArnold autenticarUsuario(String usuario, String contrasena) throws CredencialesInvalidasException {
-	for (UsuarioArnold usr: ControladorSocio.usuarios) {
-		if (usr.soyEsteUsuario(usuario, contrasena)) {
-			return usr;
-		}
-	}
+		// for (UsuarioArnold usr: this.usuarios) {
+		// 	if (usr.soyEsteUsuario(usuario, contrasena)) {
+		// 		return usr;
+		// 	}
+		// }
 	throw new CredencialesInvalidasException("Las credenciales ingresadas son invÃ¡lidas.");
 	}
 
-
-
-	public String getEdad() {
+	public int getEdad() {
 		return this.edad;
 	}
 
-	public void setEdad(String edad) {
+	public void setEdad(int edad) {
 		this.edad = edad;
 	}
 
@@ -127,19 +99,19 @@ public class Socio extends UsuarioArnold {
 		this.sexo = sexo;
 	}
 
-	public float getAltura() {
+	public double getAltura() {
 		return this.altura;
 	}
 
-	public void setAltura(float altura) {
+	public void setAltura(double altura) {
 		this.altura = altura;
 	}
 
-	public float getPeso() {
+	public double getPeso() {
 		return this.peso;
 	}
 
-	public void setPeso(float peso) {
+	public void setPeso(double peso) {
 		this.peso = peso;
 	}
 
