@@ -2,9 +2,9 @@ package modelo.moduloRutina;
 
 import java.util.List;
 
-import modelo.Enums.Dia;
-import modelo.Excepciones.RutinaInexistenteException;
-import modelo.ModuloObjetivo.ObjetivoStrategy;
+import modelo.enums.Dia;
+import modelo.excepciones.RutinaInexistenteException;
+import modelo.moduloObjetivo.ObjetivoStrategy;
 
 public class FactoryRutina {
     public static Rutina crearRutina(ObjetivoStrategy objetivo,List<Dia> dias) throws RutinaInexistenteException {

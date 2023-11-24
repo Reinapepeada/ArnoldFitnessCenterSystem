@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import Control.ControladorIniciarSesion;
+import control.ControladorIniciarSesion;
 
 public class VistaIniciarSesion extends JFrame {
 

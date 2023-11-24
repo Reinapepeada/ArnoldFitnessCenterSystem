@@ -1,4 +1,4 @@
-package Vistas;
+package vistas;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -17,9 +17,9 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
-import Control.ControladorRegistrarSocio;
-import Modelo.Enums.Objetivo;
-import Modelo.ModuloObjetivo.ObjetivoStrategy;
+import control.ControladorRegistrarSocio;
+import modelo.enums.Objetivo;
+import modelo.moduloObjetivo.ObjetivoStrategy;
 
 public class VistaRegistrarSocio extends JFrame{
 	
