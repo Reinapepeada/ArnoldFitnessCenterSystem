@@ -1,4 +1,4 @@
-package Modelo;
+package modelo.roles;
 
 public class Admin extends UsuarioArnold {
 

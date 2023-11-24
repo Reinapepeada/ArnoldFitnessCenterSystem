@@ -15,6 +15,8 @@ import Modelo.Excepciones.SocioExistenteException;
 import Modelo.ModuloObjetivo.ObjetivoStrategy;
 import Vistas.VistaAdmin;
 import Vistas.VistaRegistrarSocio;
+import modelo.Excepciones.SocioExistenteException;
+import modelo.roles.UsuarioArnold;
 
 public class ControladorSocio {
     private Socio socio;

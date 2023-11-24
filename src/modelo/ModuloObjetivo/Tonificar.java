@@ -1,4 +1,4 @@
-package Modelo.ModuloObjetivo;
+package modelo.ModuloObjetivo;
 
 public class Tonificar extends ObjetivoStrategy {
     private double porcenInitGrsa;

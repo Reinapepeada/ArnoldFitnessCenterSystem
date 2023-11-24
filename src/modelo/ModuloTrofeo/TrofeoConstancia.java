@@ -1,6 +1,6 @@
-package Modelo.ModuloTrofeo;
+package modelo.ModuloTrofeo;
 
-import Modelo.Rutina;
+import modelo.moduloRutina.Rutina;
 
 public class TrofeoConstancia extends TrofeoObservador {
 	private Rutina rutina;

@@ -1,9 +1,10 @@
-package Modelo;
+package modelo.moduloRutina;
 
 import java.util.List;
 
-import Modelo.Enums.Dia;
-import Modelo.ModuloObjetivo.ObjetivoStrategy;
+import modelo.Entrenamiento;
+import modelo.Enums.Dia;
+import modelo.ModuloObjetivo.ObjetivoStrategy;
 
 public class Rutina {
 	private ObjetivoStrategy objetivo;
@@ -11,15 +12,20 @@ public class Rutina {
 	private List<Dia> dias;
 	private int semanas;
 
-	public Rutina(ObjetivoStrategy objetivo) {
+	public Rutina(ObjetivoStrategy objetivo,List<Dia> dias) {
 		this.objetivo = objetivo;
+		this.semanas = 4;
+		this.dias = dias;
 	}
 
 	public void reforzarRutina() {
+		if(this.semanas == 0){
+			this.semanas +=4;
+		}
 	}
 
 	public Entrenamiento entrenamientoDiario() {
-		return null;
+		return entrenamientos.remove(0);
 	}
 
 	public void registrarEjercicio(
@@ -27,9 +33,12 @@ public class Rutina {
 			int repeticiones,
 			float peso,
 			boolean completado) {
+				
 	}
 
 	public void comenzarDia() {
+		// TODO - implement Rutina.comenzarDia
+
 	}
 
 	public ObjetivoStrategy getObjetivo() {

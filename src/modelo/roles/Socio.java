@@ -1,4 +1,4 @@
-package Modelo;
+package modelo.roles;
 
 import java.util.List;
 
