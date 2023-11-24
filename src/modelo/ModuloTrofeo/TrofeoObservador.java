@@ -1,4 +1,5 @@
 package modelo.moduloTrofeo;
+
 import modelo.moduloNNN.Notificador; 
 
 public abstract class TrofeoObservador {

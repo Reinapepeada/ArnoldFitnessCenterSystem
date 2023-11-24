@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 
 public class VistaAdmin extends JFrame{
 
-     public VistaAdmin(int idAdm) {
+     public VistaAdmin() {
 
         super ("Arnold Fitness Center - Administrativo");
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -32,14 +32,14 @@ public class VistaAdmin extends JFrame{
           class HandlerBtnGestionarCliente implements ActionListener{
               @Override
               public void actionPerformed(ActionEvent e) {
-                  GestionarClienteController.disponibilizarVistaGestionarCliente();
+                  //GestionarClienteController.disponibilizarVistaGestionarCliente();
               }
           }
 
           class HandlerBtnGestionarSede implements ActionListener{
               @Override
               public void actionPerformed(ActionEvent e) {
-                  GestionarSedeController.disponibilizarVistaSeleccionSede(idAdm);
+                  //GestionarSedeController.disponibilizarVistaSeleccionSede(idAdm);
               }
           }
 

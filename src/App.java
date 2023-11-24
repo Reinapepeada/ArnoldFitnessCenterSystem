@@ -1,12 +1,22 @@
 
-import modelo.roles.Socio;
+import control.ControladorRegistrarSocio;
+import control.ControladorSocio;
+import modelo.Socio;
+import modelo.excepciones.SocioExistenteException;
 import vistas.VistaBienvenida;
-import vistas.VistaIniciarSesion;
 
 public class App {
     public static void main(String[] args) throws Exception {
 
-        //Socio soc1 = new Socio(0, null, null, null, null, null, null, 0, 0);
+        ControladorSocio cSocio = new ControladorSocio();
+
+        try{
+            Socio.registrarSocio("Jake", "Peralta", "jperalta@uade.edu.ar", "40123456", "32", "Masculino", "Hola123", 75.0, 183.0);
+
+        } catch (SocioExistenteException e) {
+			e.printStackTrace();
+		}
+        //nombre, apellido, email, dni, edad, sexo, password, peso, altura
         
         VistaBienvenida vB = new VistaBienvenida();
 		vB.setVisible(true);

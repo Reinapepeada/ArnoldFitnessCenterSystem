@@ -1,13 +1,11 @@
 package vistas;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -51,7 +49,6 @@ public class VistaIniciarSesion extends JFrame {
 		
 		//CONSTRUCCION DEL BOTON INICIAR SESION//
 		JButton btnIniciarSesion=new JButton("Iniciar Sesion");
-		JButton btnRegistrarse=new JButton("Registrarse");
 		
 		//CLASE INTERNA//
 		class HandlerBtnIniciarSesion implements ActionListener{
@@ -62,24 +59,14 @@ public class VistaIniciarSesion extends JFrame {
 			}
 		}
 		
-		class HandlerBtnRegistrarse implements ActionListener{
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				ControladorIniciarSesion.autenticarUsuario(usuario, contrasena);
-			}
-		}
 
 		//INSTANCIACION DEL MANEJADOR//
 		HandlerBtnIniciarSesion handlerBtnIniciarSesion = new HandlerBtnIniciarSesion();
-		HandlerBtnRegistrarse handlerBtnRegistrarse = new HandlerBtnRegistrarse();
 		
 		//ASIGNACION DEL MANEJADOR AL BOTON//
 		btnIniciarSesion.addActionListener(handlerBtnIniciarSesion);
-		btnRegistrarse.addActionListener(handlerBtnRegistrarse);
 		
 		contBotones.add(btnIniciarSesion);
-		contBotones.add(btnRegistrarse);
 		
 		panel1.add(contBotones);
 		

@@ -1,24 +1,17 @@
 package control;
 
-import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
-import modelo.roles.Socio;
-import modelo.roles.UsuarioArnold;
-import modelo.enums.Objetivo;
+import modelo.Socio;
 import modelo.excepciones.SocioExistenteException;
-import modelo.excepciones.CredencialesInvalidasException;
-import modelo.moduloObjetivo.ObjetivoStrategy;
-import vistas.VistaAdmin;
 import vistas.VistaRegistrarSocio;
-import vistas.VistaSocio;
 
 public class ControladorRegistrarSocio {
 	
-    public static void registrarSocio(JTextField nombre, JTextField apellido, JTextField email, JTextField dni, JTextField edad, JTextField sexo, JPasswordField password, JSpinner peso, JSpinner altura, JComboBox<Objetivo> objetivo) {
+    public static void registrarSocio(JTextField nombre, JTextField apellido, JTextField email, JTextField dni, JTextField edad, JTextField sexo, JPasswordField password, JSpinner peso, JSpinner altura) {
         String nombreSocio = nombre.getText();
         String apellidoSocio = apellido.getText();
 		String emailSocio = email.getText();
@@ -26,13 +19,13 @@ public class ControladorRegistrarSocio {
 		String edadSocio = edad.getText();
         String sexoSocio = sexo.getText();
 		String passwordSocio = new String(password.getPassword());
-        float pesoSocio = (float) peso.getValue();
-		float alturaSocio = (float) altura.getValue();
-        ObjetivoStrategy objetivoSocio = (ObjetivoStrategy) objetivo.getSelectedItem();
+        Double pesoSocio = (Double) peso.getValue();
+		Double alturaSocio = (Double) altura.getValue();
 
 		try {
-			Socio.registrarSocio(nombreSocio, apellidoSocio, emailSocio, dniSocio, edadSocio, sexoSocio, passwordSocio, pesoSocio, alturaSocio, objetivoSocio);
-			JOptionPane.showMessageDialog(null, "¡El cliente se ha creado con Exito!");
+			Socio.registrarSocio(nombreSocio, apellidoSocio, emailSocio, dniSocio, edadSocio, sexoSocio, passwordSocio, pesoSocio, alturaSocio);
+			JOptionPane.showMessageDialog(null, "¡El Socio se ha creado con Exito!");
+			//disponibilizarVistaRegistrarSocio();
 			//VistaCreacionCliente vistaCreacionCliente = (VistaCreacionCliente) SwingUtilities.getWindowAncestor(nombre);
 			//vistaCreacionCliente.setVisible(false);
 			//VistaCreacionUsuario vistaCreacionUsuario = (VistaCreacionUsuario) SwingUtilities.getWindowAncestor(usuario);
@@ -51,10 +44,4 @@ public class ControladorRegistrarSocio {
 		
 	}
 
-	private static void disponibilizarVistaAdmin(int idAdm) {
-		VistaAdmin vADM= new VistaAdmin(idAdm);
-		vADM.setVisible(true);
-		vADM.setSize(500, 500);
-		vADM.setLocation(0, 0);
-	}
 }

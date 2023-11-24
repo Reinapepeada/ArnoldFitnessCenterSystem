@@ -1,29 +1,24 @@
 package control;
 
-import java.util.List;
-
-import javax.swing.JComboBox;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
-import modelo.roles.Socio;
-import modelo.enums.Objetivo;
+import modelo.Socio;
 import modelo.excepciones.SocioExistenteException;
-import modelo.moduloObjetivo.ObjetivoStrategy;
-import vistas.VistaAdmin;
 import vistas.VistaRegistrarSocio;
 
 public class ControladorSocio {
-    private Socio socio;
-    public static List<Socio> usuarios;
+    public static ArrayList<Socio> usuarios;
 
     public ControladorSocio(){
+		ControladorSocio.usuarios = new ArrayList<Socio>();
 
     }
 
-     public static void registrarSocio(JTextField nombre, JTextField apellido, JTextField email, JTextField dni, JTextField edad, JTextField sexo, JPasswordField password, JSpinner peso, JSpinner altura, JComboBox<Objetivo> objetivo) {
+     public static void registrarSocio(JTextField nombre, JTextField apellido, JTextField email, JTextField dni, JTextField edad, JTextField sexo, JPasswordField password, JSpinner peso, JSpinner altura) {
         String nombreSocio = nombre.getText();
         String apellidoSocio = apellido.getText();
 		String emailSocio = email.getText();
@@ -33,10 +28,9 @@ public class ControladorSocio {
 		String passwordSocio = new String(password.getPassword());
         float pesoSocio = (float) peso.getValue();
 		float alturaSocio = (float) altura.getValue();
-        ObjetivoStrategy objetivoSocio = (ObjetivoStrategy) objetivo.getSelectedItem();
 
 		try {
-			Socio.registrarSocio(nombreSocio, apellidoSocio, emailSocio, dniSocio, edadSocio, sexoSocio, passwordSocio, pesoSocio, alturaSocio, objetivoSocio);
+			Socio.registrarSocio(nombreSocio, apellidoSocio, emailSocio, dniSocio, edadSocio, sexoSocio, passwordSocio, pesoSocio, alturaSocio);
 			JOptionPane.showMessageDialog(null, "¡El cliente se ha creado con Exito!");
 			//VistaCreacionCliente vistaCreacionCliente = (VistaCreacionCliente) SwingUtilities.getWindowAncestor(nombre);
 			//vistaCreacionCliente.setVisible(false);
@@ -55,13 +49,5 @@ public class ControladorSocio {
 		vRS.setLocation(0, 0);
 		
 	}
-
-	private static void disponibilizarVistaAdmin(int idAdm) {
-		VistaAdmin vADM= new VistaAdmin(idAdm);
-		vADM.setVisible(true);
-		vADM.setSize(500, 500);
-		vADM.setLocation(0, 0);
-	}
-
 
 }

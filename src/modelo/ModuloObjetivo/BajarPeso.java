@@ -1,11 +1,5 @@
 package modelo.moduloObjetivo;
 
-import java.util.ArrayList;
-import modelo.moduloRutina.Rutina;
-import modelo.moduloObjetivo.ObjetivoStrategy;
-
-
-
 public class BajarPeso extends ObjetivoStrategy {
 	private float pesoInicial;
 	private float alturaInicial;
@@ -30,6 +24,11 @@ public class BajarPeso extends ObjetivoStrategy {
 			return true;
 		}
 		return false;
+	}
+
+	public String getNombreObjetivo(){
+		return "BajarPeso";
+		
 	}
 
 	public float getAlturaInicial(){
