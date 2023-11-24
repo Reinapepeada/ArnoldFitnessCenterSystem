@@ -1,10 +1,11 @@
-package modelo;
+package modelo.roles;
 
 import java.util.List;
 
 import modelo.Excepciones.CredencialesInvalidasException;
 import modelo.ModuloMediciones.Medida;
 import modelo.ModuloObjetivo.ObjetivoStrategy;
+import modelo.moduloRutina.Rutina;
 
 public class Socio extends UsuarioArnold {
 	private int edad;
