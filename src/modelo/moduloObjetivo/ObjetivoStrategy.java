@@ -25,8 +25,7 @@ public abstract class ObjetivoStrategy extends TrofeoObservador {
 	abstract boolean verificarObjetivo();
 	
 	@Override
-	public
-	abstract void chequearTrofeo();
+    public abstract void chequearTrofeo();
 	
 	public double getDuracion() {
 		return duracion;

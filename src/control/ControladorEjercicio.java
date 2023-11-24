@@ -1,5 +1,10 @@
 package control;
 
-public class ControladorEjercicio {
+import java.util.List;
+import modelo.Ejercicio;
+
+public class ControladorEjercicio { 
+    public static List<Ejercicio> ejercicios;
+
 
 }

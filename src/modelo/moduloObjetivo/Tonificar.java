@@ -4,8 +4,10 @@ public class Tonificar extends ObjetivoStrategy {
     private double porcenInitGrsa;
     private double porcenInitMus;
 
-    public Tonificar(double duracion,  float peso, float altura) {
+    public Tonificar(double duracion,  float peso, float altura,double porcenInitGrsa,double porcenInitMus) {
         super(duracion, 4, 5);
+        this.porcenInitGrsa = porcenInitGrsa;
+        this.porcenInitMus = porcenInitMus;
     }
 
     
