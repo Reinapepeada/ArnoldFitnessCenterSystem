@@ -1,16 +1,19 @@
 
-import Modelo.Socio;
-import Vistas.VistaBienvenida;
-import Vistas.VistaIniciarSesion;
+import vistas.VistaInicioSesion;
+import control.ControladorSocio;
+import modelo.Socio;
 
 public class App {
     public static void main(String[] args) throws Exception {
+        // TODO code application logic here
+        Socio soc1 = new Socio(23,"jose","nada","33333333","ejemplo@gmaiul.com","hola","masculino",1.80,80);
 
-        //Socio soc1 = new Socio(0, null, null, null, null, null, null, 0, 0);
+        ControladorSocio.usuarios.add(soc1);
+        System.out.println(ControladorSocio.usuarios.toString());
         
-        VistaBienvenida vB = new VistaBienvenida();
-		vB.setVisible(true);
-		vB.setSize(500, 500);
-		vB.setLocation(0, 0);
+    //     VistaInicioSesion vi = new VistaInicioSesion();
+	// 	vi.setVisible(true);
+	// 	vi.setSize(500, 500);
+	// 	vi.setLocation(0, 0);
     }
 }
