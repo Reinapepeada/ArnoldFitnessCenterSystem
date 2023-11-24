@@ -1,6 +1,6 @@
-package modelo.ModuloTrofeo;
+package modelo.moduloTrofeo;
 
-import modelo.ModuloObjetivo.ObjetivoStrategy;
+import modelo.moduloObjetivo.ObjetivoStrategy;
 import modelo.roles.Socio;
 
 public class TrofeoCreido extends TrofeoObservador {

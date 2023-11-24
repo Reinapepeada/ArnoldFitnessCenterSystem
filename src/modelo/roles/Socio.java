@@ -1,7 +1,8 @@
-package modelo;
+package modelo.roles;
 
 import java.util.List;
 
+import modelo.moduloRutina.Rutina;
 import modelo.excepciones.CredencialesInvalidasException;
 import modelo.moduloMediciones.Medida;
 import modelo.moduloObjetivo.ObjetivoStrategy;

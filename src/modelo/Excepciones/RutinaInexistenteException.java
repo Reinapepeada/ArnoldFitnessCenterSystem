@@ -1,4 +1,4 @@
-package modelo.Excepciones;
+package modelo.excepciones;
 
 public class RutinaInexistenteException extends Exception {
     

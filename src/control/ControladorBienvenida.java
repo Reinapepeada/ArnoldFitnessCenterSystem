@@ -4,14 +4,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import modelo.Excepciones.CredencialesInvalidasException;
+import modelo.excepciones.CredencialesInvalidasException;
 import modelo.roles.Socio;
 import modelo.roles.UsuarioArnold;
-import Vistas.VistaAdmin;
-import Vistas.VistaIniciarSesion;
-import Vistas.VistaRegistrarSocio;
-import Vistas.VistaSocio;
-import ar.edu.uade.modelo.Gimnasio;
+import vistas.VistaAdmin;
+import vistas.VistaIniciarSesion;
+import vistas.VistaRegistrarSocio;
+import vistas.VistaSocio;
 
 public class ControladorBienvenida {
 	

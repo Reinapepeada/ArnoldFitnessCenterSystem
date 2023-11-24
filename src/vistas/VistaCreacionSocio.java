@@ -1,4 +1,4 @@
-package Vistas;
+package vistas;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -13,10 +13,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import Control.ControladorSocio;
-import Modelo.ModuloObjetivo.BajarPeso;
-import Modelo.ModuloObjetivo.Mantener;
-import Modelo.ModuloObjetivo.Tonificar;
+import control.ControladorSocio;
+import modelo.moduloObjetivo.BajarPeso;
+import modelo.moduloObjetivo.Mantener;
+import modelo.moduloObjetivo.Tonificar;
 
 public class VistaCreacionSocio extends JFrame {
 	

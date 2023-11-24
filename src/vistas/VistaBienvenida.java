@@ -1,4 +1,4 @@
-package Vistas;
+package vistas;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -11,8 +11,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import Control.ControladorIniciarSesion;
-import Control.ControladorRegistrarSocio;
+import control.ControladorIniciarSesion;
+import control.ControladorRegistrarSocio;
 
 public class VistaBienvenida extends JFrame {
 	

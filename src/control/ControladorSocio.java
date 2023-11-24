@@ -6,8 +6,8 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import modelo.UsuarioArnold;
-import modelo.Excepciones.SocioExistenteException;
+import modelo.roles.UsuarioArnold;
+import modelo.excepciones.SocioExistenteException;
 
 public class ControladorSocio {
 

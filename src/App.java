@@ -1,7 +1,8 @@
 
-import vistas.VistaInicioSesion;
+import vistas.VistaIniciarSesion;
 import control.ControladorSocio;
-import modelo.Socio;
+import modelo.roles.Socio;
+
 
 public class App {
     public static void main(String[] args) throws Exception {

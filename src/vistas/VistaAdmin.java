@@ -1,4 +1,4 @@
-package Vistas;
+package vistas;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
