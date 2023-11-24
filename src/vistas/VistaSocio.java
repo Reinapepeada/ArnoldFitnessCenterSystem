@@ -1,4 +1,4 @@
-package Vistas;
+package vistas;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -29,7 +29,7 @@ public class VistaSocio extends JFrame {
 		class HandlerBtnReservarClase implements ActionListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ReservarClaseController.disponibilizarVistaSeleccionSede(documento);
+				//ReservarClaseController.disponibilizarVistaSeleccionSede(documento);
 			}
 		}
 		

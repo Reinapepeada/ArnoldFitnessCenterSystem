@@ -1,14 +1,14 @@
-package Modelo;
+package modelo;
 
 import java.util.List;
 
-import Control.ControladorSocio;
-import Modelo.Excepciones.SocioExistenteException;
-import Modelo.Excepciones.CredencialesInvalidasException;
-import Modelo.ModuloMediciones.Medida;
-import Modelo.ModuloObjetivo.ObjetivoStrategy;
+import control.ControladorSocio;
+import modelo.excepciones.SocioExistenteException;
+import modelo.excepciones.CredencialesInvalidasException;
+import modelo.moduloMediciones.Medida;
+import modelo.moduloObjetivo.ObjetivoStrategy;
 
-public class Socio extends UsuarioArnold {
+public class Socio {
 	private String edad;
 	private String nombre;
 	private String apellido;
@@ -16,20 +16,23 @@ public class Socio extends UsuarioArnold {
 	private String email;
 	private String password;
 	private String sexo;
-	private float altura;
-	private float peso;
-	private float porcentajeGrasa;
-	private float porcentajeMusculo;
+	private Double altura;
+	private Double peso;
+	private Double porcentajeGrasa;
+	private Double porcentajeMusculo;
 	private List<Medida> medidas;
 	private ObjetivoStrategy objetivo;
 	private Rutina rutina;
+	
 
-	public Socio(String nombre, String apellido, String email, String dni, String edad, String password, String sexo, float altura, float peso, ObjetivoStrategy objetivo){
-		super(dni, password);
-		this.edad = edad;
+	public Socio(String nombre, String apellido, String email, String dni, String edad, String password, String sexo, Double altura, Double peso){
+		
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.email = email;
+		this.dni = dni;
+		this.edad = edad;
+		this.password = password;
 		this.sexo = sexo;
 		this.altura = altura;
 		this.peso = peso;
@@ -37,10 +40,10 @@ public class Socio extends UsuarioArnold {
 
 	//registrarSocio(nombreSocio, apellidoSocio, emailSocio, dniSocio, edadSocio, sexoSocio, passwordSocio, pesoSocio, alturaSocio, objetivoSocio);
 
-	public static void registrarSocio(String nombre, String apellido, String email, String dni, String edad, String sexo, String password, float peso, float altura, ObjetivoStrategy objetivo) throws SocioExistenteException{
-		
+	public static void registrarSocio(String nombre, String apellido, String email, String dni, String edad, String sexo, String password, Double peso, Double altura) throws SocioExistenteException{
+
 		if (buscarSocio(dni) == null) {
-			Socio socio = new Socio(nombre, apellido, email, dni, edad, sexo, password, peso, altura, objetivo);
+			Socio socio = new Socio(nombre, apellido, email, dni, edad, sexo, password, peso, altura);
 			ControladorSocio.usuarios.add(socio);
 			return;
 		}
@@ -48,9 +51,11 @@ public class Socio extends UsuarioArnold {
 	}
 
 	private static Socio buscarSocio(String dni) {
-		for (Socio socio: ControladorSocio.usuarios) {
-			if (socio.soyEseSocio(dni)) {
-				return socio;
+		if(ControladorSocio.usuarios.size() != 0){
+			for (Socio socio: ControladorSocio.usuarios) {
+				if (socio.soyEseSocio(dni)) {
+					return socio;
+				}
 			}
 		}
 		return null;
@@ -60,8 +65,8 @@ public class Socio extends UsuarioArnold {
 		return this.dni.equals(dni);
 	}
 
-	public UsuarioArnold autenticarUsuario(String usuario, String contrasena) throws CredencialesInvalidasException {
-	for (UsuarioArnold usr: ControladorSocio.usuarios) {
+	public static Socio autenticarUsuario(String usuario, String contrasena) throws CredencialesInvalidasException {
+	for (Socio usr: ControladorSocio.usuarios) {
 		if (usr.soyEsteUsuario(usuario, contrasena)) {
 			return usr;
 		}
@@ -69,7 +74,18 @@ public class Socio extends UsuarioArnold {
 	throw new CredencialesInvalidasException("Las credenciales ingresadas son invÃ¡lidas.");
 	}
 
+	protected boolean soyEsteUsuario(String dni) {
+		return this.dni == dni;
+	}
+	
+	protected boolean soyEsteUsuario(String dni, String password) {
+		return this.dni.equals(dni) && this.password.equals(password);
+	}
 
+	public String obtenerDNI() {
+		return this.dni;
+	}
+    
 
 	public String getEdad() {
 		return this.edad;
@@ -127,35 +143,35 @@ public class Socio extends UsuarioArnold {
 		this.sexo = sexo;
 	}
 
-	public float getAltura() {
+	public Double getAltura() {
 		return this.altura;
 	}
 
-	public void setAltura(float altura) {
+	public void setAltura(Double altura) {
 		this.altura = altura;
 	}
 
-	public float getPeso() {
+	public Double getPeso() {
 		return this.peso;
 	}
 
-	public void setPeso(float peso) {
+	public void setPeso(Double peso) {
 		this.peso = peso;
 	}
 
-	public float getPorcentajeGrasa() {
+	public Double getPorcentajeGrasa() {
 		return this.porcentajeGrasa;
 	}
 
-	public void setPorcentajeGrasa(float porcentajeGrasa) {
+	public void setPorcentajeGrasa(Double porcentajeGrasa) {
 		this.porcentajeGrasa = porcentajeGrasa;
 	}
 
-	public float getPorcentajeMusculo() {
+	public Double getPorcentajeMusculo() {
 		return this.porcentajeMusculo;
 	}
 
-	public void setPorcentajeMusculo(float porcentajeMusculo) {
+	public void setPorcentajeMusculo(Double porcentajeMusculo) {
 		this.porcentajeMusculo = porcentajeMusculo;
 	}
 
@@ -187,7 +203,7 @@ public class Socio extends UsuarioArnold {
 		this.objetivo = objetivo;
 	}
 
-	public void registrarPeso(float peso) {
+	public void registrarPeso(Double peso) {
 		this.peso = peso;
 	}
 

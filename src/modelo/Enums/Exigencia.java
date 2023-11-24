@@ -1,5 +1,7 @@
-package Modelo.Enums;
+package modelo.enums;
 
 public enum Exigencia {
-	BAJA, MEDIA, ALTA
+	BAJA, 
+	MEDIA, 
+	ALTA
 }

@@ -1,4 +1,4 @@
-package Modelo.ModuloObjetivo;
+package modelo.moduloObjetivo;
 
 public class Tonificar extends ObjetivoStrategy {
     private double porcenInitGrsa;
@@ -24,6 +24,9 @@ public class Tonificar extends ObjetivoStrategy {
     	return false;
     }
 
+    public String getNombreObjetivo(){
+		return "Tonificar";
+	}
 
 	@Override
 	public void chequearTrofeo() {

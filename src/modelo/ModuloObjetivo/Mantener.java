@@ -1,4 +1,4 @@
-package Modelo.ModuloObjetivo;
+package modelo.moduloObjetivo;
 
 public class Mantener extends ObjetivoStrategy {
     private float pesoInicial;
@@ -24,6 +24,10 @@ public class Mantener extends ObjetivoStrategy {
         }
         return false;
     }
+
+    public String getNombreObjetivo(){
+		return "Mantener";
+	}
 
     public float getPesoInicial() {
         return this.pesoInicial;

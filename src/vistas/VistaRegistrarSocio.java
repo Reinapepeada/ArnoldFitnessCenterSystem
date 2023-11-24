@@ -1,4 +1,4 @@
-package Vistas;
+package vistas;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -7,19 +7,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
-import Control.ControladorRegistrarSocio;
-import Modelo.Enums.Objetivo;
-import Modelo.ModuloObjetivo.ObjetivoStrategy;
+import control.ControladorRegistrarSocio;
 
 public class VistaRegistrarSocio extends JFrame{
 	
@@ -32,7 +28,6 @@ public class VistaRegistrarSocio extends JFrame{
 	private JPasswordField password;
     private JSpinner peso;
 	private JSpinner altura;
-	private JComboBox<Objetivo> objetivo;
 
 	//String [] obj = {"BajarPeso", "Tonificar", "Mantener"};
 	
@@ -69,7 +64,7 @@ public class VistaRegistrarSocio extends JFrame{
 
 		Container contDNI=new Container();
 		contDNI.setLayout(new GridLayout(1,2,2,2));
-		JLabel labelDNI=new JLabel("<html>Edad</html>");
+		JLabel labelDNI=new JLabel("<html>DNI</html>");
 		dni=new JTextField();
 		contDNI.add(labelDNI);
 		contDNI.add(dni);
@@ -101,7 +96,7 @@ public class VistaRegistrarSocio extends JFrame{
 
         Container contPeso=new Container();
 		contPeso.setLayout(new GridLayout(1,2,2,2));
-		JLabel labelPeso=new JLabel("<html>Peso</html>");
+		JLabel labelPeso=new JLabel("<html>Peso (Kg)</html>");
 		peso=new JSpinner(new SpinnerNumberModel(0.0, null, null, 10));
 		contPeso.add(labelPeso);
 		contPeso.add(peso);
@@ -109,13 +104,13 @@ public class VistaRegistrarSocio extends JFrame{
 
         Container contAltura=new Container();
 		contAltura.setLayout(new GridLayout(1,2,2,2));
-		JLabel labelAltura=new JLabel("<html>Altura</html>");
-		peso=new JSpinner(new SpinnerNumberModel(0.0, null, null, 10));
+		JLabel labelAltura=new JLabel("<html>Altura (cm)</html>");
+		altura=new JSpinner(new SpinnerNumberModel(0.0, null, null, 10));
 		contAltura.add(labelAltura);
 		contAltura.add(altura);
 		panel1.add(contAltura);
 		
-		
+		/* 
 		Container contObjetivo=new Container();
 		contObjetivo.setLayout(new GridLayout(1,2,2,2));
 		JLabel labelObjetivo=new JLabel("Objetivo");
@@ -125,9 +120,9 @@ public class VistaRegistrarSocio extends JFrame{
 		contObjetivo.add(labelObjetivo);
 		contObjetivo.add(objetivo);
 		panel1.add(contObjetivo);
-		
+		*/
 		Container contBotones = new Container();
-        contBotones.setLayout(new GridLayout(2,1,2,2));
+        contBotones.setLayout(new GridLayout(1,1,2,2));
 		
 		//CONSTRUCCION DEL BOTON PARA CONFIRMAR CREACION DE SEDE//
 		JButton btnRegistrarSocio=new JButton("<html>Registrarme</html>");
@@ -137,7 +132,7 @@ public class VistaRegistrarSocio extends JFrame{
 		class HandlerRegistrarSocio implements ActionListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ControladorRegistrarSocio.registrarSocio(nombre, apellido, sexo, apellido, apellido, apellido, password, peso, altura, objetivo);
+				ControladorRegistrarSocio.registrarSocio(nombre, apellido, email, dni, edad, sexo, password, peso, altura);
 				}
 			}
 				

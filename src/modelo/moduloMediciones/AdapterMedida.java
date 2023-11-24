@@ -1,4 +1,4 @@
-package Modelo.ModuloMediciones;
+package modelo.moduloMediciones;
 
 public interface AdapterMedida {
     void tomarMedidas();

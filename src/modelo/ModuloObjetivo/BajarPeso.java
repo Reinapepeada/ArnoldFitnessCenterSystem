@@ -1,4 +1,4 @@
-package Modelo.ModuloObjetivo;
+package modelo.moduloObjetivo;
 
 public class BajarPeso extends ObjetivoStrategy {
 	private float pesoInicial;
@@ -24,6 +24,11 @@ public class BajarPeso extends ObjetivoStrategy {
 			return true;
 		}
 		return false;
+	}
+
+	public String getNombreObjetivo(){
+		return "BajarPeso";
+		
 	}
 
 	public float getAlturaInicial(){

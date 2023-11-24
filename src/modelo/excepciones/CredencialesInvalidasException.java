@@ -1,4 +1,4 @@
-package Modelo.Excepciones;
+package modelo.excepciones;
 
 public class CredencialesInvalidasException extends Exception {
 	
