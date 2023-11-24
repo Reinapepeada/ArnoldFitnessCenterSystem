@@ -33,6 +33,7 @@ public class ControladorRegistrarSocio {
 		try {
 			Socio.registrarSocio(nombreSocio, apellidoSocio, emailSocio, dniSocio, edadSocio, sexoSocio, passwordSocio, pesoSocio, alturaSocio, objetivoSocio);
 			JOptionPane.showMessageDialog(null, "¡El cliente se ha creado con Exito!");
+			//disponibilizarVistaRegistrarSocio();
 			//VistaCreacionCliente vistaCreacionCliente = (VistaCreacionCliente) SwingUtilities.getWindowAncestor(nombre);
 			//vistaCreacionCliente.setVisible(false);
 			//VistaCreacionUsuario vistaCreacionUsuario = (VistaCreacionUsuario) SwingUtilities.getWindowAncestor(usuario);

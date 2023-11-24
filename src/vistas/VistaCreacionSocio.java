@@ -70,7 +70,7 @@ public class VistaCreacionSocio extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				ControladorSocio.crearCliente(usuario, contrasena, nombre, documento, objetivos);
+				ControladorSocio.crearSocio(usuario, contrasena, nombre, documento, objetivos);
 				
 				}
 			}

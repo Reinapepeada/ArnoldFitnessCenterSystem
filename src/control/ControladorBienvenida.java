@@ -48,8 +48,8 @@ public class ControladorBienvenida {
 		
 	}
 
-	private static void disponibilizarVistaRegistrarse(int idAdm) {
-		VistaRegistrarSocio vREG= new VistaRegistrarSocio(null);
+	private static void disponibilizarVistaRegistrarSocio() {
+		VistaRegistrarSocio vREG= new VistaRegistrarSocio();
 		vREG.setVisible(true);
 		vREG.setSize(500, 500);
 		vREG.setLocation(0, 0);

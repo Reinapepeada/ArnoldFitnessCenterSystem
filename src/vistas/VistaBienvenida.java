@@ -28,7 +28,7 @@ public class VistaBienvenida extends JFrame {
 		
 		//CONSTRUCCION DEL BOTON INICIAR SESION//
 		JButton btnIniciarSesion=new JButton("<html> Iniciar Sesion </html>");
-		JButton btnRegistrarse=new JButton("<html> Registrarse </html>");
+		JButton btnRegistrarSocio=new JButton("<html> Registrarse </html>");
 		
 		//CLASE INTERNA//
 		class HandlerBtnIniciarSesion implements ActionListener{
@@ -39,7 +39,7 @@ public class VistaBienvenida extends JFrame {
 			}
 		}
 		
-		class HandlerBtnRegistrarse implements ActionListener{
+		class HandlerBtnRegistrarSocio implements ActionListener{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -49,14 +49,14 @@ public class VistaBienvenida extends JFrame {
 
 		//INSTANCIACION DEL MANEJADOR//
 		HandlerBtnIniciarSesion handlerBtnIniciarSesion = new HandlerBtnIniciarSesion();
-		HandlerBtnRegistrarse handlerBtnRegistrarse = new HandlerBtnRegistrarse();
+		HandlerBtnRegistrarSocio handlerBtnRegistrarSocio = new HandlerBtnRegistrarSocio();
 		
 		//ASIGNACION DEL MANEJADOR AL BOTON//
 		btnIniciarSesion.addActionListener(handlerBtnIniciarSesion);
-		btnRegistrarse.addActionListener(handlerBtnRegistrarse);
+		btnRegistrarSocio.addActionListener(handlerBtnRegistrarSocio);
 		
 		contBotones.add(btnIniciarSesion);
-		contBotones.add(btnRegistrarse);
+		contBotones.add(btnRegistrarSocio);
 		
 		panel1.add(contBotones);
 		
