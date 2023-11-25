@@ -9,7 +9,7 @@ public class App {
 
         try{
             //String nombre, String apellido, String email, String dni, String edad, String sexo, String password, Double altura, Double peso){
-            Socio soc1 = new Socio("Jake", "Peralta", "jperalta@uade.edu.ar", "40123456", "32", "Masculino", "Hola123", 75.0, 183.0);
+            Socio soc1 = new Socio();
             soc1.registrarSocio("Jake", "Peralta", "jperalta@uade.edu.ar", "40123456", "32", "Masculino", "Hola123", 75.0, 183.0);
             
         } catch (SocioExistenteException e) {

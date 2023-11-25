@@ -4,6 +4,7 @@ import java.util.List;
 
 import control.ControladorSocio;
 import modelo.excepciones.SocioExistenteException;
+import modelo.enums.Objetivo;
 import modelo.excepciones.CredencialesInvalidasException;
 import modelo.moduloMediciones.Medida;
 import modelo.moduloObjetivo.ObjetivoStrategy;

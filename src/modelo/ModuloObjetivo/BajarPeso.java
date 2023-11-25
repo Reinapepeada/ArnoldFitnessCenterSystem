@@ -3,6 +3,7 @@ package modelo.moduloObjetivo;
 public class BajarPeso extends ObjetivoStrategy {
 	private float pesoInicial;
 	private float alturaInicial;
+
 	public BajarPeso(double duracion,  float peso, float altura) {
 		super(duracion, 0, 3);
 		this.pesoInicial = peso;
@@ -28,7 +29,6 @@ public class BajarPeso extends ObjetivoStrategy {
 
 	public String getNombreObjetivo(){
 		return "BajarPeso";
-		
 	}
 
 	public float getAlturaInicial(){

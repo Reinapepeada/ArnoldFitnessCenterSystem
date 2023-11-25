@@ -7,12 +7,18 @@ import javax.swing.JTextField;
 
 import modelo.Socio;
 import modelo.VOs.SocioVo;
+import modelo.enums.Objetivo;
 import modelo.excepciones.CredencialesInvalidasException;
 import modelo.excepciones.SocioExistenteException;
+import vistas.VistaActualizarObjetivo;
+import vistas.VistaComenzarEntrenamiento;
+import vistas.VistaGestionarMedidas;
+import vistas.VistaGestionarObjetivo;
 import vistas.VistaIniciarSesion;
 import vistas.VistaMenuPrincipal;
 import vistas.VistaMenuSocio;
 import vistas.VistaRegistrarSocio;
+import vistas.VistaSeleccionarObjetivo;
 
 public class ControladorSocio {
     public static ArrayList<Socio> usuarios = new ArrayList<Socio>();
@@ -60,6 +66,14 @@ public class ControladorSocio {
 
 	}
 
+
+	public void setObjetivo(Objetivo obj){
+		a.setObjetivo(null);
+	}
+
+
+	//VISTAS
+
 	public void disponibilizarVistaMenuPrincipal() {
 		VistaMenuPrincipal vMAS = new VistaMenuPrincipal(this);
 		vMAS.setVisible(true);
@@ -84,11 +98,44 @@ public class ControladorSocio {
 	}
 
 	public void disponibilizarVistaMenuSocio() {
-		VistaMenuSocio vMS = new VistaMenuSocio();
+		VistaMenuSocio vMS = new VistaMenuSocio(this);
 		vMS.setVisible(true);
 		vMS.setSize(500, 500);
 		vMS.setLocation(0, 0);
 	}
 	
+	public void disponibilizarVistaGestionarObjetivo() {
+		VistaGestionarObjetivo vGO = new VistaGestionarObjetivo(this);
+		vGO.setVisible(true);
+		vGO.setSize(500, 500);
+		vGO.setLocation(0, 0);
+	}
 
+	public void disponibilizarVistaGestionarMedidas() {
+		VistaGestionarMedidas vGM = new VistaGestionarMedidas(this);
+		vGM.setVisible(true);
+		vGM.setSize(500, 500);
+		vGM.setLocation(0, 0);
+	}
+
+	public void disponibilizarVistaComenzarEntrenamiento() {
+		VistaComenzarEntrenamiento vCE = new VistaComenzarEntrenamiento(this);
+		vCE.setVisible(true);
+		vCE.setSize(500, 500);
+		vCE.setLocation(0, 0);
+	}
+
+	public void disponibilizarVistaSeleccionarObjetivo() {
+		VistaSeleccionarObjetivo vSO = new VistaSeleccionarObjetivo(this);
+		vSO.setVisible(true);
+		vSO.setSize(500, 500);
+		vSO.setLocation(0, 0);
+	}
+
+    public void disponibilizarVistaActualizarObjetivo() {
+		VistaActualizarObjetivo vAO = new VistaActualizarObjetivo(this);
+		vAO.setVisible(true);
+		vAO.setSize(500, 500);
+		vAO.setLocation(0, 0);
+    }
 }
