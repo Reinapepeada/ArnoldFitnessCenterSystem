@@ -8,18 +8,16 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import control.ControladorAdmin;
 import control.ControladorSocio;
 
-public class VistaBienvenida extends JFrame {
-
-	 ControladorSocio cs = new ControladorSocio();
+public class VistaMenuPrincipal extends JFrame {
 	
-	public VistaBienvenida() {
-		super ("Arnold Fitness Center - Bienvenido!");
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+	public VistaMenuPrincipal(ControladorSocio cs) {
+		super ("Arnold Fitness Center - Menu Principal");
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setLayout(new BorderLayout());
 		JPanel panel1=new JPanel();
 		panel1.setLayout(new GridLayout(1,1,2,2));
@@ -28,15 +26,15 @@ public class VistaBienvenida extends JFrame {
 		contBotones.setLayout(new GridLayout(2,1,2,4));
 		
 		//CONSTRUCCION DEL BOTON INICIAR SESION//
-		JButton btnIniciarSesion=new JButton("<html> Iniciar Sesion </html>");
-		JButton btnRegistrarSocio=new JButton("<html> Registrarse </html>");
+		JButton btnIniciarSesion=new JButton("<html> Menu Admin </html>");
+		JButton btnRegistrarSocio=new JButton("<html> Menu Socio </html>");
 		
 		//CLASE INTERNA//
 		class HandlerBtnIniciarSesion implements ActionListener{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				cs.disponibilizarVistaIniciarSesion();
+				ControladorAdmin.disponibilizarVistaMenuAdmin();
 			}
 		}
 		
@@ -44,7 +42,7 @@ public class VistaBienvenida extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				cs.disponibilizarVistaRegistrarSocio();
+				cs.disponibilizarVistaMenuSocio();
 			}
 		}
 
