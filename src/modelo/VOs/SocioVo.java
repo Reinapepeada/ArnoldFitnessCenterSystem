@@ -9,10 +9,10 @@ public class SocioVo{
 	private String email;
 	private String password;
 	private String sexo;
-	private float altura;
-	private float peso;
+	private Double altura;
+	private Double peso;
 
-    public SocioVo(String edad, String nombre, String apellido, String dni, String email, String password, String sexo, float altura, float peso) {
+    public SocioVo(String nombre, String apellido, String email, String dni, String edad, String sexo, String password, Double altura, Double peso) {
         this.edad = edad;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -81,5 +81,21 @@ public class SocioVo{
 
     public void setSexo(String sexo) {
         this.sexo = sexo.toUpperCase();
+    }
+
+    public Double getPeso(){
+        return this.peso;
+    }
+
+    public void setPeso(Double peso){
+        this.peso = peso;
+    }
+
+    public Double getAltura(){
+        return this.altura;
+    }
+
+    public void setAltura(Double altura){
+        this.altura = altura;
     }
 }

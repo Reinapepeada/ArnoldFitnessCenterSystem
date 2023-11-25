@@ -1,5 +1,4 @@
 
-import control.ControladorRegistrarSocio;
 import control.ControladorSocio;
 import modelo.Socio;
 import modelo.excepciones.SocioExistenteException;
@@ -8,11 +7,11 @@ import vistas.VistaBienvenida;
 public class App {
     public static void main(String[] args) throws Exception {
 
-        ControladorSocio cSocio = new ControladorSocio();
-
         try{
-            Socio.registrarSocio("Jake", "Peralta", "jperalta@uade.edu.ar", "40123456", "32", "Masculino", "Hola123", 75.0, 183.0);
-
+            //String nombre, String apellido, String email, String dni, String edad, String sexo, String password, Double altura, Double peso){
+            Socio soc1 = new Socio("Jake", "Peralta", "jperalta@uade.edu.ar", "40123456", "32", "Masculino", "Hola123", 75.0, 183.0);
+            soc1.registrarSocio("Jake", "Peralta", "jperalta@uade.edu.ar", "40123456", "32", "Masculino", "Hola123", 75.0, 183.0);
+            
         } catch (SocioExistenteException e) {
 			e.printStackTrace();
 		}
