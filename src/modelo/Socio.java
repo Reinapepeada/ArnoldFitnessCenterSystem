@@ -26,7 +26,7 @@ public class Socio {
 	private Rutina rutina;
 	
 
-	public Socio(String nombre, String apellido, String email, String dni, String edad, String password, String sexo, Double altura, Double peso){
+	public Socio(String nombre, String apellido, String email, String dni, String edad, String sexo, String password, Double altura, Double peso){
 		
 		this.nombre = nombre;
 		this.apellido = apellido;
@@ -39,24 +39,27 @@ public class Socio {
 		this.peso = peso;
 	}
 
-	//registrarSocio(nombreSocio, apellidoSocio, emailSocio, dniSocio, edadSocio, sexoSocio, passwordSocio, pesoSocio, alturaSocio, objetivoSocio);
+	//Socio.registrarSocio("Jake", "Peralta", "jperalta@uade.edu.ar", "40123456", "32", "Masculino", "Hola123", 75.0, 183.0);
 
-	public static void registrarSocio(String nombre, String apellido, String email, String dni, String edad, String sexo, String password, Double peso, Double altura) throws SocioExistenteException{
+	public Socio() {
+    }
+
+    public void registrarSocio(String nombre, String apellido, String email, String dni, String edad, String sexo, String password, Double peso, Double altura) throws SocioExistenteException{
 
 		if (buscarSocio(dni) == null) {
 			Socio socio = new Socio(nombre, apellido, email, dni, edad, sexo, password, peso, altura);
 			ControladorSocio.usuarios.add(socio);
+			//System.out.println("\nListado Usuarios: \n");
+			//ControladorSocio.verListadoSocios(ControladorSocio.usuarios);
 			return;
 		}
 		throw new SocioExistenteException("Error. Ya existe un Socio con el numero de documento ingresado.");
 	}
 
-	private static Socio buscarSocio(String dni) {
-		if(ControladorSocio.usuarios.size() != 0){
-			for (Socio socio: ControladorSocio.usuarios) {
-				if (socio.soyEseSocio(dni)) {
-					return socio;
-				}
+	private Socio buscarSocio(String dni) {
+		for (Socio socio: ControladorSocio.usuarios) {
+			if (socio.soyEseSocio(dni)) {
+				return socio;
 			}
 		}
 		return null;
@@ -66,13 +69,16 @@ public class Socio {
 		return this.dni.equals(dni);
 	}
 
-	public static Socio autenticarUsuario(String usuario, String contrasena) throws CredencialesInvalidasException {
-	for (Socio usr: ControladorSocio.usuarios) {
-		if (usr.soyEsteUsuario(usuario, contrasena)) {
-			return usr;
+	public Socio autenticarUsuario(String dni, String contrasena) throws CredencialesInvalidasException {
+		for (Socio usr: ControladorSocio.usuarios) {
+			if (usr.soyEsteUsuario(dni, contrasena)) {
+				System.out.println("Socio: "+usr.getNombre());
+				System.out.println("dni: "+dni);
+				System.out.println("Password: "+usr.getPassword());
+				return usr;
+			}
 		}
-	}
-	throw new CredencialesInvalidasException("Las credenciales ingresadas son invÃ¡lidas.");
+		throw new CredencialesInvalidasException("Las credenciales ingresadas son invalidas.");
 	}
 
 	protected boolean soyEsteUsuario(String dni) {
