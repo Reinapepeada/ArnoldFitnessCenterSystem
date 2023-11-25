@@ -16,6 +16,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import control.ControladorSocio;
+import modelo.Socio;
+import modelo.VOs.SocioVo;
 import modelo.enums.Objetivo;
 import modelo.moduloObjetivo.BajarPeso;
 import modelo.moduloObjetivo.Mantener;
@@ -25,19 +27,18 @@ import modelo.moduloObjetivo.Tonificar;
 public class VistaSeleccionarObjetivo extends JFrame{
 
     private JComboBox<Object> objetivoCombo;
-    private JComboBox<Double> duracionBP;
     private JTextField duracionEntrenamiento;
 
     BajarPeso instanciaBP = new BajarPeso(0,0,0);
     Mantener instanciaM = new Mantener(2,0,0);
     Tonificar instanciaT = new Tonificar(4,0,0);
 
-    public VistaSeleccionarObjetivo(ControladorSocio cs) {
+    public VistaSeleccionarObjetivo(ControladorSocio cs, Socio a) {
         super ("Arnold Fitness Center - Seleccionar Objetivo");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setLayout(new BorderLayout());
 		JPanel panel1=new JPanel();
-		panel1.setLayout(new GridLayout(6,1,2,2));
+		panel1.setLayout(new GridLayout(2,1,2,2));
 
         Container contObjetivo=new Container();
 		contObjetivo.setLayout(new GridLayout(1,2,2,2));
@@ -48,37 +49,6 @@ public class VistaSeleccionarObjetivo extends JFrame{
 		contObjetivo.add(objetivoCombo);
 		panel1.add(contObjetivo);
 
-        
-
-        List<Double> ListaDuracionBP = Arrays.asList(1.0, 1.5);
-        Double[] doubleArrayBP = ListaDuracionBP.toArray(new Double[0]);
-
-        Container contDuracionEntrenamiento=new Container();
-		contDuracionEntrenamiento.setLayout(new GridLayout(1,2,2,2));
-		JLabel labelDuracionEntrenamiento=new JLabel("<html>Duracion Entrenamiento</html>");
-		JComboBox<Double> duracionBP = new JComboBox<>(doubleArrayBP);
-		duracionBP.setSelectedItem(null);
-		contDuracionEntrenamiento.add(labelDuracionEntrenamiento);
-		contDuracionEntrenamiento.add(duracionBP);
-		panel1.add(contDuracionEntrenamiento);
-
-
-        List<Double> duracionM = Arrays.asList(2.0, 2.5);
-        Double[] doubleArrayM = duracionM.toArray(new Double[0]);
-
-        Container contDuracionEntrenamiento=new Container();
-		contDuracionEntrenamiento.setLayout(new GridLayout(1,2,2,2));
-		JLabel labelDuracionEntrenamiento=new JLabel("<html>Duracion Entrenamiento</html>");
-		JComboBox<Double> duracionBP = new JComboBox<>(doubleArrayBP);
-		duracionBP.setSelectedItem(null);
-		contDuracionEntrenamiento.add(labelDuracionEntrenamiento);
-		contDuracionEntrenamiento.add(duracionBP);
-		panel1.add(contDuracionEntrenamiento);
-
-        List<Double> duracionT = Arrays.asList(0.75, 1.2);
-        Double[] doubleArrayT = duracionT.toArray(new Double[0]);
-
-
         Container contBotones=new Container();
 		contBotones.setLayout(new GridLayout(1,1,2,4));
 
@@ -88,7 +58,10 @@ public class VistaSeleccionarObjetivo extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//cs.setObjetivo();
+                
+                System.out.println("Objetivo Seleccionado: "+objetivoCombo.getSelectedItem());
+                
+				cs.setMedidasObjetivo(a, objetivoCombo);
 			}
 		}
 
@@ -105,3 +78,5 @@ public class VistaSeleccionarObjetivo extends JFrame{
     }
 
 }
+
+//svo.getNombre(), svo.getApellido(), svo.getEmail(), svo.getDni(), svo.getEdad(), svo.getSexo(), svo.getPassword(), svo.getPeso(), svo.getAltura()

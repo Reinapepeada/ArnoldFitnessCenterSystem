@@ -3,10 +3,10 @@ package modelo.moduloObjetivo;
 public class Tonificar extends ObjetivoStrategy {
     private double porcenInitGrsa;
     private double porcenInitMus;
-    private float pesoInicial;
-	private float alturaInicial;
+    private double pesoInicial;
+	private double alturaInicial;
 
-    public Tonificar(double duracion,  float peso, float altura) {
+    public Tonificar(double duracion,  double peso, double altura) {
         super(duracion, 4, 5);
         this.pesoInicial = peso;
 		this.alturaInicial = altura;

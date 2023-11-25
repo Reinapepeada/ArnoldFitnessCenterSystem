@@ -1,15 +1,24 @@
 package control;
 
+import java.awt.Container;
+import java.awt.List;
 import java.util.ArrayList;
+
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 import modelo.Socio;
 import modelo.VOs.SocioVo;
 import modelo.enums.Objetivo;
 import modelo.excepciones.CredencialesInvalidasException;
 import modelo.excepciones.SocioExistenteException;
+import modelo.moduloObjetivo.BajarPeso;
+import modelo.moduloObjetivo.Mantener;
+import modelo.moduloObjetivo.ObjetivoStrategy;
+import modelo.moduloObjetivo.Tonificar;
 import vistas.VistaActualizarObjetivo;
 import vistas.VistaComenzarEntrenamiento;
 import vistas.VistaGestionarMedidas;
@@ -19,6 +28,9 @@ import vistas.VistaMenuPrincipal;
 import vistas.VistaMenuSocio;
 import vistas.VistaRegistrarSocio;
 import vistas.VistaSeleccionarObjetivo;
+import vistas.VistaSetMedidasObjetivo;
+import vistas.VistaSetMedidasMantener;
+import vistas.VistaSetMedidasTonificar;
 
 public class ControladorSocio {
     public static ArrayList<Socio> usuarios = new ArrayList<Socio>();
@@ -26,16 +38,17 @@ public class ControladorSocio {
 	
 		public void autenticarUsuario(JTextField dni, JPasswordField contrasena)  {
 		String usr = dni.getText();
-        System.out.println("DNI: "+usr);
+        //System.out.println("DNI: "+usr);
 		String password = new String(contrasena.getPassword());
-        System.out.println("Password: "+password);
+        //System.out.println("Password: "+password);
 		
 		try {
-			a.autenticarUsuario(usr, password);
-			JOptionPane.showMessageDialog(null, "¡Bienvenido a Gimnasio Supertlon!");
+			a = a.autenticarUsuario(usr, password);
+			JOptionPane.showMessageDialog(null, "¡Bienvenido a Gym Buddy!");
 			//VistaInicioSesion vistaInicioSesion = (VistaInicioSesion) SwingUtilities.getWindowAncestor(usuario);
 		    //vistaInicioSesion.setVisible(false);
-			disponibilizarVistaMenuPrincipal();
+			verListadoSocios(usuarios);
+			disponibilizarVistaMenuPrincipal(null);
 
 		} catch (CredencialesInvalidasException e) {
 			//e.printStackTrace();
@@ -46,13 +59,10 @@ public class ControladorSocio {
     public void registrarSocio(SocioVo svo) {
 		
 		try {
-			a.registrarSocio(svo.getNombre(), svo.getApellido(), svo.getEmail(), svo.getDni(), svo.getEdad(), svo.getSexo(), svo.getPassword(), svo.getPeso(), svo.getAltura());
+			a.registrarSocio(svo.getNombre(), svo.getApellido(), svo.getEmail(), svo.getDni(), svo.getEdad(), svo.getSexo(), svo.getPassword(), svo.getAltura(), svo.getPeso());
 			JOptionPane.showMessageDialog(null, "¡El Socio se ha creado con Exito!");
+			disponibilizarVistaMenuPrincipal(svo);
 			
-			//VistaCreacionCliente vistaCreacionCliente = (VistaCreacionCliente) SwingUtilities.getWindowAncestor(nombre);
-			//vistaCreacionCliente.setVisible(false);
-			//VistaCreacionUsuario vistaCreacionUsuario = (VistaCreacionUsuario) SwingUtilities.getWindowAncestor(usuario);
-			//vistaCreacionUsuario.setVisible(false);
 		}
 		catch (SocioExistenteException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
@@ -60,8 +70,8 @@ public class ControladorSocio {
 	}
 
 	public void verListadoSocios(ArrayList <Socio> usuarios){
-		for(Socio socio : usuarios){
-			System.out.println("Socio: "+socio.getNombre()+" - DNI: "+socio.getDni()+" - Password: -"+socio.getPassword()+"-");
+		for(Socio a : usuarios){
+			System.out.println("Socio: "+a.getNombre()+" - DNI: "+a.getDni()+" - Password: -"+a.getPassword()+"-"+ "Peso: "+a.getPeso());
 	  }
 
 	}
@@ -70,12 +80,41 @@ public class ControladorSocio {
 	public void setObjetivo(Objetivo obj){
 		a.setObjetivo(null);
 	}
-
-
+	
+	public void setMedidasObjetivo(Socio a, JComboBox<Object> objetivoCombo){
+		String obj = (String) objetivoCombo.getSelectedItem();
+		switch (obj) {
+			case "BajarPeso":
+				BajarPeso os = new BajarPeso(0, a.getPeso(), a.getAltura());
+				VistaSetMedidasObjetivo vSMBP = new VistaSetMedidasObjetivo(this, a, os, 1.0,1.5);
+				vSMBP.setVisible(true);
+				vSMBP.setSize(500,500);
+				vSMBP.setLocation(0,0);
+				break;
+			case "Mantener":
+				Mantener m = new Mantener(0, a.getPeso(), 0);
+				VistaSetMedidasMantener vSMM = new VistaSetMedidasMantener(a, m, 2.0,2.5);
+				vSMM.setVisible(true);
+				vSMM.setSize(500,500);
+				vSMM.setLocation(0,0);
+				break;
+			case "Tonificar":
+				Tonificar t = new Tonificar(0, a.getPeso(), a.getAltura());
+				VistaSetMedidasObjetivo vSMT = new VistaSetMedidasObjetivo(this, a, t, 0.75,1.2);
+				vSMT.setVisible(true);
+				vSMT.setSize(500,500);
+				vSMT.setLocation(0,0);
+				break;
+			default:
+				break;
+		}
+		    
+	}
+ 	
 	//VISTAS
 
-	public void disponibilizarVistaMenuPrincipal() {
-		VistaMenuPrincipal vMAS = new VistaMenuPrincipal(this);
+	public void disponibilizarVistaMenuPrincipal(SocioVo svo) {
+		VistaMenuPrincipal vMAS = new VistaMenuPrincipal(this, svo);
 		vMAS.setVisible(true);
 		vMAS.setSize(500,500);
 		vMAS.setLocation(0,0);
@@ -97,22 +136,15 @@ public class ControladorSocio {
 		
 	}
 
-	public void disponibilizarVistaMenuSocio() {
-		VistaMenuSocio vMS = new VistaMenuSocio(this);
+	public void disponibilizarVistaMenuSocio(SocioVo svo) {
+		VistaMenuSocio vMS = new VistaMenuSocio(this, svo);
 		vMS.setVisible(true);
 		vMS.setSize(500, 500);
 		vMS.setLocation(0, 0);
 	}
 	
-	public void disponibilizarVistaGestionarObjetivo() {
-		VistaGestionarObjetivo vGO = new VistaGestionarObjetivo(this);
-		vGO.setVisible(true);
-		vGO.setSize(500, 500);
-		vGO.setLocation(0, 0);
-	}
-
-	public void disponibilizarVistaGestionarMedidas() {
-		VistaGestionarMedidas vGM = new VistaGestionarMedidas(this);
+	public void disponibilizarVistaGestionarMedidas(SocioVo svo) {
+		VistaGestionarMedidas vGM = new VistaGestionarMedidas(this, svo);
 		vGM.setVisible(true);
 		vGM.setSize(500, 500);
 		vGM.setLocation(0, 0);
@@ -125,8 +157,15 @@ public class ControladorSocio {
 		vCE.setLocation(0, 0);
 	}
 
-	public void disponibilizarVistaSeleccionarObjetivo() {
-		VistaSeleccionarObjetivo vSO = new VistaSeleccionarObjetivo(this);
+	public void disponibilizarVistaGestionarObjetivo(SocioVo svo) {
+		VistaGestionarObjetivo vGO = new VistaGestionarObjetivo(this, svo);
+		vGO.setVisible(true);
+		vGO.setSize(500, 500);
+		vGO.setLocation(0, 0);
+	}
+
+	public void disponibilizarVistaSeleccionarObjetivo(SocioVo svo) {
+		VistaSeleccionarObjetivo vSO = new VistaSeleccionarObjetivo(this, a);
 		vSO.setVisible(true);
 		vSO.setSize(500, 500);
 		vSO.setLocation(0, 0);

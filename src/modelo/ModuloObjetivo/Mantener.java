@@ -1,13 +1,14 @@
 package modelo.moduloObjetivo;
 
 public class Mantener extends ObjetivoStrategy {
-    private float pesoInicial;
-    private float toleraciaVsPesoInicial;
+    private double pesoInicial;
+    private double toleraciaVsPesoInicial;
+    private double tolerancia;
 
 	
-    public Mantener(double duracion,  float peso,float tol){
+    public Mantener(double duracion,  double pesoInicial, double tol){
         super(duracion, 2, 4);
-        this.pesoInicial = peso;
+        this.pesoInicial = pesoInicial;
         this.toleraciaVsPesoInicial = tol;
     }
     @Override
@@ -25,14 +26,26 @@ public class Mantener extends ObjetivoStrategy {
         return false;
     }
 
+    public void setTolerancia(double tolerancia){
+        this.tolerancia = tolerancia;
+    }
+
+    public double getTolerancia(){
+        return this.tolerancia;
+    }
+
+    public void setPesoInicial(double pesoInicial){
+        this.pesoInicial = pesoInicial;
+    }
+
     public String getNombreObjetivo(){
 		return "Mantener";
 	}
 
-    public float getPesoInicial() {
+    public double getPesoInicial() {
         return this.pesoInicial;
     }
-    public float getToleraciaVsPesoInicial() {
+    public double getToleraciaVsPesoInicial() {
         return this.toleraciaVsPesoInicial;
     }
 	@Override

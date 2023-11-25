@@ -41,7 +41,7 @@ public class VistaMenuSocio extends JFrame{
      * 3. COMENZAR ENTRENAMIENTO DEL DIA - Check
      */
 
-	public VistaMenuSocio(ControladorSocio cs) {
+	public VistaMenuSocio(ControladorSocio cs, SocioVo svo) {
 		
         super ("Arnold Fitness Center - Menu Socio");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -62,7 +62,7 @@ public class VistaMenuSocio extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				cs.disponibilizarVistaGestionarObjetivo();
+				cs.disponibilizarVistaGestionarObjetivo(svo);
 			}
 		}
 		
@@ -70,7 +70,7 @@ public class VistaMenuSocio extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				cs.disponibilizarVistaGestionarMedidas();
+				cs.disponibilizarVistaGestionarMedidas(svo);
 			}
 		}
 

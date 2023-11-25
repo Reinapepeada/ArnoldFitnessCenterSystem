@@ -30,8 +30,6 @@ public class VistaRegistrarSocio extends JFrame{
     private JSpinner peso;
 	private JSpinner altura;
 
-	//String [] obj = {"BajarPeso", "Tonificar", "Mantener"};
-	
 	public VistaRegistrarSocio(ControladorSocio cs) {
 		super ("Arnold Fitness Center - Registrarse");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -141,8 +139,8 @@ public class VistaRegistrarSocio extends JFrame{
 				String edadSocio = edad.getText();
 				String sexoSocio = sexo.getText();
 				String passwordSocio = new String(password.getPassword());
-				Double pesoSocio = (Double) peso.getValue();
-				Double alturaSocio = (Double) altura.getValue();
+				double pesoSocio = (double) peso.getValue();
+				double alturaSocio = (double) altura.getValue();
 				
 				SocioVo svo = new SocioVo(nombreSocio, apellidoSocio, emailSocio, dniSocio, edadSocio, sexoSocio, passwordSocio, pesoSocio, alturaSocio);
 				cs.registrarSocio(svo);

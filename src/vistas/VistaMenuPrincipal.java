@@ -12,10 +12,11 @@ import javax.swing.JPanel;
 
 import control.ControladorAdmin;
 import control.ControladorSocio;
+import modelo.VOs.SocioVo;
 
 public class VistaMenuPrincipal extends JFrame {
 	
-	public VistaMenuPrincipal(ControladorSocio cs) {
+	public VistaMenuPrincipal(ControladorSocio cs, SocioVo svo) {
 		super ("Arnold Fitness Center - Menu Principal");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setLayout(new BorderLayout());
@@ -42,7 +43,7 @@ public class VistaMenuPrincipal extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				cs.disponibilizarVistaMenuSocio();
+				cs.disponibilizarVistaMenuSocio(svo);
 			}
 		}
 
