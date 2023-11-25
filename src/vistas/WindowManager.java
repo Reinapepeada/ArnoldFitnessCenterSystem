@@ -1,11 +1,13 @@
 package vistas;
 
+import java.awt.BorderLayout;
+import java.awt.Container;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-
 public class WindowManager {
-	private static WindowManagerSingleton instancia;
+	private static WindowManager instancia;
 	private JFrame frame;
 	private JPanel currentWindow;
 
@@ -19,7 +21,7 @@ public class WindowManager {
 		contentPane.add(buttonPanel, BorderLayout.NORTH);
 
 		frame.setSize(800, 500);
-		
+
 		frame.setVisible(true);
 	}
 
@@ -33,11 +35,11 @@ public class WindowManager {
 		frame.getContentPane().repaint();
 	};
 
-	public static WindowManagerSingleton getInstance() {
+	public static WindowManager getInstance() {
 		if (instancia == null) {
-			instancia = new WindowManagerSingleton();
+			instancia = new WindowManager();
 		}
 		return instancia;
 	}
 
-} 
+}
