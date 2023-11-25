@@ -23,7 +23,7 @@ public class ControladorSocio {
         System.out.println("DNI: "+usr);
 		String password = new String(contrasena.getPassword());
         System.out.println("Password: "+password);
-		Socio a = new Socio();
+		
 		try {
 			a.autenticarUsuario(usr, password);
 			JOptionPane.showMessageDialog(null, "¡Bienvenido a Gimnasio Supertlon!");
