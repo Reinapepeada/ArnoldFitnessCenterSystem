@@ -10,6 +10,7 @@ import modelo.moduloObjetivo.ObjetivoStrategy;
 
 public class FactoryRutina {
     public static Rutina crearRutina(ObjetivoStrategy objetivo,List<Dia> dias) throws RutinaInexistenteException {
+        Rutina rut = null;
         switch (objetivo.getClass().getSimpleName()) {
             case "Tonificar":
             ArrayList<Entrenamiento> entrenamientos = new ArrayList();
@@ -18,15 +19,18 @@ public class FactoryRutina {
                     Entrenamiento entrenamiento = new Entrenamiento(objetivo);
                     entrenamientos.add(entrenamiento);
                 }
-                Rutina rut = new Rutina(objetivo,dias);
+                rut = new Rutina(objetivo,dias);
                 return rut;
+
             case "BajarPeso":
-                Rutina ruti = new Rutina(objetivo,dias);
-                return ruti;
+                rut = new Rutina(objetivo,dias);
+                return rut;
+
             case "Mantener":
                 
-                Rutina rutn = new Rutina(objetivo,dias);
-                return rutn;
+                rut = new Rutina(objetivo,dias);
+                return rut;
+
             default:
                 throw new RutinaInexistenteException("No existe la Rutina");
         }

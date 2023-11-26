@@ -97,5 +97,4 @@ public class SocioVo {
     public void setAltura(double altura) {
         this.altura = altura;
     }
-
 }

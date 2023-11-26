@@ -10,6 +10,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
+import modelo.Entrenamiento;
 import modelo.Socio;
 import modelo.VOs.SocioVo;
 import modelo.excepciones.CredencialesInvalidasException;
@@ -63,9 +64,6 @@ public class ControladorSocio {
 
 	}
 
-	
-
-	
 
 	public SocioVo getSocioVOActual() {
 		return a.getVO();

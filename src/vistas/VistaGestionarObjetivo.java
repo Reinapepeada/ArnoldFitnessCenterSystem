@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 
 import control.ControladorSocio;
 import control.WindowManagerSingleton;
+import modelo.Socio;
 import modelo.VOs.SocioVo;
 
 

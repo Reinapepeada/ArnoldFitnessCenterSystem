@@ -18,6 +18,7 @@ import javax.swing.SpinnerNumberModel;
 
 import control.ControladorSocio;
 import control.WindowManagerSingleton;
+import modelo.Socio;
 import modelo.VOs.SocioVo;
 
 
