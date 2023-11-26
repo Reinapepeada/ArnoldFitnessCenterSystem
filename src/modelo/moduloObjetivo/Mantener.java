@@ -1,5 +1,9 @@
 package modelo.moduloObjetivo;
 
+import modelo.moduloMediciones.BalanzaSystemAdapter;
+import modelo.moduloMediciones.Medida;
+import modelo.Socio;
+
 public class Mantener extends ObjetivoStrategy {
     private double pesoInicial;
     private double toleraciaVsPesoInicial;
@@ -21,15 +25,17 @@ public class Mantener extends ObjetivoStrategy {
     }
 
     @Override
-    public boolean verificarObjetivo(){
-        // TODO - verificar si el peso actual esta entre el rango pasado por parametro 
+    public boolean verificarObjetivo(Socio soc) {
+       // TODO - verificar si el peso actual esta entre el rango pasado por parametro 
         // como hacemos para acceder a la medida actual
-        int medidaActual = 0; // deberia ir la medida actual
-        if(medidaActual >= pesoInicial - toleraciaVsPesoInicial && medidaActual <=  pesoInicial + toleraciaVsPesoInicial ){
+        BalanzaSystemAdapter balanza = new BalanzaSystemAdapter();
+        Medida medidaActual = balanza.tomarMedidas(soc); // deberia ir la medida actual
+        if(medidaActual.getPeso() > pesoInicial - toleraciaVsPesoInicial && medidaActual.getPeso() < pesoInicial + toleraciaVsPesoInicial ){
             return true;
         }
         return false;
     }
+        
 
     public void setTolerancia(double tolerancia){
         this.tolerancia = tolerancia;

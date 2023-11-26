@@ -1,8 +1,8 @@
 package modelo.moduloMediciones;
+import modelo.Socio;
 
 import modelo.Socio;
 
 public interface AdapterMedida {
-    public void tomarMedidas(Socio a);
-
+    Medida tomarMedidas(Socio soc);
 }

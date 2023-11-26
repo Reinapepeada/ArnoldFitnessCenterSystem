@@ -7,7 +7,7 @@ import control.ControladorEjercicio;
 import modelo.enums.Exigencia;
 import modelo.enums.GrupoMuscular;
 import modelo.moduloObjetivo.ObjetivoStrategy;
-import modelo.moduloRutina.Rutina;
+
 
 public class Entrenamiento {
 	private ObjetivoStrategy objetivo;
@@ -15,6 +15,15 @@ public class Entrenamiento {
 
 	public Entrenamiento(ObjetivoStrategy objetivo) {
 		this.objetivo = objetivo;
+	}
+
+	public void reforzarEntrenamiento(){
+		for (Ejercicio ejercicio : ejerciciosEntrenamiento) {
+			ejercicio.setSeries(ejercicio.getSeries() + 1);
+			ejercicio.setRepeticiones(ejercicio.getRepeticiones() + 4);
+			ejercicio.setPesoAsignado(ejercicio.getPesoAsignado() + 5);
+		}
+	
 	}
 
 	public ObjetivoStrategy getObjetivo() {

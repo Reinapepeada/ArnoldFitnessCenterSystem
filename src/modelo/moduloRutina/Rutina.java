@@ -21,6 +21,10 @@ public class Rutina {
 
 	public void reforzarRutina() {
 		if(semanas == 0){
+			// cambiar valores de peso,series y repeticiones 
+			for (Entrenamiento ent : entrenamientos) {
+				ent.reforzarEntrenamiento();
+			}
 			semanas +=4;
 		}
 	}

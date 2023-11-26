@@ -1,5 +1,9 @@
 package modelo.moduloObjetivo;
 
+import modelo.moduloMediciones.BalanzaSystemAdapter;
+import modelo.moduloMediciones.Medida;
+import modelo.Socio;
+
 public class BajarPeso extends ObjetivoStrategy {
 	private double pesoInicial;
 	private double alturaInicial;
@@ -21,11 +25,11 @@ public class BajarPeso extends ObjetivoStrategy {
 	}
 
 	@Override
-	public boolean verificarObjetivo(){
+	public boolean verificarObjetivo(Socio soc){
 		// TODO - verificar con la medida actual contra la medida medida ideal
-		// como hacemos para acceder a la medida actual
-		int medidaActual = 0; // deberia ir la medida actual
-		if(calcularMedidaIdeal() < medidaActual){
+		BalanzaSystemAdapter balanza = new BalanzaSystemAdapter();
+        Medida medidaActual = balanza.tomarMedidas(soc); // deberia ir la medida actual
+		if(calcularMedidaIdeal() >= medidaActual.getBMi()){
 			return true;
 		}
 		return false;
