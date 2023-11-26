@@ -5,8 +5,6 @@ import modelo.moduloMediciones.Medida;
 
 
 public class Tonificar extends ObjetivoStrategy {
-    private double porcentajeGrsa;
-    private double porcentjesMus;
     private double pesoInicial;
 	private double alturaInicial;
     private double duracionEntrenamiento;
@@ -14,11 +12,8 @@ public class Tonificar extends ObjetivoStrategy {
     private double durMaxima=2.5;
     private double durMinima=2;
 
-    public Tonificar(double duracion,  double peso, double altura,
-            double porcenInitGrsa, double porcenInitMus) {
+    public Tonificar(double duracion,  double peso, double altura) {
         super(duracion, 4, 5);
-        this.porcentajeGrsa = porcenInitGrsa;
-        this.porcentjesMus = porcenInitMus;
         this.alturaInicial = altura;
         this.pesoInicial = peso;
     }
