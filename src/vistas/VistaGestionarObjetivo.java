@@ -20,7 +20,6 @@ import modelo.VOs.SocioVo;
 public class VistaGestionarObjetivo extends JFrame {
 
 	private ControladorSocio cs;
-	private SocioVo svo;
 
 	public VistaGestionarObjetivo() {
 		super("Arnold Fitness Center - Menu Socio");
@@ -74,7 +73,6 @@ public class VistaGestionarObjetivo extends JFrame {
 
 	public void setCSocio(ControladorSocio cs) {
 		this.cs = cs;
-		this.svo = cs.getSocioVOActual();
 	}
 
 

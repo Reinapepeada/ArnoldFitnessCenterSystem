@@ -18,7 +18,7 @@ import modelo.excepciones.SocioExistenteException;
 
 
 public class ControladorSocio {
-	public static ArrayList<Socio> usuarios = new ArrayList<Socio>();
+	public static final ArrayList<Socio> usuarios = new ArrayList<Socio>();
 
 	private Socio a = new Socio();
 
@@ -29,7 +29,7 @@ public class ControladorSocio {
 		// System.out.println("Password: "+password);
 
 		try {
-			a = a.autenticarUsuario(usr, password);
+			a=a.autenticarUsuario(usr, password);
 			JOptionPane.showMessageDialog(null, "¡Bienvenido a Gym Buddy!");
 			// VistaInicioSesion vistaInicioSesion = (VistaInicioSesion)
 			// SwingUtilities.getWindowAncestor(usuario);
@@ -46,20 +46,19 @@ public class ControladorSocio {
 	public void registrarSocio(SocioVo svo) {
 
 		try {
-			a.registrarSocio(svo.getNombre(), svo.getApellido(), svo.getEmail(), svo.getDni(), svo.getEdad(),
+			a=a.registrarSocio(svo.getNombre(), svo.getApellido(), svo.getEmail(), svo.getDni(), svo.getEdad(),
 					svo.getSexo(), svo.getPassword(), svo.getAltura(), svo.getPeso());
 			JOptionPane.showMessageDialog(null, "¡El Socio se ha creado con Exito!");
-			WindowManagerSingleton.getInstance().disponibilizarVistaMenuPrincipal();
-
+			
 		} catch (SocioExistenteException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
 	}
 
 	public void verListadoSocios(ArrayList<Socio> usuarios) {
-		for (Socio a : usuarios) {
-			System.out.println("Socio: " + a.getNombre() + " - DNI: " + a.getDni() + " - Password: -" + a.getPassword()
-					+ "-" + "Peso: " + a.getPeso());
+		for (Socio x : usuarios) {
+			System.out.println("Socio: " + x.getNombre() + " - DNI: " + x.getDni() + " - Password: -" + x.getPassword()
+					+ "-" + "Peso: " + x.getPeso());
 		}
 
 	}
@@ -70,7 +69,7 @@ public class ControladorSocio {
 	}
 
 	public Socio getSocioActual() {
-		return a;
+		return this.a;
 	}
 
 }

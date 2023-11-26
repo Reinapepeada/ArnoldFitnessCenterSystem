@@ -49,11 +49,11 @@ public class WindowManagerSingleton {
 		ca = new ControladorAdmin();
 		ce = new ControladorEjercicio();
 		co = new ControladorObjetivo();
-
+		
 		//instanciamos las vistas
-
+		
 		vBienvenida = new VistaBienvenida();
-		vIniciarSesion = new VistaIniciarSesion(cs);
+		vIniciarSesion = new VistaIniciarSesion();
 		vSeleccionarObjetivo = new VistaSeleccionarObjetivo();
 		vGestionarObjetivo = new VistaGestionarObjetivo();
 		vActualizarObjetivo = new VistaActualizarObjetivo();
@@ -64,8 +64,28 @@ public class WindowManagerSingleton {
 		vSetMedidasMantener = new VistaSetMedidasMantener();
 		vSetMedidasObjetivo = new VistaSetMedidasObjetivo();
 		vComenzarEntrenamiento = new VistaComenzarEntrenamiento();
-	}
+		
+		
+		
 
+
+		//seteamos los controladores en las vistas
+		vRegistrarSocio.setCSocio(cs);
+		//
+		vIniciarSesion.setCSocio(cs);
+		//
+		vSeleccionarObjetivo.setCSocio(cs);
+		vSeleccionarObjetivo.setCObjetivo(co);
+		//
+		vGestionarObjetivo.setCSocio(cs);
+		//
+		vSetMedidasObjetivo.setCObjetivo(co);
+		vSetMedidasMantener.setCObjetivo(co);
+
+		// seteamos los controladores en los controladores
+		co.setCSocio(cs);
+	}
+	
 	public static WindowManagerSingleton getInstance() {
 		if (instance == null) {
 			instance = new WindowManagerSingleton();
@@ -73,11 +93,11 @@ public class WindowManagerSingleton {
 		return instance;
 	}
 	
-
-
-
-public void setCS(ControladorSocio cs) {
-	this.cs = cs;
+	
+	
+	
+	public void setCS(ControladorSocio cs) {
+		this.cs = cs;
 }
 
 public void setCA(ControladorAdmin ca) {
@@ -200,15 +220,15 @@ public void setVComenzarEntrenamiento(VistaComenzarEntrenamiento vComenzarEntren
 	}
 
 	public void disponibilizarVistaSeleccionarObjetivo() {
-		vSeleccionarObjetivo.setVisible(true);
 		vSeleccionarObjetivo.setSize(500, 500);
 		vSeleccionarObjetivo.setLocation(0, 0);
+		vSeleccionarObjetivo.setVisible(true);
 	}
 
 	public void disponibilizarVistaActualizarObjetivo() {
-		vActualizarObjetivo.setVisible(true);
 		vActualizarObjetivo.setSize(500, 500);
 		vActualizarObjetivo.setLocation(0, 0);
+		vActualizarObjetivo.setVisible(true);
 	}
 
 	public void disponibilizarVistaSetMedidasObjetivo(double max, double min) {
