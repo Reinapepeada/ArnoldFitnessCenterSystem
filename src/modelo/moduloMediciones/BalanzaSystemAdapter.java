@@ -12,10 +12,13 @@ public class BalanzaSystemAdapter implements AdapterMedida {
 
     @Override
     public Medida tomarMedidas(Socio soc) {
-        double pesoActual = soc.getPeso();  // Assuming Socio has a getPeso method
+        //Socio has a getPeso method
+        double pesoActual = soc.getPeso(); 
         double alturaAct = soc.getAltura();
         double porcentajeGrasaAct =soc.getPorcentajeGrasa();
         double porcentMusc = soc.getPorcentajeMusculo(); 
+
+
         // Generate random values based on the socio's current weight
         double peso = pesoActual + getRandomValue();
         double altura = alturaAct + getRandomValue();
