@@ -99,7 +99,4 @@ public class SocioVo{
         this.altura = altura;
     }
 
-    public Double getPesoIdeal() {
-        return this.pesoIdeal;
-    }
 }
