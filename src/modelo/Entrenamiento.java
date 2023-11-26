@@ -7,7 +7,7 @@ import control.ControladorEjercicio;
 import modelo.enums.Exigencia;
 import modelo.enums.GrupoMuscular;
 import modelo.moduloObjetivo.ObjetivoStrategy;
-import modelo.moduloRutina.Rutina;
+
 
 public class Entrenamiento {
 	private ObjetivoStrategy objetivo;
@@ -17,11 +17,19 @@ public class Entrenamiento {
 		this.objetivo = objetivo;
 	}
 
+	public void reforzarEntrenamiento(){
+		for (Ejercicio ejercicio : ejercicios) {
+			ejercicio.setSeries(ejercicio.getSeries() + 1);
+			ejercicio.setRepeticiones(ejercicio.getRepeticiones() + 4);
+			ejercicio.setPesoAsignado(ejercicio.getPesoAsignado() + 5);
+		}
+	
+	}
+
 	public ObjetivoStrategy getObjetivo() {
 		return objetivo;
 	}
 	public void asignarEjercicios(){
-		// TODO - implement Entrenamiento.asignarEjercicios
 		ejercicios = new ArrayList<Ejercicio>();
 			switch (objetivo.getClass().getSimpleName()) {
             case "Tonificar":
