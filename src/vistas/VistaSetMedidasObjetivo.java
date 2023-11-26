@@ -21,7 +21,7 @@ import modelo.moduloObjetivo.BajarPeso;
 import modelo.moduloObjetivo.ObjetivoStrategy;
 
 public class VistaSetMedidasObjetivo extends JFrame{
-
+	private JComboBox<Double> duracion;
     public VistaSetMedidasObjetivo(ControladorSocio controladorSocio, Socio a, ObjetivoStrategy os, double min, double max) {
         super ("Arnold Fitness Center - Setear Medidas Objetivo");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -35,25 +35,27 @@ public class VistaSetMedidasObjetivo extends JFrame{
         Container contDuracionEntrenamiento=new Container();
 		contDuracionEntrenamiento.setLayout(new GridLayout(1,2,2,2));
 		JLabel labelDuracionEntrenamiento=new JLabel("<html>Duracion Entrenamiento</html>");
-		JComboBox<Double> duracion = new JComboBox<>(doubleArray);
+		duracion = new JComboBox<>(new Double[]{min, max});
 		duracion.setSelectedItem(null);
 		contDuracionEntrenamiento.add(labelDuracionEntrenamiento);
 		contDuracionEntrenamiento.add(duracion);
 		panel1.add(contDuracionEntrenamiento);
-
+		
         Container contBotones=new Container();
 		contBotones.setLayout(new GridLayout(1,1,2,4));
 
         JButton btnConfirmarObjetivo=new JButton("<html> Confirmar Duracion </html>");
 
         class HandlerBtnConfirmarObjetivo implements ActionListener{
-            double pesoSocio = a.getPeso();
-            double alturaSocio= a.getAltura();
-            Double dur = (Double) duracion.getSelectedItem();
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-               BajarPeso bp = new BajarPeso(dur, alturaSocio, pesoSocio);
-			   a.setObjetivo(bp);
+				double pesoSocio = a.getPeso();
+            	double alturaSocio= a.getAltura();
+            	Double dur = (Double) duracion.getSelectedItem();
+				System.out.println("Duracion Seleccionada: "+dur);
+               	BajarPeso bp = new BajarPeso(dur, alturaSocio, pesoSocio);
+			   	a.setObjetivo(bp);
 			}
 		}
 

@@ -60,11 +60,12 @@ public class VistaSetMedidasMantener extends JFrame{
         JButton btnConfirmarObjetivo=new JButton("<html> Confirmar Duracion </html>");
 
         class HandlerBtnConfirmarObjetivo implements ActionListener{
-            int n = (int) unidades.getValue();
-            Double dur = (Double) duracionM.getSelectedItem();
-            double pesoSocio = a.getPeso();
+            
 			@Override
 			public void actionPerformed(ActionEvent e) {
+                double n = (double) unidades.getValue();
+                Double dur = (Double) duracionM.getSelectedItem();
+                double pesoSocio = a.getPeso();
                 m.setDuracion(dur);
                 m.setPesoInicial(pesoSocio);
                 m.setTolerancia(n);
