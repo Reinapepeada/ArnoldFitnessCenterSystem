@@ -5,6 +5,7 @@ import java.util.List;
 import modelo.moduloRutina.Rutina;
 import modelo.enums.Exigencia;
 import modelo.moduloTrofeo.TrofeoObservador;
+import modelo.Socio;
 
 public abstract class ObjetivoStrategy extends TrofeoObservador {
 	private double duracion;
@@ -22,7 +23,7 @@ public abstract class ObjetivoStrategy extends TrofeoObservador {
 	//metodos para implemetar en los objetivos 
 	abstract double calcularMedidaIdeal();
 
-	abstract boolean verificarObjetivo();
+	abstract boolean verificarObjetivo(Socio soc);
 	
 	@Override
     public abstract void chequearTrofeo();

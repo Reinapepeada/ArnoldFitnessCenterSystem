@@ -1,13 +1,21 @@
 package modelo.moduloObjetivo;
+import modelo.Socio;
+import modelo.moduloMediciones.BalanzaSystemAdapter;
+import modelo.moduloMediciones.Medida;
+
 
 public class Tonificar extends ObjetivoStrategy {
     private double porcenInitGrsa;
     private double porcenInitMus;
+    private double peso;
+    private double altura;
 
     public Tonificar(double duracion,  float peso, float altura,double porcenInitGrsa,double porcenInitMus) {
         super(duracion, 4, 5);
         this.porcenInitGrsa = porcenInitGrsa;
         this.porcenInitMus = porcenInitMus;
+        this.altura = altura;
+        this.peso = peso;
     }
 
     
@@ -18,12 +26,15 @@ public class Tonificar extends ObjetivoStrategy {
     }
 
     @Override
-    public boolean verificarObjetivo(){
+    public boolean verificarObjetivo(Socio soc){
         // TODO -
-        if(calcularMedidaIdeal() != 0){
-            return true;
+        BalanzaSystemAdapter balanza = new BalanzaSystemAdapter();
+        Medida medidaActual = balanza.tomarMedidas(soc);
+
+        if (medidaActual.getPorcentajeMusculo() >= nivelIdealMuscular && medidaActual.getPorcentajeGrasa() <= nivelIdealGrasa) {
+            return true; 
         }
-    	return false;
+        return false;
     }
 
     public String getNombreObjetivo(){
