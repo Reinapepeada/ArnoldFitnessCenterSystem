@@ -3,6 +3,7 @@ package vistas;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
 import control.ControladorSocio;
+import control.WindowManagerSingleton;
 import modelo.VOs.SocioVo;
 
 public class VistaRegistrarSocio extends JFrame{
@@ -29,10 +31,9 @@ public class VistaRegistrarSocio extends JFrame{
 	private JPasswordField password;
     private JSpinner peso;
 	private JSpinner altura;
+	private ControladorSocio cs;
 
-	//String [] obj = {"BajarPeso", "Tonificar", "Mantener"};
-	
-	public VistaRegistrarSocio(ControladorSocio cs) {
+	public VistaRegistrarSocio() {
 		super ("Arnold Fitness Center - Registrarse");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setLayout(new BorderLayout());
@@ -133,7 +134,7 @@ public class VistaRegistrarSocio extends JFrame{
 		class HandlerRegistrarSocio implements ActionListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				
 				String nombreSocio = nombre.getText();
 				String apellidoSocio = apellido.getText();
 				String emailSocio = email.getText();
@@ -141,14 +142,19 @@ public class VistaRegistrarSocio extends JFrame{
 				String edadSocio = edad.getText();
 				String sexoSocio = sexo.getText();
 				String passwordSocio = new String(password.getPassword());
-				Double pesoSocio = (Double) peso.getValue();
-				Double alturaSocio = (Double) altura.getValue();
+				double pesoSocio = (double) peso.getValue();
+				System.out.println("pesoSocio: "+pesoSocio);
+				double alturaSocio = (double) altura.getValue();
 				
-				SocioVo svo = new SocioVo(nombreSocio, apellidoSocio, emailSocio, dniSocio, edadSocio, sexoSocio, passwordSocio, pesoSocio, alturaSocio);
+				
+				SocioVo svo = new SocioVo(nombreSocio, apellidoSocio, emailSocio, dniSocio, edadSocio, sexoSocio, passwordSocio,alturaSocio, pesoSocio);
+				System.out.println("svo: "+svo.getPeso());
 				cs.registrarSocio(svo);
-				}
+				System.out.println("paso ");
+				WindowManagerSingleton.getInstance().disponibilizarVistaSeleccionarObjetivo();
 			}
-				
+		}
+		
 		//INSTANCIACION DEL MANEJADOR//
 		HandlerRegistrarSocio handlerBtnRegistrarSocio=new HandlerRegistrarSocio();
 				
@@ -160,5 +166,10 @@ public class VistaRegistrarSocio extends JFrame{
 		panel1.add(contBotones);
 		
 		this.add(panel1, BorderLayout.CENTER);
+	}
+
+	public void setCSocio(ControladorSocio cs){
+		this.cs = cs;
+
 	}
 }

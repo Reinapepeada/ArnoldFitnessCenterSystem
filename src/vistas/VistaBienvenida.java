@@ -12,10 +12,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import control.ControladorSocio;
+import control.WindowManagerSingleton;
 
 public class VistaBienvenida extends JFrame {
 
-	 ControladorSocio cs = new ControladorSocio();
+	private ControladorSocio cs ;
 	
 	public VistaBienvenida() {
 		super ("Arnold Fitness Center - Bienvenido!");
@@ -36,7 +37,7 @@ public class VistaBienvenida extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				cs.disponibilizarVistaIniciarSesion();
+				WindowManagerSingleton.getInstance().disponibilizarVistaIniciarSesion();
 			}
 		}
 		
@@ -44,7 +45,7 @@ public class VistaBienvenida extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				cs.disponibilizarVistaRegistrarSocio();
+				WindowManagerSingleton.getInstance().disponibilizarVistaRegistrarSocio();
 			}
 		}
 
