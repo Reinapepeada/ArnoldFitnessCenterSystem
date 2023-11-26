@@ -36,8 +36,6 @@ public class VistaSetMedidasObjetivo extends JFrame{
 		JPanel panel1=new JPanel();
 		panel1.setLayout(new GridLayout(2,1,2,2));
 
-        List<Double> ListaDuracion = Arrays.asList(minDuracion, maxDuracion);
-        Double[] doubleArray = ListaDuracion.toArray(new Double[0]);
 
         Container contDuracionEntrenamiento=new Container();
 		contDuracionEntrenamiento.setLayout(new GridLayout(1,2,2,2));
@@ -83,11 +81,11 @@ public class VistaSetMedidasObjetivo extends JFrame{
 
 
     public void setMaxDuracion(double max) {
-		this.duracion.addItem(max);
+		this.maxDuracion = max;
     }
 
     public void setMinDuracion(double min) {
-		this.duracion.addItem(min);
+		this.minDuracion = min;
     }
 
     public void setCObjetivo(ControladorObjetivo co2) {

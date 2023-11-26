@@ -47,13 +47,13 @@ public class Socio {
 	public Socio() {
 	}
 
-    public void registrarSocio(String nombre, String apellido, String email, String dni, String edad, String sexo, String password, Double altura, Double peso) throws SocioExistenteException{
+    public Socio registrarSocio(String nombre, String apellido, String email, String dni, String edad, String sexo, String password, Double altura, Double peso) throws SocioExistenteException{
 		if (buscarSocio(dni) == null) {
 			Socio socio = new Socio(nombre, apellido, email, dni, edad, sexo, password, altura, peso);
 			ControladorSocio.usuarios.add(socio);
 			// System.out.println("\nListado Usuarios: \n");
 			// ControladorSocio.verListadoSocios(ControladorSocio.usuarios);
-			return;
+			return socio;
 		}
 		throw new SocioExistenteException("Error. Ya existe un Socio con el numero de documento ingresado.");
 	}

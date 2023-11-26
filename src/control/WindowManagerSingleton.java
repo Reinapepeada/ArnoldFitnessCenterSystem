@@ -49,9 +49,9 @@ public class WindowManagerSingleton {
 		ca = new ControladorAdmin();
 		ce = new ControladorEjercicio();
 		co = new ControladorObjetivo();
-
+		
 		//instanciamos las vistas
-
+		
 		vBienvenida = new VistaBienvenida();
 		vIniciarSesion = new VistaIniciarSesion();
 		vSeleccionarObjetivo = new VistaSeleccionarObjetivo();
@@ -64,22 +64,28 @@ public class WindowManagerSingleton {
 		vSetMedidasMantener = new VistaSetMedidasMantener();
 		vSetMedidasObjetivo = new VistaSetMedidasObjetivo();
 		vComenzarEntrenamiento = new VistaComenzarEntrenamiento();
+		
+		
+		
+
 
 		//seteamos los controladores en las vistas
 		vRegistrarSocio.setCSocio(cs);
-
+		//
 		vIniciarSesion.setCSocio(cs);
-
+		//
 		vSeleccionarObjetivo.setCSocio(cs);
-		vSeleccionarObjetivo.setCO(co);
-
+		vSeleccionarObjetivo.setCObjetivo(co);
+		//
 		vGestionarObjetivo.setCSocio(cs);
-
-
+		//
 		vSetMedidasObjetivo.setCObjetivo(co);
 		vSetMedidasMantener.setCObjetivo(co);
-	}
 
+		// seteamos los controladores en los controladores
+		co.setCSocio(cs);
+	}
+	
 	public static WindowManagerSingleton getInstance() {
 		if (instance == null) {
 			instance = new WindowManagerSingleton();
@@ -87,11 +93,11 @@ public class WindowManagerSingleton {
 		return instance;
 	}
 	
-
-
-
-public void setCS(ControladorSocio cs) {
-	this.cs = cs;
+	
+	
+	
+	public void setCS(ControladorSocio cs) {
+		this.cs = cs;
 }
 
 public void setCA(ControladorAdmin ca) {

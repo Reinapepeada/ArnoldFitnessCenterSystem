@@ -46,10 +46,10 @@ public class ControladorSocio {
 	public void registrarSocio(SocioVo svo) {
 
 		try {
-			a.registrarSocio(svo.getNombre(), svo.getApellido(), svo.getEmail(), svo.getDni(), svo.getEdad(),
+			a=a.registrarSocio(svo.getNombre(), svo.getApellido(), svo.getEmail(), svo.getDni(), svo.getEdad(),
 					svo.getSexo(), svo.getPassword(), svo.getAltura(), svo.getPeso());
 			JOptionPane.showMessageDialog(null, "¡El Socio se ha creado con Exito!");
-
+			
 		} catch (SocioExistenteException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
@@ -69,7 +69,7 @@ public class ControladorSocio {
 	}
 
 	public Socio getSocioActual() {
-		return a;
+		return this.a;
 	}
 
 }

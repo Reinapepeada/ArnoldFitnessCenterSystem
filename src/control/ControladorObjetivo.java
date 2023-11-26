@@ -2,6 +2,7 @@ package control;
 
 import javax.swing.JComboBox;
 
+import modelo.Socio;
 import modelo.VOs.SocioVo;
 import modelo.moduloObjetivo.BajarPeso;
 import modelo.moduloObjetivo.Mantener;
@@ -13,8 +14,11 @@ public class ControladorObjetivo {
     ControladorSocio cs;
     ObjetivoStrategy os;
 
-    public void setObjetivo(ObjetivoStrategy x) {
-        cs.getSocioActual().setObjetivo(x);
+    public void asignarObjetivo(ObjetivoStrategy x) {
+        
+        Socio s = cs.getSocioActual();
+        System.out.println(s.toString());
+        s.setObjetivo(x);
         this.os = x;
     }   
   
