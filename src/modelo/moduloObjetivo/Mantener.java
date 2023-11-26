@@ -17,6 +17,7 @@ public class Mantener extends ObjetivoStrategy {
         super(duracion, 2, 4);
         this.pesoInicial = pesoInicial;
         this.toleraciaVsPesoInicial = tol;
+        // this.duracionEntrenamiento = duracionEntrenamiento;
     }
 
     @Override

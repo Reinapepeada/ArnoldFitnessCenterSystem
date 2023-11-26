@@ -8,7 +8,6 @@ public class BajarPeso extends ObjetivoStrategy {
 	private double pesoInicial;
 	private double alturaInicial;
 	private double duracionEntrenamiento;
-	private double pesoIdeal;
 	private double durMaxima=1.5;
     private double durMinima=1;
 
@@ -16,6 +15,7 @@ public class BajarPeso extends ObjetivoStrategy {
 		super(duracion, 0, 3);
 		this.pesoInicial = peso;
 		this.alturaInicial = altura;
+		// this.duracionEntrenamiento = duracionEntrenamiento;
 	}
 	
 	@Override

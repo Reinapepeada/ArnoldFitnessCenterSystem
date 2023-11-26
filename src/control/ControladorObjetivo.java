@@ -8,6 +8,8 @@ import modelo.moduloObjetivo.Mantener;
 import modelo.moduloObjetivo.ObjetivoStrategy;
 import modelo.moduloObjetivo.Tonificar;
 
+
+
 public class ControladorObjetivo {
 
     ControladorSocio cs;
@@ -46,8 +48,6 @@ public class ControladorObjetivo {
                 break;
         }
     }
-    
-  
 
     public void setDuracionTolerancia(double duracionEntrenamiento, double tol) {
         os.setDuracion(duracionEntrenamiento);
