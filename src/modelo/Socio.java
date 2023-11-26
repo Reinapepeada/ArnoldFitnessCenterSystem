@@ -4,6 +4,7 @@ import java.util.List;
 
 import control.ControladorSocio;
 import modelo.excepciones.SocioExistenteException;
+import modelo.enums.Objetivo;
 import modelo.excepciones.CredencialesInvalidasException;
 import modelo.moduloMediciones.Medida;
 import modelo.moduloObjetivo.ObjetivoStrategy;
@@ -19,8 +20,8 @@ public class Socio {
 	private String sexo;
 	private Double altura;
 	private Double peso;
-	private Double porcentajeGrasa;
-	private Double porcentajeMusculo;
+	private float porcentajeGrasa;
+	private float porcentajeMusculo;
 	private List<Medida> medidas;
 	private ObjetivoStrategy objetivo;
 	private Rutina rutina;
@@ -44,10 +45,10 @@ public class Socio {
 	public Socio() {
     }
 
-    public void registrarSocio(String nombre, String apellido, String email, String dni, String edad, String sexo, String password, Double peso, Double altura) throws SocioExistenteException{
+    public void registrarSocio(String nombre, String apellido, String email, String dni, String edad, String sexo, String password, Double altura, Double peso) throws SocioExistenteException{
 
 		if (buscarSocio(dni) == null) {
-			Socio socio = new Socio(nombre, apellido, email, dni, edad, sexo, password, peso, altura);
+			Socio socio = new Socio(nombre, apellido, email, dni, edad, sexo, password, altura, peso);
 			ControladorSocio.usuarios.add(socio);
 			//System.out.println("\nListado Usuarios: \n");
 			//ControladorSocio.verListadoSocios(ControladorSocio.usuarios);
@@ -150,7 +151,7 @@ public class Socio {
 		this.sexo = sexo;
 	}
 
-	public Double getAltura() {
+	public double getAltura() {
 		return this.altura;
 	}
 
@@ -158,7 +159,7 @@ public class Socio {
 		this.altura = altura;
 	}
 
-	public Double getPeso() {
+	public double getPeso() {
 		return this.peso;
 	}
 
@@ -166,19 +167,19 @@ public class Socio {
 		this.peso = peso;
 	}
 
-	public Double getPorcentajeGrasa() {
+	public float getPorcentajeGrasa() {
 		return this.porcentajeGrasa;
 	}
 
-	public void setPorcentajeGrasa(Double porcentajeGrasa) {
+	public void setPorcentajeGrasa(float porcentajeGrasa) {
 		this.porcentajeGrasa = porcentajeGrasa;
 	}
 
-	public Double getPorcentajeMusculo() {
+	public float getPorcentajeMusculo() {
 		return this.porcentajeMusculo;
 	}
 
-	public void setPorcentajeMusculo(Double porcentajeMusculo) {
+	public void setPorcentajeMusculo(float porcentajeMusculo) {
 		this.porcentajeMusculo = porcentajeMusculo;
 	}
 
