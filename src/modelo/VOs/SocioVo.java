@@ -1,24 +1,23 @@
 package modelo.VOs;
 
-
-public class SocioVo{
+public class SocioVo {
     private String edad;
-	private String nombre;
-	private String apellido;
-	private String dni;
-	private String email;
-	private String password;
-	private String sexo;
-	private float altura;
-	private float peso;
+    private String nombre;
+    private String apellido;
+    private String dni;
+    private String email;
+    private String password;
+    private String sexo;
+    private double altura;
+    private double peso;
 
-    public SocioVo(String edad, String nombre, String apellido, String dni, String email, String password, String sexo, float altura, float peso) {
+    public SocioVo(String nombre, String apellido, String email, String dni, String edad, String sexo,
+            double altura, double peso) {
         this.edad = edad;
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.email = email;
-        this.password = password;
         this.sexo = sexo;
         this.altura = altura;
         this.peso = peso;
@@ -81,5 +80,21 @@ public class SocioVo{
 
     public void setSexo(String sexo) {
         this.sexo = sexo.toUpperCase();
+    }
+
+    public double getPeso() {
+        return this.peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public double getAltura() {
+        return this.altura;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
     }
 }

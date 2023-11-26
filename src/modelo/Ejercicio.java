@@ -1,35 +1,52 @@
 package modelo;
 
+import control.ControladorEjercicio;
 import modelo.enums.Exigencia;
 import modelo.enums.GrupoMuscular;
+import modelo.excepciones.EjercicioExistenteException;
 
 public class Ejercicio {
 	private String nombre;
 	private int nivelAerobico;
-	private int duracion;
 	private int series;
 	private int repeticiones;
 	private int pesoAsignado;
 	private Exigencia exigenciaMuscular;
 	private GrupoMuscular grupoMuscular;
 
-	public Ejercicio(
-			String nombre,
-			int nivelAerobico,
-			int duracion,
-			int series,
-			int repeticiones,
-			int pesoAsignado,
-			Exigencia exigenciaMuscular,
-			GrupoMuscular grupoMuscular) {
+	public Ejercicio(String nombre,	int nivelAerobico, int series,  int repeticiones, int pesoAsignado, Exigencia exigenciaMuscular, GrupoMuscular grupoMuscular) {
 		this.nombre = nombre;
 		this.nivelAerobico = nivelAerobico;
-		this.duracion = duracion;
 		this.series = series;
 		this.repeticiones = repeticiones;
 		this.pesoAsignado = pesoAsignado;
 		this.exigenciaMuscular = exigenciaMuscular;
 		this.grupoMuscular = grupoMuscular;
+	}
+
+	public Ejercicio() {
+	}
+
+	public void agregarEjercicio(String nombre, int nivelAerobico, int series, int repeticiones, int pesoAsignado, Exigencia exigenciuaMuscular, GrupoMuscular grupoMuscular) throws EjercicioExistenteException {
+        if(buscarEjercicio(nombre)==null){
+            Ejercicio ejercicio = new Ejercicio(nombre, nivelAerobico, series, repeticiones, pesoAsignado, exigenciuaMuscular, grupoMuscular);
+            ControladorEjercicio.ejercicios.add(ejercicio);
+            return;
+        }
+        throw new EjercicioExistenteException("Error, El ejercicio ya existe.");
+    }
+
+	private Ejercicio buscarEjercicio(String nombre) {
+		for (Ejercicio ejercicio: ControladorEjercicio.ejercicios) {
+			if (ejercicio.soyEseEjercicio(nombre)) {
+				return ejercicio;
+			}
+		}
+		return null;
+	}
+	
+	public boolean soyEseEjercicio(String nombre) {
+		return this.nombre.equals(nombre.toUpperCase());
 	}
 
 	public String getNombre() {
@@ -46,14 +63,6 @@ public class Ejercicio {
 
 	public void setNivelAerobico(int nivelAerobico) {
 		this.nivelAerobico = nivelAerobico;
-	}
-
-	public int getDuracion() {
-		return duracion;
-	}
-
-	public void setDuracion(int duracion) {
-		this.duracion = duracion;
 	}
 
 	public int getSeries() {

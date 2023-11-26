@@ -5,9 +5,14 @@ import modelo.moduloMediciones.Medida;
 import modelo.Socio;
 
 public class BajarPeso extends ObjetivoStrategy {
-	private float pesoInicial;
-	private float alturaInicial;
-	public BajarPeso(double duracion,  float peso, float altura) {
+	private double pesoInicial;
+	private double alturaInicial;
+	private double duracionEntrenamiento;
+	private double pesoIdeal;
+	private double durMaxima=1.5;
+    private double durMinima=1;
+
+	public BajarPeso(double duracion,  double peso, double altura) {
 		super(duracion, 0, 3);
 		this.pesoInicial = peso;
 		this.alturaInicial = altura;
@@ -32,14 +37,13 @@ public class BajarPeso extends ObjetivoStrategy {
 
 	public String getNombreObjetivo(){
 		return "BajarPeso";
-		
 	}
 
-	public float getAlturaInicial(){
+	public double getAlturaInicial(){
 		return this.alturaInicial;
 	}
 
-	public float getPesoInicial() {
+	public double getPesoInicial() {
 		return this.pesoInicial;
 	}
 
@@ -47,4 +51,19 @@ public class BajarPeso extends ObjetivoStrategy {
 	public void chequearTrofeo() {
 		// TODO Auto-generated method stub
 	}
+	public void setDuracionEntrenamiento(double duracionEntrenamiento) {
+        this.duracionEntrenamiento = duracionEntrenamiento;
+    }
+
+	public double getDurMaxima() {
+		return durMaxima;
+	}
+
+	
+	
+	public double getDurMinima() {
+		return durMinima;
+	}
+
+	
 }

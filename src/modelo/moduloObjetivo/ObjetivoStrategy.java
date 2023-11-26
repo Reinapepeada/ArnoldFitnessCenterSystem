@@ -13,20 +13,23 @@ public abstract class ObjetivoStrategy extends TrofeoObservador {
 	private int nAerobicMax;
 	private Rutina rutina;
 	private List<Exigencia> exigencia;
-
+	private double durMaxima;
+    private double durMinima;
+	
 	protected ObjetivoStrategy(double duracion, int nMin, int nMax){
 		this.duracion = duracion;
 		this.nAerobicMin = nMin;
 		this.nAerobicMax = nMax;
 	}
-
+	
 	//metodos para implemetar en los objetivos 
 	abstract double calcularMedidaIdeal();
-
 	abstract boolean verificarObjetivo(Socio soc);
 	
 	@Override
     public abstract void chequearTrofeo();
+
+	
 	
 	public double getDuracion() {
 		return duracion;
@@ -61,5 +64,17 @@ public abstract class ObjetivoStrategy extends TrofeoObservador {
 	}
 	public void setnAerobicMax(int nAerobicMax) {
 		this.nAerobicMax = nAerobicMax;
+	}
+
+    public void setTolerancia(double tol) {
+    }
+
+	public double getDurMaxima() {
+		return durMaxima;
+	}
+
+	
+	public double getDurMinima() {
+		return durMinima;
 	}
 }

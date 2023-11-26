@@ -5,17 +5,22 @@ import modelo.moduloMediciones.Medida;
 
 
 public class Tonificar extends ObjetivoStrategy {
-    private double porcenInitGrsa;
-    private double porcenInitMus;
-    private double peso;
-    private double altura;
+    private double porcentajeGrsa;
+    private double porcentjesMus;
+    private double pesoInicial;
+	private double alturaInicial;
+    private double duracionEntrenamiento;
+    private double pesoIdeal;
+    private double durMaxima=2.5;
+    private double durMinima=2;
 
-    public Tonificar(double duracion,  float peso, float altura,double porcenInitGrsa,double porcenInitMus) {
+    public Tonificar(double duracion,  double peso, double altura,
+            double porcenInitGrsa, double porcenInitMus) {
         super(duracion, 4, 5);
-        this.porcenInitGrsa = porcenInitGrsa;
-        this.porcenInitMus = porcenInitMus;
-        this.altura = altura;
-        this.peso = peso;
+        this.porcentajeGrsa = porcenInitGrsa;
+        this.porcentjesMus = porcenInitMus;
+        this.alturaInicial = altura;
+        this.pesoInicial = peso;
     }
 
     
@@ -31,7 +36,7 @@ public class Tonificar extends ObjetivoStrategy {
         BalanzaSystemAdapter balanza = new BalanzaSystemAdapter();
         Medida medidaActual = balanza.tomarMedidas(soc);
 
-        if (medidaActual.getPorcentajeMusculo() >= nivelIdealMuscular && medidaActual.getPorcentajeGrasa() <= nivelIdealGrasa) {
+        if (medidaActual.getPorcentajeMusculo() >= porcentjesMus && medidaActual.getPorcentajeGrasa() <= porcentajeGrsa) {
             return true; 
         }
         return false;
@@ -46,4 +51,18 @@ public class Tonificar extends ObjetivoStrategy {
 		// TODO Auto-generated method stub
 		
 	}
+
+    public void setDuracionEntrenamiento(double duracionEntrenamiento) {
+        this.duracionEntrenamiento = duracionEntrenamiento;
+    }
+
+    public double getDurMaxima() {
+		return durMaxima;
+	}
+
+	
+	public double getDurMinima() {
+		return durMinima;
+	}
+
 }

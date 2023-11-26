@@ -1,53 +1,76 @@
 package control;
 
+import java.awt.Container;
+import java.awt.List;
 import java.util.ArrayList;
+
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
-import javax.swing.JSpinner;
 import javax.swing.JTextField;
+import javax.swing.plaf.basic.BasicInternalFrameUI;
 
+import modelo.Entrenamiento;
 import modelo.Socio;
+import modelo.VOs.SocioVo;
+import modelo.excepciones.CredencialesInvalidasException;
 import modelo.excepciones.SocioExistenteException;
-import vistas.VistaRegistrarSocio;
+
 
 public class ControladorSocio {
-    public static ArrayList<Socio> usuarios;
+	public static ArrayList<Socio> usuarios = new ArrayList<Socio>();
 
-    public ControladorSocio(){
-		ControladorSocio.usuarios = new ArrayList<Socio>();
+	private Socio a = new Socio();
 
-    }
-
-     public static void registrarSocio(JTextField nombre, JTextField apellido, JTextField email, JTextField dni, JTextField edad, JTextField sexo, JPasswordField password, JSpinner peso, JSpinner altura) {
-        String nombreSocio = nombre.getText();
-        String apellidoSocio = apellido.getText();
-		String emailSocio = email.getText();
-		String dniSocio = dni.getText();
-		String edadSocio = edad.getText();
-        String sexoSocio = sexo.getText();
-		String passwordSocio = new String(password.getPassword());
-        Double pesoSocio = (Double) peso.getValue();
-		Double alturaSocio = (Double) altura.getValue();
+	public void autenticarUsuario(JTextField dni, JPasswordField contrasena) {
+		String usr = dni.getText();
+		// System.out.println("DNI: "+usr);
+		String password = new String(contrasena.getPassword());
+		// System.out.println("Password: "+password);
 
 		try {
-			Socio.registrarSocio(nombreSocio, apellidoSocio, emailSocio, dniSocio, edadSocio, sexoSocio, passwordSocio, pesoSocio, alturaSocio);
-			JOptionPane.showMessageDialog(null, "¡El cliente se ha creado con Exito!");
-			//VistaCreacionCliente vistaCreacionCliente = (VistaCreacionCliente) SwingUtilities.getWindowAncestor(nombre);
-			//vistaCreacionCliente.setVisible(false);
-			//VistaCreacionUsuario vistaCreacionUsuario = (VistaCreacionUsuario) SwingUtilities.getWindowAncestor(usuario);
-			//vistaCreacionUsuario.setVisible(false);
-		}
-		catch (SocioExistenteException e) {
+			a = a.autenticarUsuario(usr, password);
+			JOptionPane.showMessageDialog(null, "¡Bienvenido a Gym Buddy!");
+			// VistaInicioSesion vistaInicioSesion = (VistaInicioSesion)
+			// SwingUtilities.getWindowAncestor(usuario);
+			// vistaInicioSesion.setVisible(false);
+			verListadoSocios(usuarios);
+			WindowManagerSingleton.getInstance().disponibilizarVistaMenuPrincipal();
+
+		} catch (CredencialesInvalidasException e) {
+			// e.printStackTrace();
 			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
 	}
 
-	public static void disponivilizarVistaRegistrarSocio() {
-		VistaRegistrarSocio vRS = new VistaRegistrarSocio();
-		vRS.setVisible(true);
-		vRS.setSize(500, 500);
-		vRS.setLocation(0, 0);
-		
+	public void registrarSocio(SocioVo svo) {
+
+		try {
+			a.registrarSocio(svo.getNombre(), svo.getApellido(), svo.getEmail(), svo.getDni(), svo.getEdad(),
+					svo.getSexo(), svo.getPassword(), svo.getAltura(), svo.getPeso());
+			JOptionPane.showMessageDialog(null, "¡El Socio se ha creado con Exito!");
+			WindowManagerSingleton.getInstance().disponibilizarVistaMenuPrincipal();
+
+		} catch (SocioExistenteException e) {
+			JOptionPane.showMessageDialog(null, e.getMessage());
+		}
+	}
+
+	public void verListadoSocios(ArrayList<Socio> usuarios) {
+		for (Socio a : usuarios) {
+			System.out.println("Socio: " + a.getNombre() + " - DNI: " + a.getDni() + " - Password: -" + a.getPassword()
+					+ "-" + "Peso: " + a.getPeso());
+		}
+
+	}
+
+
+	public SocioVo getSocioVOActual() {
+		return a.getVO();
+	}
+
+	public Socio getSocioActual() {
+		return a;
 	}
 
 }

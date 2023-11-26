@@ -15,7 +15,8 @@ import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
-import control.ControladorRegistrarSocio;
+import control.ControladorSocio;
+import modelo.VOs.SocioVo;
 
 public class VistaRegistrarSocio extends JFrame{
 	
@@ -28,9 +29,8 @@ public class VistaRegistrarSocio extends JFrame{
 	private JPasswordField password;
     private JSpinner peso;
 	private JSpinner altura;
+	private ControladorSocio cs;
 
-	//String [] obj = {"BajarPeso", "Tonificar", "Mantener"};
-	
 	public VistaRegistrarSocio() {
 		super ("Arnold Fitness Center - Registrarse");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -132,7 +132,20 @@ public class VistaRegistrarSocio extends JFrame{
 		class HandlerRegistrarSocio implements ActionListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ControladorRegistrarSocio.registrarSocio(nombre, apellido, email, dni, edad, sexo, password, peso, altura);
+
+				String nombreSocio = nombre.getText();
+				String apellidoSocio = apellido.getText();
+				String emailSocio = email.getText();
+				String dniSocio = dni.getText();
+				String edadSocio = edad.getText();
+				String sexoSocio = sexo.getText();
+				String passwordSocio = new String(password.getPassword());
+				double pesoSocio = (double) peso.getValue();
+				System.out.println("pesoSocio: "+pesoSocio);
+				double alturaSocio = (double) altura.getValue();
+				
+				SocioVo svo = cs.getSocioVOActual();
+				cs.registrarSocio(svo);
 				}
 			}
 				
@@ -147,5 +160,10 @@ public class VistaRegistrarSocio extends JFrame{
 		panel1.add(contBotones);
 		
 		this.add(panel1, BorderLayout.CENTER);
+	}
+
+	public void setCSocio(ControladorSocio cs){
+		this.cs = cs;
+
 	}
 }

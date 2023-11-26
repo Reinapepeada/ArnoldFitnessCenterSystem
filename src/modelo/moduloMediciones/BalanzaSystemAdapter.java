@@ -2,7 +2,7 @@ package modelo.moduloMediciones;
 import modelo.Socio;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import modelo.Socio;
 import java.util.Random;
 
 public class BalanzaSystemAdapter implements AdapterMedida {

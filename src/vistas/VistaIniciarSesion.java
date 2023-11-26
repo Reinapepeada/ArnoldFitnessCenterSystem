@@ -13,14 +13,16 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import control.ControladorIniciarSesion;
+import control.ControladorSocio;
 
 public class VistaIniciarSesion extends JFrame {
+
+	ControladorSocio cs;
 
     private JTextField usuario;
 	private JPasswordField contrasena;
 	
-	public VistaIniciarSesion() {
+	public VistaIniciarSesion(ControladorSocio cs) {
 		super ("Arnold Fitness Center - Inicio de sesion");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setLayout(new BorderLayout());
@@ -55,7 +57,7 @@ public class VistaIniciarSesion extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ControladorIniciarSesion.autenticarUsuario(usuario, contrasena);
+				cs.autenticarUsuario(usuario, contrasena);
 			}
 		}
 		
@@ -71,6 +73,11 @@ public class VistaIniciarSesion extends JFrame {
 		panel1.add(contBotones);
 		
 	    this.add(panel1,BorderLayout.CENTER);
+
+	}
+
+	public void setCSocio(ControladorSocio cs){
+		this.cs = cs;
 
 	}
 
