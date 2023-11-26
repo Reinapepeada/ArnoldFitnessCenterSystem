@@ -3,9 +3,16 @@ import control.ControladorAdmin;
 import control.ControladorEjercicio;
 import control.ControladorObjetivo;
 import control.ControladorSocio;
+import modelo.Ejercicio;
+import modelo.Entrenamiento;
 import modelo.Socio;
 import modelo.VOs.SocioVo;
+import modelo.enums.Exigencia;
+import modelo.enums.GrupoMuscular;
+import modelo.excepciones.EjercicioExistenteException;
 import modelo.excepciones.SocioExistenteException;
+import modelo.moduloObjetivo.ObjetivoStrategy;
+import modelo.moduloObjetivo.Tonificar;
 import vistas.VistaBienvenida;
 import vistas.VistaIniciarSesion;
 import vistas.VistaRegistrarSocio;
@@ -29,6 +36,33 @@ public class App {
         } catch (SocioExistenteException e) {
 			e.printStackTrace();
 		}
+
+        try{
+            Ejercicio ej1 = new Ejercicio();
+            ej1.agregarEjercicio("Pecho Plano", 2, 3, 5, 70, Exigencia.ALTA, GrupoMuscular.PECHO);
+            
+            Ejercicio ej2 = new Ejercicio();
+            ej2.agregarEjercicio("Saltar Soga", 8, 5, 50, 0, Exigencia.BAJA, GrupoMuscular.PIERNAS);
+
+            Ejercicio ej3 = new Ejercicio();
+            ej3.agregarEjercicio("Curl Biceps", 2, 3, 10, 15, Exigencia.ALTA, GrupoMuscular.BRAZOS);
+
+            Ejercicio ej4 = new Ejercicio();
+            ej4.agregarEjercicio("Chin Ups", 3, 5, 5, 0, Exigencia.ALTA, GrupoMuscular.ESPALDA);
+
+            Ejercicio ej5 = new Ejercicio();
+            ej5.agregarEjercicio("Press Arnold", 1, 4, 10, 20, Exigencia.ALTA, GrupoMuscular.HOMBRO);
+        } catch (EjercicioExistenteException e){
+            e.printStackTrace();
+        }
+
+
+        /*
+        try{
+            Entrenamiento ent1 = new Entrenamiento(null);
+
+        }
+        */
         
         //INSTANCIAR CONTROLADORES
         ControladorAdmin ca = new ControladorAdmin();
