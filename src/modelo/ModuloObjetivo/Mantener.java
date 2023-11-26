@@ -11,16 +11,13 @@ public class Mantener extends ObjetivoStrategy {
         this.pesoInicial = pesoInicial;
         this.toleraciaVsPesoInicial = tol;
     }
-    @Override
-    public double calcularMedidaIdeal(){
-        return this.getPesoInicial() + this.getToleraciaVsPesoInicial();
-    }
+
     @Override
     public boolean verificarObjetivo(){
         // TODO - verificar si el peso actual esta entre el rango pasado por parametro 
         // como hacemos para acceder a la medida actual
         int medidaActual = 0; // deberia ir la medida actual
-        if(medidaActual > pesoInicial - toleraciaVsPesoInicial && medidaActual < pesoInicial + toleraciaVsPesoInicial ){
+        if(medidaActual >= pesoInicial - toleraciaVsPesoInicial && medidaActual <=  pesoInicial + toleraciaVsPesoInicial ){
             return true;
         }
         return false;
@@ -53,6 +50,12 @@ public class Mantener extends ObjetivoStrategy {
 		// TODO Auto-generated method stub
 		
 	}
+
+    @Override
+    double calcularMedidaIdeal() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'calcularMedidaIdeal'");
+    }
 
     
 }

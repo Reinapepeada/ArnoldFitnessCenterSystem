@@ -11,11 +11,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import control.ControladorSocio;
+import modelo.Socio;
 import modelo.VOs.SocioVo;
 
 public class VistaGestionarObjetivo extends JFrame {
 
-    public VistaGestionarObjetivo(ControladorSocio cs, SocioVo svo) {
+    public VistaGestionarObjetivo(ControladorSocio cs, Socio a) {
 
         super ("Arnold Fitness Center - Menu Socio");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -35,7 +36,7 @@ public class VistaGestionarObjetivo extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				cs.disponibilizarVistaSeleccionarObjetivo(svo);
+				cs.disponibilizarVistaSeleccionarObjetivo(a);
 			}
 		}
 		

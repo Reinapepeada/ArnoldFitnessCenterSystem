@@ -10,6 +10,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
+import modelo.Entrenamiento;
 import modelo.Socio;
 import modelo.VOs.SocioVo;
 import modelo.enums.Objetivo;
@@ -61,8 +62,8 @@ public class ControladorSocio {
 		try {
 			a.registrarSocio(svo.getNombre(), svo.getApellido(), svo.getEmail(), svo.getDni(), svo.getEdad(), svo.getSexo(), svo.getPassword(), svo.getAltura(), svo.getPeso());
 			JOptionPane.showMessageDialog(null, "¡El Socio se ha creado con Exito!");
-			disponibilizarVistaMenuPrincipal(svo);
-			
+			System.out.println("a.registrarSocio(svo...) peso: "+a.getPeso());
+			disponibilizarVistaSeleccionarObjetivo(a);
 		}
 		catch (SocioExistenteException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
@@ -113,8 +114,8 @@ public class ControladorSocio {
  	
 	//VISTAS
 
-	public void disponibilizarVistaMenuPrincipal(SocioVo svo) {
-		VistaMenuPrincipal vMAS = new VistaMenuPrincipal(this, svo);
+	public void disponibilizarVistaMenuPrincipal(Socio a) {
+		VistaMenuPrincipal vMAS = new VistaMenuPrincipal(this, a);
 		vMAS.setVisible(true);
 		vMAS.setSize(500,500);
 		vMAS.setLocation(0,0);
@@ -136,15 +137,15 @@ public class ControladorSocio {
 		
 	}
 
-	public void disponibilizarVistaMenuSocio(SocioVo svo) {
-		VistaMenuSocio vMS = new VistaMenuSocio(this, svo);
+	public void disponibilizarVistaMenuSocio(Socio a) {
+		VistaMenuSocio vMS = new VistaMenuSocio(this, a);
 		vMS.setVisible(true);
 		vMS.setSize(500, 500);
 		vMS.setLocation(0, 0);
 	}
 	
-	public void disponibilizarVistaGestionarMedidas(SocioVo svo) {
-		VistaGestionarMedidas vGM = new VistaGestionarMedidas(this, svo);
+	public void disponibilizarVistaGestionarMedidas(Socio a) {
+		VistaGestionarMedidas vGM = new VistaGestionarMedidas(this, a);
 		vGM.setVisible(true);
 		vGM.setSize(500, 500);
 		vGM.setLocation(0, 0);
@@ -157,14 +158,14 @@ public class ControladorSocio {
 		vCE.setLocation(0, 0);
 	}
 
-	public void disponibilizarVistaGestionarObjetivo(SocioVo svo) {
-		VistaGestionarObjetivo vGO = new VistaGestionarObjetivo(this, svo);
+	public void disponibilizarVistaGestionarObjetivo(Socio a) {
+		VistaGestionarObjetivo vGO = new VistaGestionarObjetivo(this, a);
 		vGO.setVisible(true);
 		vGO.setSize(500, 500);
 		vGO.setLocation(0, 0);
 	}
 
-	public void disponibilizarVistaSeleccionarObjetivo(SocioVo svo) {
+	public void disponibilizarVistaSeleccionarObjetivo(Socio a) {
 		VistaSeleccionarObjetivo vSO = new VistaSeleccionarObjetivo(this, a);
 		vSO.setVisible(true);
 		vSO.setSize(500, 500);

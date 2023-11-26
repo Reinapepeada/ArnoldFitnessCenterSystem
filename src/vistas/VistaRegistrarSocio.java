@@ -140,6 +140,7 @@ public class VistaRegistrarSocio extends JFrame{
 				String sexoSocio = sexo.getText();
 				String passwordSocio = new String(password.getPassword());
 				double pesoSocio = (double) peso.getValue();
+				System.out.println("pesoSocio: "+pesoSocio);
 				double alturaSocio = (double) altura.getValue();
 				
 				SocioVo svo = new SocioVo(nombreSocio, apellidoSocio, emailSocio, dniSocio, edadSocio, sexoSocio, passwordSocio, pesoSocio, alturaSocio);

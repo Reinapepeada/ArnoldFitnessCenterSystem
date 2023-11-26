@@ -12,6 +12,8 @@ public abstract class ObjetivoStrategy extends TrofeoObservador {
 	private int nAerobicMax;
 	private Rutina rutina;
 	private List<Exigencia> exigencia;
+	abstract double calcularMedidaIdeal();
+	abstract boolean verificarObjetivo();
 
 	protected ObjetivoStrategy(double duracion, int nMin, int nMax){
 		this.duracion = duracion;
@@ -20,9 +22,7 @@ public abstract class ObjetivoStrategy extends TrofeoObservador {
 	}
 
 	//metodos para implemetar en los objetivos 
-	abstract double calcularMedidaIdeal();
 
-	abstract boolean verificarObjetivo();
 	
 	@Override
 	public

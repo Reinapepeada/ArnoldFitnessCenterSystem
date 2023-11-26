@@ -1,5 +1,6 @@
 package modelo.VOs;
 
+import modelo.moduloObjetivo.ObjetivoStrategy;
 
 public class SocioVo{
     private String edad;
@@ -98,5 +99,4 @@ public class SocioVo{
     public void setAltura(double altura){
         this.altura = altura;
     }
-
 }

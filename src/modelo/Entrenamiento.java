@@ -11,7 +11,7 @@ import modelo.moduloRutina.Rutina;
 
 public class Entrenamiento {
 	private ObjetivoStrategy objetivo;
-	private List<Ejercicio> ejercicios;
+	private List<Ejercicio> ejerciciosEntrenamiento;
 
 	public Entrenamiento(ObjetivoStrategy objetivo) {
 		this.objetivo = objetivo;
@@ -22,32 +22,32 @@ public class Entrenamiento {
 	}
 	public void asignarEjercicios(){
 		// TODO - implement Entrenamiento.asignarEjercicios
-		ejercicios = new ArrayList<Ejercicio>();
+		ejerciciosEntrenamiento = new ArrayList<Ejercicio>();
 		switch (objetivo.getClass().getSimpleName()) {
             case "Tonificar":
 				for (Ejercicio ejercicio : ControladorEjercicio.ejercicios) {
 					if(ejercicio.getNivelAerobico() <=4 && ejercicio.getExigenciaMuscular() == Exigencia.ALTA && !estaGrupo(ejercicio.getGrupoMuscular())){
-						ejercicios.add(ejercicio);
+						ejerciciosEntrenamiento.add(ejercicio);
 					}
 				}
             case "BajarPeso":
 				for (Ejercicio ejercicio : ControladorEjercicio.ejercicios) {
 					if((ejercicio.getNivelAerobico() >=3 && !estaGrupo(ejercicio.getGrupoMuscular()))){
-						ejercicios.add(ejercicio);
+						ejerciciosEntrenamiento.add(ejercicio);
 					}
 				}
 
             case "Mantener":
 				for (Ejercicio ejercicio : ControladorEjercicio.ejercicios) {
 					if(((ejercicio.getNivelAerobico() >=2 || ejercicio.getNivelAerobico() <=4)  && (ejercicio.getExigenciaMuscular() == Exigencia.MEDIA || ejercicio.getExigenciaMuscular() == Exigencia.BAJA) && !estaGrupo(ejercicio.getGrupoMuscular()))){
-						ejercicios.add(ejercicio);
+						ejerciciosEntrenamiento.add(ejercicio);
 					}
 				}
 		}
 	}
 
 	private boolean estaGrupo(GrupoMuscular grupoMuscular) {
-		for (Ejercicio ejercicio : ejercicios) {
+		for (Ejercicio ejercicio : ejerciciosEntrenamiento) {
 			if(grupoMuscular == ejercicio.getGrupoMuscular()){
 				return true;
 			}
@@ -60,10 +60,10 @@ public class Entrenamiento {
 	}
 
 	public List<Ejercicio> getEjercicios() {
-		return ejercicios;
+		return ejerciciosEntrenamiento;
 	}
 
 	public void setEjercicios(List<Ejercicio> ejercicios) {
-		this.ejercicios = ejercicios;
+		this.ejerciciosEntrenamiento = ejercicios;
 	} 
 }

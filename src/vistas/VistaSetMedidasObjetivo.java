@@ -22,7 +22,7 @@ import modelo.moduloObjetivo.ObjetivoStrategy;
 
 public class VistaSetMedidasObjetivo extends JFrame{
 	private JComboBox<Double> duracion;
-    public VistaSetMedidasObjetivo(ControladorSocio controladorSocio, Socio a, ObjetivoStrategy os, double min, double max) {
+    public VistaSetMedidasObjetivo(ControladorSocio cs, Socio a, ObjetivoStrategy os, double min, double max) {
         super ("Arnold Fitness Center - Setear Medidas Objetivo");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setLayout(new BorderLayout());
@@ -56,6 +56,7 @@ public class VistaSetMedidasObjetivo extends JFrame{
 				System.out.println("Duracion Seleccionada: "+dur);
                	BajarPeso bp = new BajarPeso(dur, alturaSocio, pesoSocio);
 			   	a.setObjetivo(bp);
+				cs.disponibilizarVistaMenuPrincipal(a);
 			}
 		}
 
