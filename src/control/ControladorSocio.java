@@ -151,7 +151,7 @@ public class ControladorSocio {
 	}
 
 	public void disponibilizarVistaComenzarEntrenamiento() {
-		VistaComenzarEntrenamiento vCE = new VistaComenzarEntrenamiento(this);
+		VistaComenzarEntrenamiento vCE = new VistaComenzarEntrenamiento(this, a);
 		vCE.setVisible(true);
 		vCE.setSize(500, 500);
 		vCE.setLocation(0, 0);

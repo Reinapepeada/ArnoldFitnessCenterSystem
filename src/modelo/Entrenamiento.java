@@ -1,26 +1,58 @@
 package modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import control.ControladorEjercicio;
+import modelo.enums.Exigencia;
 import modelo.enums.GrupoMuscular;
 import modelo.moduloObjetivo.ObjetivoStrategy;
+import modelo.moduloRutina.Rutina;
 
 public class Entrenamiento {
 	private ObjetivoStrategy objetivo;
 	private List<Ejercicio> ejercicios;
-	private GrupoMuscular grupoMuscular;
 
-	public Entrenamiento(
-			ObjetivoStrategy objetivo,
-			List<Ejercicio> ejercicios,
-			GrupoMuscular grupoMuscular) {
+	public Entrenamiento(ObjetivoStrategy objetivo) {
 		this.objetivo = objetivo;
-		this.ejercicios = ejercicios;
-		this.grupoMuscular = grupoMuscular;
 	}
 
 	public ObjetivoStrategy getObjetivo() {
 		return objetivo;
+	}
+	public void asignarEjercicios(){
+		// TODO - implement Entrenamiento.asignarEjercicios
+		ejercicios = new ArrayList<Ejercicio>();
+		switch (objetivo.getClass().getSimpleName()) {
+            case "Tonificar":
+				for (Ejercicio ejercicio : ControladorEjercicio.ejercicios) {
+					if(ejercicio.getNivelAerobico() <=4 && ejercicio.getExigenciaMuscular() == Exigencia.ALTA && !estaGrupo(ejercicio.getGrupoMuscular())){
+						ejercicios.add(ejercicio);
+					}
+				}
+            case "BajarPeso":
+				for (Ejercicio ejercicio : ControladorEjercicio.ejercicios) {
+					if((ejercicio.getNivelAerobico() >=3 && !estaGrupo(ejercicio.getGrupoMuscular()))){
+						ejercicios.add(ejercicio);
+					}
+				}
+
+            case "Mantener":
+				for (Ejercicio ejercicio : ControladorEjercicio.ejercicios) {
+					if(((ejercicio.getNivelAerobico() >=2 || ejercicio.getNivelAerobico() <=4)  && (ejercicio.getExigenciaMuscular() == Exigencia.MEDIA || ejercicio.getExigenciaMuscular() == Exigencia.BAJA) && !estaGrupo(ejercicio.getGrupoMuscular()))){
+						ejercicios.add(ejercicio);
+					}
+				}
+		}
+	}
+
+	private boolean estaGrupo(GrupoMuscular grupoMuscular) {
+		for (Ejercicio ejercicio : ejercicios) {
+			if(grupoMuscular == ejercicio.getGrupoMuscular()){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public void setObjetivo(ObjetivoStrategy objetivo) {
@@ -33,14 +65,5 @@ public class Entrenamiento {
 
 	public void setEjercicios(List<Ejercicio> ejercicios) {
 		this.ejercicios = ejercicios;
-	}
-
-	public GrupoMuscular getGrupoMuscular() {
-		return grupoMuscular;
-	}
-
-	public void setGrupoMuscular(GrupoMuscular grupoMuscular) {
-		this.grupoMuscular = grupoMuscular;
-	}
-
+	} 
 }
