@@ -20,20 +20,21 @@ public class Mantener extends ObjetivoStrategy {
     }
 
     @Override
-    public double calcularMedidaIdeal() {
-        return this.getPesoInicial();
-    }
-
-    @Override
-    public boolean verificarObjetivo(Socio soc) {
-       // TODO - verificar si el peso actual esta entre el rango pasado por parametro 
-        // como hacemos para acceder a la medida actual
+    public boolean medidaIdeal(Socio soc) {
         BalanzaSystemAdapter balanza = new BalanzaSystemAdapter();
         Medida medidaActual = balanza.tomarMedidas(soc); // deberia ir la medida actual
         if(medidaActual.getPeso() > pesoInicial - toleraciaVsPesoInicial && medidaActual.getPeso() < pesoInicial + toleraciaVsPesoInicial ){
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean verificarObjetivo(Socio soc) {
+       // TODO - verificar si el peso actual esta entre el rango pasado por parametro 
+        // como hacemos para acceder a la medida actual
+        return medidaIdeal(soc);
+        
     }
         
 

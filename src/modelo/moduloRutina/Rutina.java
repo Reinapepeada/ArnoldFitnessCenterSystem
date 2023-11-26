@@ -40,9 +40,11 @@ public class Rutina {
 			int repeticiones,
 			float peso,
 			boolean completado) {
+		// Entrenamiento 
 	}
 
 	public void comenzarDia() {
+
 	}
 
 	public ObjetivoStrategy getObjetivo() {

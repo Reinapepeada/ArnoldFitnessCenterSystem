@@ -25,21 +25,29 @@ public class Tonificar extends ObjetivoStrategy {
 
     
     @Override
-    public double calcularMedidaIdeal(){
-    	// TODO -
-        return 0;
+    public boolean medidaIdeal(Socio soc){
+        BalanzaSystemAdapter balanza = new BalanzaSystemAdapter();
+        Medida medidaActual = balanza.tomarMedidas(soc);
+
+        if (medidaActual.getPorcentajeMusculo() >= calcularMasaIdeal() && medidaActual.getPorcentajeGrasa() <= calcularGrasaIdeal(soc)) {
+            return true; 
+        }
+        return false;
+    }
+    public double calcularGrasaIdeal(Socio soc){
+        if(soc.getSexo().equals("Masculino")){
+            return (1.2 * calcularMasaIdeal()) + (0.23 * Integer.parseInt(soc.getEdad())) - 16.2;
+        }else{
+            return (1.2 * calcularMasaIdeal()) + (0.23 * Integer.parseInt(soc.getEdad())) - 5.4;
+        }
+    }
+    public double calcularMasaIdeal(){
+        return this.pesoInicial / (this.alturaInicial * this.alturaInicial);
     }
 
     @Override
     public boolean verificarObjetivo(Socio soc){
-        // TODO -
-        BalanzaSystemAdapter balanza = new BalanzaSystemAdapter();
-        Medida medidaActual = balanza.tomarMedidas(soc);
-
-        if (medidaActual.getPorcentajeMusculo() >= porcentjesMus && medidaActual.getPorcentajeGrasa() <= porcentajeGrsa) {
-            return true; 
-        }
-        return false;
+        return medidaIdeal(soc) ;
     }
 
     public String getNombreObjetivo(){

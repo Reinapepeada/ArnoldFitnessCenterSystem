@@ -19,20 +19,22 @@ public class BajarPeso extends ObjetivoStrategy {
 	}
 	
 	@Override
-	public double calcularMedidaIdeal() {
-        // Fórmula del IMC: peso / (altura^2)
-        return this.getPesoInicial() / (this.getAlturaInicial() * this.getAlturaInicial());
+	public boolean medidaIdeal(Socio soc) {
+        // TODO - verificar con la medida actual contra la medida medida ideal
+		BalanzaSystemAdapter balanza = new BalanzaSystemAdapter();
+        Medida medidaActual = balanza.tomarMedidas(soc); // deberia ir la medida actual
+		if(calcularBMI() >= medidaActual.getBMi()){
+			return true;
+		}
+		return false;
+	}
+	public double calcularBMI(){
+		return this.getPesoInicial() / (this.getAlturaInicial() * this.getAlturaInicial());
 	}
 
 	@Override
 	public boolean verificarObjetivo(Socio soc){
-		// TODO - verificar con la medida actual contra la medida medida ideal
-		BalanzaSystemAdapter balanza = new BalanzaSystemAdapter();
-        Medida medidaActual = balanza.tomarMedidas(soc); // deberia ir la medida actual
-		if(calcularMedidaIdeal() >= medidaActual.getBMi()){
-			return true;
-		}
-		return false;
+		return medidaIdeal(soc);
 	}
 
 	public String getNombreObjetivo(){

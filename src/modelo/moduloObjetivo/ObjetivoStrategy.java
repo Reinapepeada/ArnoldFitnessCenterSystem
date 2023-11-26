@@ -23,7 +23,7 @@ public abstract class ObjetivoStrategy extends TrofeoObservador {
 	}
 	
 	//metodos para implemetar en los objetivos 
-	abstract double calcularMedidaIdeal();
+	abstract boolean medidaIdeal(Socio soc);
 	abstract boolean verificarObjetivo(Socio soc);
 	
 	@Override
