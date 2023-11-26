@@ -21,8 +21,8 @@ import vistas.VistaSetMedidasMantener;
 import vistas.VistaSetMedidasObjetivo;
 
 public class WindowManagerSingleton {
-	
-	//vistas
+
+	// vistas
 	private static WindowManagerSingleton instance;
 	private VistaBienvenida vBienvenida;
 	private VistaIniciarSesion vIniciarSesion;
@@ -44,14 +44,14 @@ public class WindowManagerSingleton {
 	private ControladorObjetivo co;
 
 	private WindowManagerSingleton() {
-		//instanciamos los controladores
+		// instanciamos los controladores
 		cs = new ControladorSocio();
 		ca = new ControladorAdmin();
 		ce = new ControladorEjercicio();
 		co = new ControladorObjetivo();
-		
-		//instanciamos las vistas
-		
+
+		// instanciamos las vistas
+
 		vBienvenida = new VistaBienvenida();
 		vIniciarSesion = new VistaIniciarSesion();
 		vSeleccionarObjetivo = new VistaSeleccionarObjetivo();
@@ -64,12 +64,8 @@ public class WindowManagerSingleton {
 		vSetMedidasMantener = new VistaSetMedidasMantener();
 		vSetMedidasObjetivo = new VistaSetMedidasObjetivo();
 		vComenzarEntrenamiento = new VistaComenzarEntrenamiento();
-		
-		
-		
 
-
-		//seteamos los controladores en las vistas
+		// seteamos los controladores en las vistas
 		vRegistrarSocio.setCSocio(cs);
 		//
 		vIniciarSesion.setCSocio(cs);
@@ -85,102 +81,97 @@ public class WindowManagerSingleton {
 		// seteamos los controladores en los controladores
 		co.setCSocio(cs);
 	}
-	
+
 	public static WindowManagerSingleton getInstance() {
 		if (instance == null) {
 			instance = new WindowManagerSingleton();
 		}
 		return instance;
 	}
-	
-	
-	
-	
+
 	public void setCS(ControladorSocio cs) {
 		this.cs = cs;
-}
+	}
 
-public void setCA(ControladorAdmin ca) {
-	this.ca = ca;
-}
+	public void setCA(ControladorAdmin ca) {
+		this.ca = ca;
+	}
 
-public void setCE(ControladorEjercicio ce) {
-	this.ce = ce;
-}
+	public void setCE(ControladorEjercicio ce) {
+		this.ce = ce;
+	}
 
-public void setCO(ControladorObjetivo co) {
-	this.co = co;
-}
+	public void setCO(ControladorObjetivo co) {
+		this.co = co;
+	}
 
-//// setter vistas
+	//// setter vistas
 
-public void setVBienvenida(VistaBienvenida vBienvenida) {
-	this.vBienvenida = vBienvenida;
-}
+	public void setVBienvenida(VistaBienvenida vBienvenida) {
+		this.vBienvenida = vBienvenida;
+	}
 
-public void setVIniciarSesion(VistaIniciarSesion vIniciarSesion) {
-	this.vIniciarSesion = vIniciarSesion;
-}
+	public void setVIniciarSesion(VistaIniciarSesion vIniciarSesion) {
+		this.vIniciarSesion = vIniciarSesion;
+	}
 
-public void setVSeleccionarObjetivo(VistaSeleccionarObjetivo vSeleccionarObjetivo) {
-	this.vSeleccionarObjetivo = vSeleccionarObjetivo;
-}
+	public void setVSeleccionarObjetivo(VistaSeleccionarObjetivo vSeleccionarObjetivo) {
+		this.vSeleccionarObjetivo = vSeleccionarObjetivo;
+	}
 
-public void setVGestionarObjetivo(VistaGestionarObjetivo vGestionarObjetivo) {
-	this.vGestionarObjetivo = vGestionarObjetivo;
-}
+	public void setVGestionarObjetivo(VistaGestionarObjetivo vGestionarObjetivo) {
+		this.vGestionarObjetivo = vGestionarObjetivo;
+	}
 
-public void setVActualizarObjetivo(VistaActualizarObjetivo vActualizarObjetivo) {
-	this.vActualizarObjetivo = vActualizarObjetivo;
-}
+	public void setVActualizarObjetivo(VistaActualizarObjetivo vActualizarObjetivo) {
+		this.vActualizarObjetivo = vActualizarObjetivo;
+	}
 
-public void setVGestionarMedidas(VistaGestionarMedidas vGestionarMedidas) {
-	this.vGestionarMedidas = vGestionarMedidas;
-}
+	public void setVGestionarMedidas(VistaGestionarMedidas vGestionarMedidas) {
+		this.vGestionarMedidas = vGestionarMedidas;
+	}
 
-public void setVMenuPrincipal(VistaMenuPrincipal vMenuPrincipal) {
-	this.vMenuPrincipal = vMenuPrincipal;
-}
+	public void setVMenuPrincipal(VistaMenuPrincipal vMenuPrincipal) {
+		this.vMenuPrincipal = vMenuPrincipal;
+	}
 
-public void setVRegistrarSocio(VistaRegistrarSocio vRegistrarSocio) {
-	this.vRegistrarSocio = vRegistrarSocio;
-}
+	public void setVRegistrarSocio(VistaRegistrarSocio vRegistrarSocio) {
+		this.vRegistrarSocio = vRegistrarSocio;
+	}
 
-public void setVMenuSocio(VistaMenuSocio vMenuSocio) {
-	this.vMenuSocio = vMenuSocio;
-}
+	public void setVMenuSocio(VistaMenuSocio vMenuSocio) {
+		this.vMenuSocio = vMenuSocio;
+	}
 
-public void setVSetMedidasMantener(VistaSetMedidasMantener vSetMedidasMantener) {
-	this.vSetMedidasMantener = vSetMedidasMantener;
-}
+	public void setVSetMedidasMantener(VistaSetMedidasMantener vSetMedidasMantener) {
+		this.vSetMedidasMantener = vSetMedidasMantener;
+	}
 
-public void setVSetMedidasObjetivo(VistaSetMedidasObjetivo vSetMedidasObjetivo) {
-	this.vSetMedidasObjetivo = vSetMedidasObjetivo;
-}
+	public void setVSetMedidasObjetivo(VistaSetMedidasObjetivo vSetMedidasObjetivo) {
+		this.vSetMedidasObjetivo = vSetMedidasObjetivo;
+	}
 
-public void setVComenzarEntrenamiento(VistaComenzarEntrenamiento vComenzarEntrenamiento) {
-	this.vComenzarEntrenamiento = vComenzarEntrenamiento;
-}
+	public void setVComenzarEntrenamiento(VistaComenzarEntrenamiento vComenzarEntrenamiento) {
+		this.vComenzarEntrenamiento = vComenzarEntrenamiento;
+	}
 
-//// getter vistas
+	//// getter vistas
 
+	/////////////////////////////////////////////////////////
 
+	// disponibilizar vistas
 
-/////////////////////////////////////////////////////////
-
-// disponibilizar vistas
-
-// VISTAS
+	// VISTAS
 
 	public void disponibilizarVistaMenuPrincipal() {
-		
+
 		vMenuPrincipal.setVisible(true);
 		vMenuPrincipal.setSize(500, 500);
 		vMenuPrincipal.setLocation(0, 0);
 	}
 
 	public void disponibilizarVistaIniciarSesion() {
-		
+
 		vIniciarSesion.setVisible(true);
 		vIniciarSesion.setSize(500, 500);
 		vIniciarSesion.setLocation(0, 0);
@@ -207,9 +198,9 @@ public void setVComenzarEntrenamiento(VistaComenzarEntrenamiento vComenzarEntren
 	}
 
 	public void disponibilizarVistaComenzarEntrenamiento() {
-	   vComenzarEntrenamiento.setVisible(true);
-	   vComenzarEntrenamiento.setSize(500, 500);
-	   vComenzarEntrenamiento.setLocation(0, 0);
+		vComenzarEntrenamiento.setVisible(true);
+		vComenzarEntrenamiento.setSize(500, 500);
+		vComenzarEntrenamiento.setLocation(0, 0);
 	}
 
 	public void disponibilizarVistaGestionarObjetivo() {
@@ -232,16 +223,14 @@ public void setVComenzarEntrenamiento(VistaComenzarEntrenamiento vComenzarEntren
 	}
 
 	public void disponibilizarVistaSetMedidasObjetivo(double max, double min) {
-		vSetMedidasObjetivo.setMaxDuracion(max);
-		vSetMedidasObjetivo.setMinDuracion(min);
+		vSetMedidasObjetivo.actualizarDuracionComboBox(max, min);
 		vSetMedidasObjetivo.setVisible(true);
 		vSetMedidasObjetivo.setSize(500, 500);
 		vSetMedidasObjetivo.setLocation(0, 0);
 	}
 
 	public void disponibilizarVistaSetMedidasMantener(double max, double min) {
-		vSetMedidasMantener.setMaxDuracion(max);
-		vSetMedidasMantener.setMinDuracion(min);
+		vSetMedidasMantener.actualizarDuracionComboBox(max, min);
 		vSetMedidasMantener.setVisible(true);
 		vSetMedidasMantener.setSize(500, 500);
 		vSetMedidasMantener.setLocation(0, 0);
@@ -255,14 +244,5 @@ public void setVComenzarEntrenamiento(VistaComenzarEntrenamiento vComenzarEntren
 
 
 
-// ocultar vistas
-
 
 }
-
-
-
-
-	
-
-

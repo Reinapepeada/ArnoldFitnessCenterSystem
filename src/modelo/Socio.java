@@ -47,7 +47,8 @@ public class Socio {
 	public Socio() {
 	}
 
-    public Socio registrarSocio(String nombre, String apellido, String email, String dni, String edad, String sexo, String password, Double altura, Double peso) throws SocioExistenteException{
+	public Socio registrarSocio(String nombre, String apellido, String email, String dni, String edad, String sexo,
+			String password, Double altura, Double peso) throws SocioExistenteException {
 		if (buscarSocio(dni) == null) {
 			Socio socio = new Socio(nombre, apellido, email, dni, edad, sexo, password, altura, peso);
 			ControladorSocio.usuarios.add(socio);
@@ -220,7 +221,6 @@ public class Socio {
 	}
 
 	public SocioVo getVO() {
-		return new SocioVo(this.nombre, this.apellido, this.email, this.dni, this.edad, this.sexo,this.password,
-				this.altura, this.peso);
+		return new SocioVo(this.nombre, this.apellido, this.email, this.dni, this.edad, this.sexo, this.password,this.altura, this.peso);
 	}
 }
