@@ -14,8 +14,7 @@ public class Tonificar extends ObjetivoStrategy {
     private double durMaxima=2.5;
     private double durMinima=2;
 
-    public Tonificar(double duracion,  double peso, double altura,
-            double porcenInitGrsa, double porcenInitMus) {
+    public Tonificar(double duracion,  double peso, double altura, double porcenInitGrsa, double porcenInitMus) {
         super(duracion, 4, 5);
         this.porcentajeGrsa = porcenInitGrsa;
         this.porcentjesMus = porcenInitMus;

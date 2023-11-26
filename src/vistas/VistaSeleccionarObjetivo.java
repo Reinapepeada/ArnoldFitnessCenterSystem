@@ -32,7 +32,7 @@ public class VistaSeleccionarObjetivo extends JFrame{
 
     BajarPeso instanciaBP = new BajarPeso(0,0,0);
     Mantener instanciaM = new Mantener(2,0,0);
-    Tonificar instanciaT = new Tonificar(4,0,0);
+    Tonificar instanciaT = new Tonificar(4,0,0, 0, 0);
 
 	ControladorSocio cs;
 	ControladorObjetivo co;

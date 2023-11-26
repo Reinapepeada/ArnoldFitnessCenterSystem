@@ -220,7 +220,7 @@ public class Socio {
 	}
 
 	public SocioVo getVO() {
-		return new SocioVo(this.nombre, this.apellido, this.email, this.dni, this.edad, this.sexo,
+		return new SocioVo(this.nombre, this.apellido, this.email, this.dni, this.edad, this.sexo, this.password,
 				this.altura, this.peso);
 	}
 }
