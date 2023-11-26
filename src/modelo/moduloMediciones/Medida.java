@@ -34,5 +34,9 @@ public class Medida {
         return this.porcentajeMusculo;
     }
 
+    public double getBMi(){
+        return this.getPeso() / (this.getAltura() * this.getAltura());
+    }
+
 
 }
