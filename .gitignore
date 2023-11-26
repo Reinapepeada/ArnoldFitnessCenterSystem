@@ -8,6 +8,8 @@
 *.obj
 *.pdb
 *.idb
+*.manifest
+*.class
 
 # Packages #
 ############
