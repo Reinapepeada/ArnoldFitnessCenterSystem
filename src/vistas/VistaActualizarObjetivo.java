@@ -6,7 +6,7 @@ import control.ControladorSocio;
 
 public class VistaActualizarObjetivo extends JFrame{
 
-    public VistaActualizarObjetivo(ControladorSocio cs) {
+    public VistaActualizarObjetivo() {
     }
 
 }

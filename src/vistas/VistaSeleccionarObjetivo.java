@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import control.ControladorObjetivo;
 import control.ControladorSocio;
 import modelo.Socio;
 import modelo.VOs.SocioVo;
@@ -33,7 +34,10 @@ public class VistaSeleccionarObjetivo extends JFrame{
     Mantener instanciaM = new Mantener(2,0,0);
     Tonificar instanciaT = new Tonificar(4,0,0);
 
-    public VistaSeleccionarObjetivo(ControladorSocio cs, Socio a) {
+	ControladorSocio cs;
+	ControladorObjetivo co;
+
+    public VistaSeleccionarObjetivo() {
         super ("Arnold Fitness Center - Seleccionar Objetivo");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setLayout(new BorderLayout());
@@ -60,8 +64,8 @@ public class VistaSeleccionarObjetivo extends JFrame{
 			public void actionPerformed(ActionEvent e) {
                 
                 System.out.println("Objetivo Seleccionado: "+objetivoCombo.getSelectedItem());
-                
-				cs.setMedidasObjetivo(a, objetivoCombo);
+                String obj=(String)objetivoCombo.getSelectedItem();
+				co.setMedidasObjetivo(obj);
 			}
 		}
 
@@ -76,6 +80,16 @@ public class VistaSeleccionarObjetivo extends JFrame{
 		
 	    this.add(panel1,BorderLayout.CENTER);
     }
+
+	
+
+	public void setCSocio(ControladorSocio cs) {
+		this.cs = cs;
+	}
+
+	public void setCO(ControladorObjetivo co) {
+		this.co = co;
+	}
 
 }
 

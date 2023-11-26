@@ -9,4 +9,7 @@ public class VistaComenzarEntrenamiento extends JFrame{
     public VistaComenzarEntrenamiento(ControladorSocio cs) {
     }
 
+    public VistaComenzarEntrenamiento() {
+    }
+
 }

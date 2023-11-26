@@ -4,6 +4,9 @@ public class Mantener extends ObjetivoStrategy {
     private double pesoInicial;
     private double toleraciaVsPesoInicial;
     private double tolerancia;
+    private double duracionEntrenamiento;
+    private double durMaxima=1.3;
+    private double durMinima=0.8;
 
 	
     public Mantener(double duracion,  double pesoInicial, double tol){
@@ -53,6 +56,21 @@ public class Mantener extends ObjetivoStrategy {
 		// TODO Auto-generated method stub
 		
 	}
+    public void setDuracionEntrenamiento(double duracionEntrenamiento) {
+        this.duracionEntrenamiento = duracionEntrenamiento;
+    }
 
+    public double getDurMaxima() {
+		return durMaxima;
+	}
+
+	
+	
+	public double getDurMinima() {
+		return durMinima;
+	}
+
+
+   
     
 }

@@ -3,6 +3,10 @@ package modelo.moduloObjetivo;
 public class BajarPeso extends ObjetivoStrategy {
 	private double pesoInicial;
 	private double alturaInicial;
+	private double duracionEntrenamiento;
+	private double pesoIdeal;
+	private double durMaxima=1.5;
+    private double durMinima=1;
 
 	public BajarPeso(double duracion,  double peso, double altura) {
 		super(duracion, 0, 3);
@@ -43,4 +47,19 @@ public class BajarPeso extends ObjetivoStrategy {
 	public void chequearTrofeo() {
 		// TODO Auto-generated method stub
 	}
+	public void setDuracionEntrenamiento(double duracionEntrenamiento) {
+        this.duracionEntrenamiento = duracionEntrenamiento;
+    }
+
+	public double getDurMaxima() {
+		return durMaxima;
+	}
+
+	
+	
+	public double getDurMinima() {
+		return durMinima;
+	}
+
+	
 }

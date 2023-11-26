@@ -17,6 +17,8 @@ import control.ControladorSocio;
 
 public class VistaIniciarSesion extends JFrame {
 
+	ControladorSocio cs;
+
     private JTextField usuario;
 	private JPasswordField contrasena;
 	
@@ -71,6 +73,11 @@ public class VistaIniciarSesion extends JFrame {
 		panel1.add(contBotones);
 		
 	    this.add(panel1,BorderLayout.CENTER);
+
+	}
+
+	public void setCSocio(ControladorSocio cs){
+		this.cs = cs;
 
 	}
 

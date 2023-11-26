@@ -3,16 +3,24 @@ import control.ControladorAdmin;
 import control.ControladorEjercicio;
 import control.ControladorObjetivo;
 import control.ControladorSocio;
+import control.WindowManagerSingleton;
 import modelo.Socio;
-import modelo.VOs.SocioVo;
 import modelo.excepciones.SocioExistenteException;
+import vistas.VistaActualizarObjetivo;
 import vistas.VistaBienvenida;
+import vistas.VistaGestionarMedidas;
+import vistas.VistaGestionarObjetivo;
 import vistas.VistaIniciarSesion;
+import vistas.VistaMenuPrincipal;
+import vistas.VistaMenuSocio;
 import vistas.VistaRegistrarSocio;
+import vistas.VistaSeleccionarObjetivo;
 
 public class App {
     public static void main(String[] args) throws Exception {
         
+        App app = new App();
+        app.init();
         try{
             //String nombre, String apellido, String email, String dni, String edad, String sexo, String password, Double altura, Double peso){
             //Usuario1
@@ -29,29 +37,16 @@ public class App {
         } catch (SocioExistenteException e) {
 			e.printStackTrace();
 		}
-        
-        //INSTANCIAR CONTROLADORES
-        ControladorAdmin ca = new ControladorAdmin();
-        ControladorEjercicio ce = new ControladorEjercicio();
-        ControladorObjetivo co = new ControladorObjetivo();
-        ControladorSocio cs = new ControladorSocio();
 
-        //INSTANCIAR VISTAS
-        VistaBienvenida vB = new VistaBienvenida();
-		vB.setVisible(true);
-		vB.setSize(500, 500);
-		vB.setLocation(0, 0);
-
-        VistaIniciarSesion vIC = new VistaIniciarSesion(cs);
-        vIC.setVisible(false);
-        vIC.setSize(500, 500);
-        vIC.setLocation(0, 0);
-            
-    
-        VistaRegistrarSocio vREG= new VistaRegistrarSocio(cs);
-        vREG.setVisible(false);
-        vREG.setSize(500, 500);
-        vREG.setLocation(0, 0);
 
     }
+
+    public void init() {
+
+                //instanciamos el WindowManager
+                WindowManagerSingleton wm = WindowManagerSingleton.getInstance();
+                wm.disponibilizarVistaBienvenida();
+                
+
+	}
 }

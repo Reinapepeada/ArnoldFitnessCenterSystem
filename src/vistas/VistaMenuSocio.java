@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
 import control.ControladorSocio;
+import control.WindowManagerSingleton;
 import modelo.VOs.SocioVo;
 
 
@@ -41,7 +42,7 @@ public class VistaMenuSocio extends JFrame{
      * 3. COMENZAR ENTRENAMIENTO DEL DIA - Check
      */
 
-	public VistaMenuSocio(ControladorSocio cs, SocioVo svo) {
+	public VistaMenuSocio() {
 		
         super ("Arnold Fitness Center - Menu Socio");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -62,7 +63,7 @@ public class VistaMenuSocio extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				cs.disponibilizarVistaGestionarObjetivo(svo);
+				WindowManagerSingleton.getInstance().disponibilizarVistaGestionarObjetivo();
 			}
 		}
 		
@@ -70,7 +71,7 @@ public class VistaMenuSocio extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				cs.disponibilizarVistaGestionarMedidas(svo);
+				WindowManagerSingleton.getInstance().disponibilizarVistaGestionarMedidas();
 			}
 		}
 
@@ -78,7 +79,7 @@ public class VistaMenuSocio extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				cs.disponibilizarVistaComenzarEntrenamiento();
+				WindowManagerSingleton.getInstance().disponibilizarVistaComenzarEntrenamiento();
 			}
 		}
 

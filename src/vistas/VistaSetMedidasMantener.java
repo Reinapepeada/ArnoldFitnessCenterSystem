@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
+import control.ControladorObjetivo;
 import control.ControladorSocio;
 import modelo.Socio;
 import modelo.VOs.SocioVo;
@@ -25,15 +26,18 @@ import modelo.moduloObjetivo.Mantener;
 public class VistaSetMedidasMantener extends JFrame{
 
     private JSpinner unidades;
+	double maxDuracion = 0;
+	double minDuracion = 0;
+	ControladorObjetivo co;
 
-    public VistaSetMedidasMantener(Socio a, Mantener m, double min, double max) {
+    public VistaSetMedidasMantener() {
         super ("Arnold Fitness Center - Setear Medidas Objetivo");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setLayout(new BorderLayout());
 		JPanel panel1=new JPanel();
 		panel1.setLayout(new GridLayout(3,1,2,2));
 
-        List<Double> listaDuracionM = Arrays.asList(min, max);
+        List<Double> listaDuracionM = Arrays.asList(minDuracion, maxDuracion);
         Double[] doubleArrayM = listaDuracionM.toArray(new Double[0]);
 
         Container contDuracionEntrenamiento=new Container();
@@ -65,10 +69,7 @@ public class VistaSetMedidasMantener extends JFrame{
 			public void actionPerformed(ActionEvent e) {
                 double n = (double) unidades.getValue();
                 Double dur = (Double) duracionM.getSelectedItem();
-                double pesoSocio = a.getPeso();
-                m.setDuracion(dur);
-                m.setPesoInicial(pesoSocio);
-                m.setTolerancia(n);
+                co.setDuracionTolerancia(dur, n);
 			}
 		}
 
@@ -83,6 +84,20 @@ public class VistaSetMedidasMantener extends JFrame{
 		
 	    this.add(panel1,BorderLayout.CENTER);
 
+
     }
+
+	public void setCObjetivo(ControladorObjetivo co) {
+		this.co = co;
+	}
+
+	public void setMaxDuracion(double maxDuracion) {
+		this.maxDuracion = maxDuracion;
+	}
+
+	public void setMinDuracion(double minDuracion) {
+		this.minDuracion = minDuracion;
+	}
+
 
 }

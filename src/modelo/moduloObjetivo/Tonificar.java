@@ -5,6 +5,10 @@ public class Tonificar extends ObjetivoStrategy {
     private double porcenInitMus;
     private double pesoInicial;
 	private double alturaInicial;
+    private double duracionEntrenamiento;
+    private double pesoIdeal;
+    private double durMaxima=2.5;
+    private double durMinima=2;
 
     public Tonificar(double duracion,  double peso, double altura) {
         super(duracion, 4, 5);
@@ -37,4 +41,18 @@ public class Tonificar extends ObjetivoStrategy {
 		// TODO Auto-generated method stub
 		
 	}
+
+    public void setDuracionEntrenamiento(double duracionEntrenamiento) {
+        this.duracionEntrenamiento = duracionEntrenamiento;
+    }
+
+    public double getDurMaxima() {
+		return durMaxima;
+	}
+
+	
+	public double getDurMinima() {
+		return durMinima;
+	}
+
 }

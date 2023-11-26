@@ -29,8 +29,9 @@ public class VistaRegistrarSocio extends JFrame{
 	private JPasswordField password;
     private JSpinner peso;
 	private JSpinner altura;
+	private ControladorSocio cs;
 
-	public VistaRegistrarSocio(ControladorSocio cs) {
+	public VistaRegistrarSocio() {
 		super ("Arnold Fitness Center - Registrarse");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setLayout(new BorderLayout());
@@ -142,7 +143,7 @@ public class VistaRegistrarSocio extends JFrame{
 				double pesoSocio = (double) peso.getValue();
 				double alturaSocio = (double) altura.getValue();
 				
-				SocioVo svo = new SocioVo(nombreSocio, apellidoSocio, emailSocio, dniSocio, edadSocio, sexoSocio, passwordSocio, pesoSocio, alturaSocio);
+				SocioVo svo = cs.getSocioVOActual();
 				cs.registrarSocio(svo);
 				}
 			}
@@ -158,5 +159,10 @@ public class VistaRegistrarSocio extends JFrame{
 		panel1.add(contBotones);
 		
 		this.add(panel1, BorderLayout.CENTER);
+	}
+
+	public void setCSocio(ControladorSocio cs){
+		this.cs = cs;
+
 	}
 }
