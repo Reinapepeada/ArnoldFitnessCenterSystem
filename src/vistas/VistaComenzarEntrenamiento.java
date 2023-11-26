@@ -7,11 +7,14 @@ import java.awt.GridLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 
+import control.ControladorEjercicio;
 import control.ControladorSocio;
+import modelo.Ejercicio;
 import modelo.Socio;
 
 public class VistaComenzarEntrenamiento extends JFrame{
@@ -43,17 +46,31 @@ public class VistaComenzarEntrenamiento extends JFrame{
         Object[] titulos= {"Ejercicio", "Series", "Repeticiones", "Peso"};
 		modeloTablaDesgasteArticulos.setColumnIdentifiers(titulos);
 
-        JLabel LabelEjercicio = new JLabel("<html> Ejercicio: </html>");
-		JLabel LabelSeries = new JLabel("<html> Series: </html>");
-        JLabel LabelRepeticiones = new JLabel("<html> Repeticiones: </html>");
-        JLabel LabelPeso = new JLabel("<html> Peso: </html>");
-
         /*MATRIZ DE EJERCICIOS*/
 
-        LabelEjercicio.setHorizontalAlignment(SwingConstants.CENTER);
-        LabelSeries.setHorizontalAlignment(SwingConstants.CENTER);
-        LabelRepeticiones.setHorizontalAlignment(SwingConstants.CENTER);
-        LabelPeso.setHorizontalAlignment(SwingConstants.CENTER);
+		for(Ejercicio ej : ControladorEjercicio.ejercicios) { // esto va a tener que iterar sobre el listado de ejercicios de rutina, segun el dia
+			Object[] fila=new Object[4];
+            fila[0] = ej.getNombre();
+            fila[1] = ej.getSeries();
+            fila[2] = ej.getRepeticiones();
+            fila[3] = ej.getPesoAsignado();
+			/* 
+            TipoArticuloView ta= av.obtenerTipoArticulo();
+			fila[0]= ta;
+			if (ta.obtenerTipoAmortizacion().equals("USO")){
+				fila[1]= av.obtenerEstadoDesgaste() + " USOS PENDIENTES";
+			}else {
+				fila[1]= av.obtenerEstadoDesgaste() + " DIAS PENDIENTES";
+			}
+			*/
+			modeloTablaDesgasteArticulos.addRow(fila);
+		}
+		tablaDesgaste.setModel(modeloTablaDesgasteArticulos);
+		JScrollPane scrollTabla=new JScrollPane(tablaDesgaste);
+		
+		
+		
+		panelCentral.add(scrollTabla,BorderLayout.CENTER);
     }
 
 }
