@@ -7,26 +7,6 @@ public class EjercicioRealizado {
     private Ejercicio ejercicio;
     private int series;
 
-    public Entrenamiento getEntrenamiento() {
-        return entrenamiento;
-    }
-
-    public int getRepeticiones() {
-        return repeticiones;
-    }
-
-    public float getPeso() {
-        return peso;
-    }
-
-    public Ejercicio getEjercicio() {
-        return ejercicio;
-    }
-
-    public int getSeries() {
-        return series;
-    }
-
     public EjercicioRealizado(Entrenamiento entrenamiento, int repeticiones, float peso, Ejercicio ejercicio, int series) {
         this.entrenamiento = entrenamiento;
         this.repeticiones = repeticiones;
