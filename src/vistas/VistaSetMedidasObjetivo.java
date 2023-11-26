@@ -23,8 +23,7 @@ import modelo.moduloObjetivo.ObjetivoStrategy;
 
 public class VistaSetMedidasObjetivo extends JFrame{
 
-	private ControladorSocio cs;
-	private SocioVo svo;
+	
 	private ControladorObjetivo co;
 	private double maxDuracion;
 	private double minDuracion;
@@ -80,14 +79,8 @@ public class VistaSetMedidasObjetivo extends JFrame{
 
     }
 
-	public void setCSocio(ControladorSocio cs) {
-		this.cs = cs;
-		this.svo=cs.getSocioVOActual();
-	}
+	
 
-	public void setCO(ControladorObjetivo co) {
-		this.co = co;
-	}
 
     public void setMaxDuracion(double max) {
 		this.duracion.addItem(max);
@@ -95,6 +88,10 @@ public class VistaSetMedidasObjetivo extends JFrame{
 
     public void setMinDuracion(double min) {
 		this.duracion.addItem(min);
+    }
+
+    public void setCObjetivo(ControladorObjetivo co2) {
+		this.co = co2;
     }
 
 }

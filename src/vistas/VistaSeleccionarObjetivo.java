@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 
 import control.ControladorObjetivo;
 import control.ControladorSocio;
+import control.WindowManagerSingleton;
 import modelo.Socio;
 import modelo.VOs.SocioVo;
 import modelo.enums.Objetivo;
@@ -25,19 +26,18 @@ import modelo.moduloObjetivo.Mantener;
 import modelo.moduloObjetivo.ObjetivoStrategy;
 import modelo.moduloObjetivo.Tonificar;
 
-public class VistaSeleccionarObjetivo extends JFrame{
+public class VistaSeleccionarObjetivo extends JFrame {
 
-    private JComboBox<Object> objetivoCombo;
-    private JTextField duracionEntrenamiento;
+	private JComboBox<Object> objetivoCombo;
 
-    BajarPeso instanciaBP = new BajarPeso(0,0,0);
-    Mantener instanciaM = new Mantener(2,0,0);
-    Tonificar instanciaT = new Tonificar(4,0,0);
+	BajarPeso instanciaBP = new BajarPeso(0, 0, 0);
+	Mantener instanciaM = new Mantener(2, 0, 0);
+	Tonificar instanciaT = new Tonificar(4, 0, 0);
 
 	ControladorSocio cs;
 	ControladorObjetivo co;
 
-    public VistaSeleccionarObjetivo() {
+	public VistaSeleccionarObjetivo() {
         super ("Arnold Fitness Center - Seleccionar Objetivo");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setLayout(new BorderLayout());
@@ -62,26 +62,51 @@ public class VistaSeleccionarObjetivo extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-                
-                System.out.println("Objetivo Seleccionado: "+objetivoCombo.getSelectedItem());
-                String obj=(String)objetivoCombo.getSelectedItem();
-				co.setMedidasObjetivo(obj);
-			}
-		}
+				SocioVo vo = cs.getSocioVOActual();
+				String obj=(String)objetivoCombo.getSelectedItem();
+					
+				switch (obj) {
+				case "BajarPeso":
+					BajarPeso bp = new BajarPeso(0, vo.getPeso(), vo.getAltura());
+					co.setObjetivo(bp);
+					// invoco la vista para setear las medidas
+					WindowManagerSingleton w=WindowManagerSingleton.getInstance();
+					w.disponibilizarVistaSetMedidasObjetivo(bp.getDurMaxima(),bp.getDurMinima());
+					break;
+				case "Mantener":
+					Mantener m = new Mantener(0, vo.getPeso(), 0);
+					co.setObjetivo(m);
+					// invoco la vista para setear las medidas
+					WindowManagerSingleton w2=WindowManagerSingleton.getInstance();
+					w2.disponibilizarVistaSetMedidasMantener(m.getDurMaxima(),m.getDurMinima());
+					break;
+				case "Tonificar":
+					Tonificar t = new Tonificar(0, vo.getPeso(), vo.getAltura());
+					co.setObjetivo(t);
+					// invoco la vista para setear las medidas
+					WindowManagerSingleton w3=WindowManagerSingleton.getInstance();
+					w3.disponibilizarVistaSetMedidasObjetivo(t.getDurMaxima(),t.getDurMinima());
+					break;
+				default:
+					break;
+					
+					
+				}
 
+			};
+		}
         //INSTANCIACION DEL MANEJADOR//
 		HandlerBtnConfirmarObjetivo handlerBtnConfirmarObjetivo = new HandlerBtnConfirmarObjetivo();
 
-        btnConfirmarObjetivo.addActionListener(handlerBtnConfirmarObjetivo);
+		btnConfirmarObjetivo.addActionListener(handlerBtnConfirmarObjetivo);
 
-        contBotones.add(btnConfirmarObjetivo);
-		
+		contBotones.add(btnConfirmarObjetivo);
+
 		panel1.add(contBotones);
+
 		
 	    this.add(panel1,BorderLayout.CENTER);
     }
-
-	
 
 	public void setCSocio(ControladorSocio cs) {
 		this.cs = cs;
@@ -92,5 +117,3 @@ public class VistaSeleccionarObjetivo extends JFrame{
 	}
 
 }
-
-//svo.getNombre(), svo.getApellido(), svo.getEmail(), svo.getDni(), svo.getEdad(), svo.getSexo(), svo.getPassword(), svo.getPeso(), svo.getAltura()

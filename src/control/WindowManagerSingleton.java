@@ -53,7 +53,7 @@ public class WindowManagerSingleton {
 		//instanciamos las vistas
 
 		vBienvenida = new VistaBienvenida();
-		vIniciarSesion = new VistaIniciarSesion(cs);
+		vIniciarSesion = new VistaIniciarSesion();
 		vSeleccionarObjetivo = new VistaSeleccionarObjetivo();
 		vGestionarObjetivo = new VistaGestionarObjetivo();
 		vActualizarObjetivo = new VistaActualizarObjetivo();
@@ -64,6 +64,20 @@ public class WindowManagerSingleton {
 		vSetMedidasMantener = new VistaSetMedidasMantener();
 		vSetMedidasObjetivo = new VistaSetMedidasObjetivo();
 		vComenzarEntrenamiento = new VistaComenzarEntrenamiento();
+
+		//seteamos los controladores en las vistas
+		vRegistrarSocio.setCSocio(cs);
+
+		vIniciarSesion.setCSocio(cs);
+
+		vSeleccionarObjetivo.setCSocio(cs);
+		vSeleccionarObjetivo.setCO(co);
+
+		vGestionarObjetivo.setCSocio(cs);
+
+
+		vSetMedidasObjetivo.setCObjetivo(co);
+		vSetMedidasMantener.setCObjetivo(co);
 	}
 
 	public static WindowManagerSingleton getInstance() {
@@ -200,15 +214,15 @@ public void setVComenzarEntrenamiento(VistaComenzarEntrenamiento vComenzarEntren
 	}
 
 	public void disponibilizarVistaSeleccionarObjetivo() {
-		vSeleccionarObjetivo.setVisible(true);
 		vSeleccionarObjetivo.setSize(500, 500);
 		vSeleccionarObjetivo.setLocation(0, 0);
+		vSeleccionarObjetivo.setVisible(true);
 	}
 
 	public void disponibilizarVistaActualizarObjetivo() {
-		vActualizarObjetivo.setVisible(true);
 		vActualizarObjetivo.setSize(500, 500);
 		vActualizarObjetivo.setLocation(0, 0);
+		vActualizarObjetivo.setVisible(true);
 	}
 
 	public void disponibilizarVistaSetMedidasObjetivo(double max, double min) {
