@@ -3,6 +3,7 @@ package modelo.moduloRutina;
 import java.util.ArrayList;
 import java.util.List;
 
+import modelo.Ejercicio;
 import modelo.EjercicioRealizado;
 import modelo.Entrenamiento;
 import modelo.Socio;
@@ -21,10 +22,13 @@ public class Rutina extends Observado{
 	private List<Dia> dias;
 	private int diaActual;
 	private int semanas;
+	private int semana;
 
 	public Rutina(ObjetivoStrategy objetivo, List<Dia> dias) {
 		this.objetivo = objetivo;
 		this.dias = dias;
+		this.semanas = 4;
+		this.semana = 4;
 	}
 
 	public void reforzarRutina() {
@@ -34,6 +38,7 @@ public class Rutina extends Observado{
 				ent.reforzarEntrenamiento();
 			}
 			semanas += 4;
+			semana +=4;
 		}
 	}
 
@@ -48,13 +53,15 @@ public class Rutina extends Observado{
 			int series,
 			int repeticiones,
 			float peso,
-			boolean completado
+			boolean completado,
+			Ejercicio ejercicio
 			) {
 		// Entrenamiento 
 		// TODO - implement Rutina.registrarEjercicio
 		// registrar un ejercicio Realizado
 		// crear un ejercicio realizado y agregarlo a la lista de ejercicios realizados del entrenamiento del dia
-		
+		EjercicioRealizado ej = new EjercicioRealizado(entrenamientoDiario(), repeticiones, peso, ejercicio, series);
+		ejercicioRealizados.add(ej);
 	}
 
 	public void comenzarDia() {
@@ -65,6 +72,11 @@ public class Rutina extends Observado{
 	public boolean verificarConstancia(){
 		// TODO Auto-generated method stub
 		// este metodo lo usariamos para el trofeo de constacia
+		// ver ejerciciosRealizados contra semana * dias * cantidad de ejercicios por entrenamiento 
+		if (semana * dias.size() * 5 == ejercicioRealizados.size()){
+			return true;
+		}
+
 		return false;
 
 	}
