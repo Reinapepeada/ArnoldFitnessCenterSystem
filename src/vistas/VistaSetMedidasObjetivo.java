@@ -62,8 +62,6 @@ public class VistaSetMedidasObjetivo extends JFrame{
 				System.out.println("Duracion Seleccionada: "+dur);
 				
                 co.setDuracion(dur);
-				e.asignarEjercicios();
-               	
 			}
 		}
 

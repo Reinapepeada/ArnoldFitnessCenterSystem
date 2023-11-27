@@ -40,6 +40,7 @@ public class Entrenamiento {
 						
 					}
 				}
+				
             case "BajarPeso":
 				for (Ejercicio ejercicio : ControladorEjercicio.ejercicios) {
 					if((ejercicio.getNivelAerobico() >=3 && !estaGrupo(ejercicio.getGrupoMuscular()))){

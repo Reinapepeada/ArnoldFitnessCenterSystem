@@ -25,7 +25,6 @@ public class Socio {
 	private float porcentajeMusculo;
 	private List<Medida> medidas;
 	private ObjetivoStrategy objetivo;
-	private Rutina rutina;
 
 	public Socio(String nombre, String apellido, String email, String dni, String edad, String sexo, String password,
 			Double altura, Double peso) {
@@ -197,14 +196,6 @@ public class Socio {
 
 	public void setObjetivo(ObjetivoStrategy objetivo) {
 		this.objetivo = objetivo;
-	}
-
-	public Rutina getRutina() {
-		return this.rutina;
-	}
-
-	public void setRutina(Rutina rutina) {
-		this.rutina = rutina;
 	}
 
 	public void cambiarObjetivo(ObjetivoStrategy objetivo) {

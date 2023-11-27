@@ -1,5 +1,4 @@
 
-import control.ControladorAdmin;
 import control.ControladorEjercicio;
 import control.ControladorObjetivo;
 import control.ControladorSocio;
@@ -21,7 +20,7 @@ import vistas.VistaBienvenida;
 import vistas.VistaGestionarMedidas;
 import vistas.VistaGestionarObjetivo;
 import vistas.VistaIniciarSesion;
-import vistas.VistaMenuPrincipal;
+
 import vistas.VistaMenuSocio;
 import vistas.VistaRegistrarSocio;
 import vistas.VistaSeleccionarObjetivo;
@@ -31,6 +30,8 @@ public class App {
         
         App app = new App();
         app.init();
+
+        //INSTANCIAR USUARIOS
         try{
             //String nombre, String apellido, String email, String dni, String edad, String sexo, String password, Double altura, Double peso){
             //Usuario1
@@ -48,8 +49,8 @@ public class App {
 			e.printStackTrace();
 		}
 
+        //INSTANCIAR EJERCICIOS
         try{
-
             //EJERCICIOS TONIFICAR QUE NO ENTRAN
             Ejercicio ej16 = new Ejercicio();
             ej16.agregarEjercicio("Aperturas de Pecho", 5, 3, 5, 70, Exigencia.ALTA, GrupoMuscular.PECHO);
@@ -127,11 +128,8 @@ public class App {
     }
 
     public void init() {
-
-                //instanciamos el WindowManager
-                WindowManagerSingleton wm = WindowManagerSingleton.getInstance();
-                wm.disponibilizarVistaBienvenida();
-                
-
+        //instanciamos el WindowManager
+        WindowManagerSingleton wm = WindowManagerSingleton.getInstance();
+        wm.disponibilizarVistaBienvenida();
 	}
 }

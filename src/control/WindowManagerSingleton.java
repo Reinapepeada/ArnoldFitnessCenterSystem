@@ -13,7 +13,6 @@ import vistas.VistaComenzarEntrenamiento;
 import vistas.VistaGestionarMedidas;
 import vistas.VistaGestionarObjetivo;
 import vistas.VistaIniciarSesion;
-import vistas.VistaMenuPrincipal;
 import vistas.VistaMenuSocio;
 import vistas.VistaRegistrarSocio;
 import vistas.VistaSeleccionarObjetivo;
@@ -30,7 +29,6 @@ public class WindowManagerSingleton {
 	private VistaGestionarObjetivo vGestionarObjetivo;
 	private VistaActualizarObjetivo vActualizarObjetivo;
 	private VistaGestionarMedidas vGestionarMedidas;
-	private VistaMenuPrincipal vMenuPrincipal;
 	private VistaRegistrarSocio vRegistrarSocio;
 	private VistaMenuSocio vMenuSocio;
 	private VistaSetMedidasMantener vSetMedidasMantener;
@@ -39,14 +37,12 @@ public class WindowManagerSingleton {
 
 	// controladores
 	private ControladorSocio cs;
-	private ControladorAdmin ca;
 	private ControladorEjercicio ce;
 	private ControladorObjetivo co;
 
 	private WindowManagerSingleton() {
 		//instanciamos los controladores
 		cs = new ControladorSocio();
-		ca = new ControladorAdmin();
 		ce = new ControladorEjercicio();
 		co = new ControladorObjetivo();
 		
@@ -58,7 +54,6 @@ public class WindowManagerSingleton {
 		vGestionarObjetivo = new VistaGestionarObjetivo();
 		vActualizarObjetivo = new VistaActualizarObjetivo();
 		vGestionarMedidas = new VistaGestionarMedidas();
-		vMenuPrincipal = new VistaMenuPrincipal();
 		vRegistrarSocio = new VistaRegistrarSocio();
 		vMenuSocio = new VistaMenuSocio();
 		vSetMedidasMantener = new VistaSetMedidasMantener();
@@ -91,10 +86,6 @@ public class WindowManagerSingleton {
 	
 	public void setCS(ControladorSocio cs) {
 		this.cs = cs;
-	}
-
-	public void setCA(ControladorAdmin ca) {
-		this.ca = ca;
 	}
 
 	public void setCE(ControladorEjercicio ce) {
@@ -131,10 +122,6 @@ public class WindowManagerSingleton {
 		this.vGestionarMedidas = vGestionarMedidas;
 	}
 
-	public void setVMenuPrincipal(VistaMenuPrincipal vMenuPrincipal) {
-		this.vMenuPrincipal = vMenuPrincipal;
-	}
-
 	public void setVRegistrarSocio(VistaRegistrarSocio vRegistrarSocio) {
 		this.vRegistrarSocio = vRegistrarSocio;
 	}
@@ -165,12 +152,6 @@ public class WindowManagerSingleton {
 
 	// VISTAS
 
-	public void disponibilizarVistaMenuPrincipal() {
-		
-		vMenuPrincipal.setVisible(true);
-		vMenuPrincipal.setSize(500, 500);
-		vMenuPrincipal.setLocation(0, 0);
-	}
 
 	public void disponibilizarVistaIniciarSesion() {
 		
@@ -247,6 +228,5 @@ public class WindowManagerSingleton {
 	}
 
 	// ocultar vistas
-
 
 }

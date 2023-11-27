@@ -35,7 +35,7 @@ public class ControladorSocio {
 			// SwingUtilities.getWindowAncestor(usuario);
 			// vistaInicioSesion.setVisible(false);
 			verListadoSocios(usuarios);
-			WindowManagerSingleton.getInstance().disponibilizarVistaMenuPrincipal();
+			WindowManagerSingleton.getInstance().disponibilizarVistaMenuSocio();
 
 		} catch (CredencialesInvalidasException e) {
 			// e.printStackTrace();
