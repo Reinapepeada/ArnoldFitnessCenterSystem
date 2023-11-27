@@ -57,6 +57,10 @@ public class Rutina extends Observado{
 		EjercicioRealizado ej = new EjercicioRealizado(entrenamientoDiario(), repeticiones, peso, ejercicio, series);
 		ejercicioRealizados.add(ej);
 		if(entrenamientoDiario().getEjercicios().indexOf(ejercicio) + 1 == entrenamientoDiario().getEjercicios().size() ){
+			// si es el ultimo ejercicio del entrenamiento del dia
+			// cambiar de dia
+			this.cambiarDia();
+			System.out.println(this.diaActual);
 			this.notificar(soc);  
 		}
 	}
@@ -130,6 +134,8 @@ public class Rutina extends Observado{
 
 	@Override
 	public void notificar(Socio soc) {
+		// Notifica a los observadores
+		System.out.println("llegue a los observadores");
 		for (TrofeoObservador trofeoObservador : observadores) {
 			trofeoObservador.chequearTrofeo(soc); 
 		}
