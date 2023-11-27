@@ -23,7 +23,7 @@ public class VistaDiaEntrenamiento extends JFrame {
 
     public VistaDiaEntrenamiento() {
         super("Registro de Ejercicios");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setSize(300, 200);
         this.indiceEjercicioActual = 0;
         inicializarComponentes();
