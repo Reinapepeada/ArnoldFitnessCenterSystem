@@ -1,17 +1,15 @@
 package modelo.moduloTrofeo;
 
 import modelo.Socio;
-import modelo.moduloNNN.NotificacionPorFirbase;
 import modelo.moduloNNN.Notificador;
-
 public class TrofeoCreido extends TrofeoObservador {
 	private Socio socio;
 	private String nombre;
-	private Notificador notificador ;
-	public TrofeoCreido(String nombre, Socio socio, Notificador notificador) {
-		this.nombre = nombre;
-		this.socio = socio;
-		this.notificador = notificador;
+	
+	public TrofeoCreido(Notificador notificador, Socio s) {
+		super(notificador);
+		this.nombre = " Trofeo Creido";
+		this.socio = s;
 	}
 
 	@Override
@@ -19,10 +17,11 @@ public class TrofeoCreido extends TrofeoObservador {
 		// TODO 
 		// si se cumple se notifica al notificador
 		if(socio.verificarTrofeo()){
-			notificador.notificar(this);
+			notificador.notificar(this.getNombre());
 		}
 	}
 	public String getNombre(){
 		return this.nombre;
 	}
+
 }

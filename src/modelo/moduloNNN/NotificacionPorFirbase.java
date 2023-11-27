@@ -9,9 +9,9 @@ public class NotificacionPorFirbase implements StrategyNotificacion {
         this.adapter = adapter;
     }
     @Override
-    public void notificar(TrofeoObservador obs) {
+    public void notificar(String n) {
         // TODO Auto-generated method stub
-        adapter.enviaNotificacion(obs);
+        adapter.enviaNotificacion(n);
     }
 
 }

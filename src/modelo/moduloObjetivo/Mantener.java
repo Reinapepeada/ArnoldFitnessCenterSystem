@@ -61,11 +61,7 @@ public class Mantener extends ObjetivoStrategy {
     public double getToleraciaVsPesoInicial() {
         return this.toleraciaVsPesoInicial;
     }
-	@Override
-	public void chequearTrofeo() {
-		// TODO Auto-generated method stub
-		
-	}
+	
     public void setDuracionEntrenamiento(double duracionEntrenamiento) {
         this.duracionEntrenamiento = duracionEntrenamiento;
     }

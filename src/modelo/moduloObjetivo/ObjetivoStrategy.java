@@ -18,6 +18,7 @@ public abstract class ObjetivoStrategy extends Observado {
 	private List<Exigencia> exigencia;
 	private double durMaxima;
     private double durMinima;
+	private Socio soc;
 	
 	protected ObjetivoStrategy(double duracion, int nMin, int nMax){
 		this.duracion = duracion;
@@ -87,10 +88,10 @@ public abstract class ObjetivoStrategy extends Observado {
 		observadores.remove(trofeo);
 	}
 	@Override
-	public void notificar() {
+	public void notificar(Socio soc) {
+		this.soc = soc;
 		for (TrofeoObservador trofeoObservador : observadores) {
-			// trofeoObservador.chequearTrofeo();
-			// nercesito sabes como pasar el socio 
+			trofeoObservador.chequearTrofeo(soc);  // 'soc' needs to be an instance of 'Socio'
 		}
 	}
 }

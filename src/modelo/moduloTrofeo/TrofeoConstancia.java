@@ -7,21 +7,24 @@ import modelo.moduloRutina.Rutina;
 public class TrofeoConstancia extends TrofeoObservador {
 	private Rutina rutina;
 	private String nombre;
-	private Notificador notificador;
 
-	public TrofeoConstancia(String nombre, Rutina rutina, Notificador notificador) {
-		this.nombre = nombre;
+	public TrofeoConstancia(Rutina rutina, Notificador notificador) {
+		super(notificador);
+		this.nombre = "Trofeo Constancia";
 		this.rutina = rutina;
-		this.notificador = notificador;
 	}
 
 	@Override
 	public void chequearTrofeo(Socio soc) {
 		// TODO 
 		// si se cumple se notifica al notificador
-		// if(){
-		// 	notificador.notificar(this);
-		// }
+		if(rutina.verificarConstancia()){
+			notificador.notificar(this.getNombre());
+		}
+	}
+
+	public String getNombre(){
+		return this.nombre;
 	}
 	
 }

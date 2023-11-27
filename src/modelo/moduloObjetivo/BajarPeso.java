@@ -48,11 +48,6 @@ public class BajarPeso extends ObjetivoStrategy {
 	public double getPesoInicial() {
 		return this.pesoInicial;
 	}
-
-	@Override
-	public void chequearTrofeo() {
-		// TODO Auto-generated method stub
-	}
 	public void setDuracionEntrenamiento(double duracionEntrenamiento) {
         this.duracionEntrenamiento = duracionEntrenamiento;
     }
@@ -60,8 +55,6 @@ public class BajarPeso extends ObjetivoStrategy {
 	public double getDurMaxima() {
 		return durMaxima;
 	}
-
-	
 	
 	public double getDurMinima() {
 		return durMinima;

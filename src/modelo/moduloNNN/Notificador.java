@@ -14,8 +14,8 @@ public class Notificador{
         this.notificacion = notificacion;
     }
 
-    public void notificar(TrofeoObservador trofeo){
-        this.notificacion.notificar(trofeo);
+    public void notificar(String n){
+        this.notificacion.notificar(n);
     }
 
 }

@@ -9,6 +9,7 @@ public class EntrenamientoRealizado {
 
     public EntrenamientoRealizado(Entrenamiento entrenamiento) {
         this.entrenamiento = entrenamiento;
+        this.entrenamientoCumplido = false;
         this.EjerciciosRealizados = new ArrayList<EjercicioRealizado>();
     }
 

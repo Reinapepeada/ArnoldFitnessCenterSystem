@@ -3,8 +3,10 @@ package modelo.moduloRutina;
 import java.util.ArrayList;
 import java.util.List;
 
+import modelo.EjercicioRealizado;
 import modelo.Entrenamiento;
 import modelo.EntrenamientoRealizado;
+import modelo.Socio;
 import modelo.enums.Dia;
 import modelo.moduloObjetivo.ObjetivoStrategy;
 import modelo.moduloTrofeo.Observado;
@@ -14,11 +16,11 @@ import modelo.moduloTrofeo.TrofeoObservador;
 
 public class Rutina extends Observado{
 	private ArrayList<TrofeoObservador> observadores = new ArrayList<TrofeoObservador>();
-	private ArrayList<EntrenamientoRealizado> entreRealizados;
+	private ArrayList<EjercicioRealizado> ejercicioRealizados;
 	private ObjetivoStrategy objetivo;
 	private List<Entrenamiento> entrenamientos;
 	private List<Dia> dias;
-	private int diaEntre;
+	private int diaEntre; // valor de la posicion del entrenamiento, cunado se llega al limete se resetea y se se pasa a la proxima semana
 	private int semanas;
 
 	public Rutina(ObjetivoStrategy objetivo, List<Dia> dias) {
@@ -39,21 +41,33 @@ public class Rutina extends Observado{
 	public Entrenamiento entrenamientoDiario() {
 		// TODO - implement Rutina.entrenamientoDiario
 		// revisar: que hace el Entrenamiento diario 
-
-
-		return null;
+		// devolver el entrenamiento del dia
+		return entrenamientos.get(diaEntre);
 	}
 
 	public void registrarEjercicio(
 			int series,
 			int repeticiones,
 			float peso,
-			boolean completado) {
+			boolean completado
+			) {
 		// Entrenamiento 
+		// TODO - implement Rutina.registrarEjercicio
+		// registrar un ejercicio Realizado
+		// crear un ejercicio realizado y agregarlo a la lista de ejercicios realizados del entrenamiento del dia
+		
 	}
 
 	public void comenzarDia() {
+		// crear el entrenamiento realizado del dia 
+		EntrenamientoRealizado entRealizado = new EntrenamientoRealizado(entrenamientoDiario());
 
+	}
+	
+	public boolean verificarConstancia(){
+		// TODO Auto-generated method stub
+		
+		return false;
 
 	}
 
@@ -104,9 +118,10 @@ public class Rutina extends Observado{
 	}
 
 	@Override
-	public void notificar() {
+	public void notificar(Socio soc) {
 		for (TrofeoObservador trofeoObservador : observadores) {
-			trofeoObservador.chequearTrofeo();
+			trofeoObservador.chequearTrofeo(soc);
+			// necesito saber como recuperar el socio 
 		}
 	}
 }

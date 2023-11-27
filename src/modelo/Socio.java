@@ -243,7 +243,6 @@ public class Socio extends Observado{
 		}
 		return false;
 	}
-
 	//Implementacion de observadores 
 	@Override
 	public void agregarObservador(TrofeoObservador obs) {
@@ -258,7 +257,7 @@ public class Socio extends Observado{
 	}
 
 	@Override
-	public void notificar() {
+	public void notificar(Socio soc) {
 		// Notifica a los observadores
 		for (TrofeoObservador obs : observadores) {
 			obs.chequearTrofeo(this);
