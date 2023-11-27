@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.swing.JComboBox;
 
+import modelo.Entrenamiento;
 import modelo.Socio;
 import modelo.VOs.SocioVo;
 import modelo.enums.Dia;
@@ -33,6 +34,10 @@ public class ControladorObjetivo {
 
     public Rutina getRutina() {
         return r;
+    }
+
+    public Entrenamiento getEntrenamientoDiario() {
+        return r.entrenamientoDiario();
     }
 
 

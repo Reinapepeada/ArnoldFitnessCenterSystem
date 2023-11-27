@@ -80,7 +80,7 @@ public class VistaMenuSocio extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				WindowManagerSingleton.getInstance().disponibilizarVistaComenzarEntrenamiento();
+				WindowManagerSingleton.getInstance().disponibilizarVistaDiaEntrenamiento();
 			}
 		}
 

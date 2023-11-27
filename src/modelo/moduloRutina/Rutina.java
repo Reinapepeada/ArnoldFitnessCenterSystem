@@ -17,7 +17,7 @@ public class Rutina extends Observado{
 	private ArrayList<TrofeoObservador> observadores = new ArrayList<TrofeoObservador>();
 	private ArrayList<EjercicioRealizado> ejercicioRealizados; // lo usariamos para el trofeo de constacia 
 	private ObjetivoStrategy objetivo;
-	private List<Entrenamiento> entrenamientos;
+	private ArrayList<Entrenamiento> entrenamientos= new ArrayList<Entrenamiento>();
 	private List<Dia> dias;
 	private int diaActual;
 	private int semanas;
@@ -81,7 +81,7 @@ public class Rutina extends Observado{
 		return entrenamientos;
 	}
 
-	public void setEntrenamientos(List<Entrenamiento> entrenamientos) {
+	public void setEntrenamientos(ArrayList<Entrenamiento> entrenamientos) {
 		this.entrenamientos = entrenamientos;
 	}
 
