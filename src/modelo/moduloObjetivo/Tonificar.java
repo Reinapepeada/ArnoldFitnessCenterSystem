@@ -65,12 +65,6 @@ public class Tonificar extends ObjetivoStrategy {
 	}
 
 
-    @Override
-    public void setTrofeo() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setTrofeo'");
-    }
-
 
     @Override
     public String getNombre() {

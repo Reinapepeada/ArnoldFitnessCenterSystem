@@ -17,6 +17,8 @@ import modelo.excepciones.CredencialesInvalidasException;
 import modelo.excepciones.SocioExistenteException;
 import modelo.moduloMediciones.BalanzaSystemAdapter;
 import modelo.moduloMediciones.Medida;
+import modelo.moduloTrofeo.TrofeoCreido;
+import modelo.moduloTrofeo.TrofeoObservador;
 
 
 public class ControladorSocio {
@@ -54,6 +56,7 @@ public class ControladorSocio {
 		} catch (SocioExistenteException e) {
 			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
+		a.agregarObservador(new TrofeoCreido(a));
 	}
 
 	public void verListadoSocios(ArrayList<Socio> usuarios) {
@@ -63,6 +66,7 @@ public class ControladorSocio {
 
 	}
 
+
 	public SocioVo getSocioVOActual() {
 		return a.getVO();
 	}
@@ -71,9 +75,17 @@ public class ControladorSocio {
 		System.out.println("getSocioActual: "+this.a);
 		return this.a;
 	}
+	public int tofeosCreidos() {
+        return getSocioActual().getTrofeos().size();
+    }
+
 
 	public void registrarMedidaSocio( double altura ,double peso, double masaMuscular, double grasaCorporal) {
 		a.agregarMedida(new Medida( altura,peso, masaMuscular, grasaCorporal));
+	}
+
+	public int countTrofeos() {
+		return a.getTrofeos().size();
 	}
 
 	public Medida obtenerUltimMedida() {

@@ -7,11 +7,11 @@ public abstract class TrofeoObservador {
     protected Notificador notificador;
 
     // Constructor
-    public TrofeoObservador(Notificador notificador) {
+    public TrofeoObservador() {
         this.notificador = notificador;
     }
 
-    public abstract void chequearTrofeo(Socio soc);
+    public abstract boolean chequearTrofeo();
 
     public abstract String getNombre();
 }

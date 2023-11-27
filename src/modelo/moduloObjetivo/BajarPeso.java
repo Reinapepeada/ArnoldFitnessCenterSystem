@@ -67,13 +67,6 @@ public class BajarPeso extends ObjetivoStrategy {
 	public double getDurMinima() {
 		return durMinima;
 	}
-
-	@Override
-	public void setTrofeo() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'setTrofeo'");
-	}
-
 	@Override
 	public String getNombre() {
 		// TODO Auto-generated method stub

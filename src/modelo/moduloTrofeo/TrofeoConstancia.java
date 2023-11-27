@@ -11,19 +11,19 @@ public class TrofeoConstancia extends TrofeoObservador {
 	private Rutina rutina;
 	private String nombre;
 
-	public TrofeoConstancia(Rutina rutina, Notificador notificador) {
-		super(notificador);
+	public TrofeoConstancia(Rutina rutina) {
 		this.nombre = "Trofeo Constancia";
 		this.rutina = rutina;
 	}
 
 	@Override
-	public void chequearTrofeo(Socio soc) {
+	public boolean chequearTrofeo() {
 		// TODO 
 		// si se cumple se notifica al notificador
 		if(rutina.verificarConstancia()){
 			notificador.notificar(this.getNombre());
 		}
+		return true;
 	}
 
 	public String getNombre(){
