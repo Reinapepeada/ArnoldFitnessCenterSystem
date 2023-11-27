@@ -105,7 +105,6 @@ public class Socio extends Observado{
 			if (fechaMedida.getMonth() == LocalDate.now().getMonth()) {
 				contadorVeces++;
 				if(contadorVeces >= 3 ){
-					
 					JOptionPane.showMessageDialog(null, "¡Haz Recibido un Trofeo!");
 					setTrofeo();
 					return true;
