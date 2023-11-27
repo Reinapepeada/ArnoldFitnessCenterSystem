@@ -1,6 +1,7 @@
 package modelo.moduloNNN;
 
+import modelo.moduloTrofeo.TrofeoObservador;
 
 public interface StrategyNotificacion {
-    void notificar(String n);
+    void notificar(TrofeoObservador obs);
 }

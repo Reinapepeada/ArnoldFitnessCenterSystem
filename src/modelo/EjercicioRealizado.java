@@ -15,4 +15,8 @@ public class EjercicioRealizado {
         this.series = series;
     }
 
+    public Ejercicio getEjercicio(){
+        return this.ejercicio;
+    }
+
 }

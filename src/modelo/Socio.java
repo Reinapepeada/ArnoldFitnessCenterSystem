@@ -1,5 +1,6 @@
 package modelo;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import control.ControladorSocio;
@@ -222,5 +223,20 @@ public class Socio {
 	public SocioVo getVO() {
 		return new SocioVo(this.nombre, this.apellido, this.email, this.dni, this.edad, this.sexo,
 				this.altura, this.peso);
+	}
+	public  boolean verificarTrofeo (){
+		// TODO Auto-generated method stub
+		int contadorVeces = 0; 
+		for (Medida med : medidas) {
+			LocalDate fechaMedida = med.getDate();
+			// Check if the month of the medida is the same as the current month
+			if (fechaMedida.getMonth() == LocalDate.now().getMonth()) {
+				contadorVeces++;
+				if(contadorVeces >= 3 ){
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 }

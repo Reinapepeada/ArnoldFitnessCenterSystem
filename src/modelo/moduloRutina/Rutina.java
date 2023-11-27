@@ -1,13 +1,17 @@
 package modelo.moduloRutina;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import modelo.Entrenamiento;
 import modelo.enums.Dia;
 import modelo.moduloObjetivo.ObjetivoStrategy;
-import modelo.Entrenamiento;
+import modelo.moduloTrofeo.Observado;
+import modelo.moduloTrofeo.TrofeoObservador;
+// import modelo.Entrenamiento;
 
-public class Rutina {
+public class Rutina{
+	private ArrayList<
 	private ObjetivoStrategy objetivo;
 	private List<Entrenamiento> entrenamientos;
 	private List<Dia> dias;
@@ -77,5 +81,20 @@ public class Rutina {
 
 	public void setSemanas(int semanas) {
 		this.semanas = semanas;
+	}
+
+	@Override
+	public void agregarObservador(TrofeoObservador obs) {
+		observadores.add(obs);
+	}
+
+	@Override
+	public void sacarbservador(TrofeoObservador obs) {
+		observadores.remove(obs);
+	}
+
+	@Override
+	public void notificar() {
+		
 	}
 }
