@@ -104,7 +104,71 @@ public class App {
 
             Ejercicio ej15 = new Ejercicio();
             ej15.agregarEjercicio("YTWL", 5, 4, 2, 20, Exigencia.MEDIA, GrupoMuscular.HOMBRO);
+
+            //ejercicos para perder peso
+
+            Ejercicio ej22 = new Ejercicio();
+            ej22.agregarEjercicio("Cruces de Polea", 5, 3, 5, 70, Exigencia.MEDIA, GrupoMuscular.PECHO);
             
+            Ejercicio ej23 = new Ejercicio();
+            ej23.agregarEjercicio("Step Up", 3, 5, 50, 0, Exigencia.ALTA, GrupoMuscular.PIERNAS);
+
+            Ejercicio ej24 = new Ejercicio();
+            ej24.agregarEjercicio("Flexion de Arquero", 3, 3, 5, 70, Exigencia.BAJA, GrupoMuscular.PECHO);
+
+            Ejercicio ej25 = new Ejercicio();
+            ej25.agregarEjercicio("Deadlift", 4, 5, 50, 0, Exigencia.MEDIA, GrupoMuscular.PIERNAS);
+
+            Ejercicio ej26 = new Ejercicio();
+            ej26.agregarEjercicio("Spider", 3, 3, 10, 15, Exigencia.MEDIA, GrupoMuscular.BRAZOS);
+
+            Ejercicio ej27 = new Ejercicio();
+            ej27.agregarEjercicio("Dominadas", 3, 4, 5, 0, Exigencia.BAJA, GrupoMuscular.ESPALDA);
+
+            Ejercicio ej28 = new Ejercicio();
+            ej28.agregarEjercicio("YTWL", 5, 4, 2, 20, Exigencia.MEDIA, GrupoMuscular.HOMBRO);
+            
+            Ejercicio ej29 = new Ejercicio();
+            ej29.agregarEjercicio("Apertura de Pecho", 3, 3, 5, 70, Exigencia.ALTA, GrupoMuscular.PECHO);
+
+            Ejercicio ej30 = new Ejercicio();
+            ej30.agregarEjercicio("Prensa a 45", 4, 5, 50, 0, Exigencia.ALTA, GrupoMuscular.PIERNAS);
+
+            Ejercicio ej31 = new Ejercicio();
+
+            ej31.agregarEjercicio("Curl con Barra", 3, 3, 10, 15, Exigencia.ALTA, GrupoMuscular.BRAZOS);
+
+            Ejercicio ej32 = new Ejercicio();
+            ej32.agregarEjercicio("Remo", 3, 4, 5, 0, Exigencia.ALTA, GrupoMuscular.ESPALDA);
+
+            Ejercicio ej33 = new Ejercicio();
+            ej33.agregarEjercicio("Press Militar", 5, 4, 10, 20, Exigencia.ALTA, GrupoMuscular.HOMBRO);
+
+            Ejercicio ej34 = new Ejercicio();
+            ej34.agregarEjercicio("Apertura de Pecho", 3, 3, 5, 70, Exigencia.ALTA, GrupoMuscular.PECHO);
+            
+            Ejercicio ej35 = new Ejercicio();
+            ej35.agregarEjercicio("Prensa a 45", 4, 5, 50, 0, Exigencia.ALTA, GrupoMuscular.PIERNAS);
+
+            Ejercicio ej36 = new Ejercicio();
+            ej36.agregarEjercicio("Curl con Barra", 3, 3, 10, 15, Exigencia.ALTA, GrupoMuscular.BRAZOS);
+
+            Ejercicio ej37 = new Ejercicio();
+            ej37.agregarEjercicio("Remo", 3, 4, 5, 0, Exigencia.ALTA, GrupoMuscular.ESPALDA);
+
+            Ejercicio ej38 = new Ejercicio();
+            ej38.agregarEjercicio("Press Militar", 5, 4, 10, 20, Exigencia.ALTA, GrupoMuscular.HOMBRO);
+
+            Ejercicio ej39 = new Ejercicio();
+
+            ej39.agregarEjercicio("Cruces de Polea", 5, 3, 5, 70, Exigencia.MEDIA, GrupoMuscular.PECHO);
+
+            Ejercicio ej40 = new Ejercicio();
+            ej40.agregarEjercicio("Step Up", 3, 5, 50, 0, Exigencia.ALTA, GrupoMuscular.PIERNAS);
+
+            Ejercicio ej41 = new Ejercicio();
+            ej41.agregarEjercicio("Flexion de Arquero", 3, 3, 5, 70, Exigencia.BAJA, GrupoMuscular.PECHO);
+
         } catch (EjercicioExistenteException e){
             e.printStackTrace();
         }
