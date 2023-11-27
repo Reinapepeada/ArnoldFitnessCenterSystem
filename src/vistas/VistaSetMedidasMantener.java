@@ -77,7 +77,7 @@ public class VistaSetMedidasMantener extends JFrame {
 				// avisar que se creo todo bien
 				JOptionPane.showMessageDialog(null, "Objetivo Seteado Correctamente", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
 				// volver a la vista de inicio de sesion
-				WindowManagerSingleton.getInstance().disponibilizarVistaIniciarSesion();
+				WindowManagerSingleton.getInstance().disponibilizarVistaConfgDiasRutina();
 				// cerrar la ventana
 				dispose();
             }
