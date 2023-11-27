@@ -47,7 +47,6 @@ public class Rutina extends Observado{
 		// revisar: que hace el Entrenamiento diario 
 		// devolver el entrenamiento del dia
 		Entrenamiento ent = entrenamientos.get(diaActual);
-		comenzarDia();
 		return ent;
 	}
 
@@ -58,14 +57,12 @@ public class Rutina extends Observado{
 			Ejercicio ejercicio
 			) {
 		// Entrenamiento 
-		// TODO - implement Rutina.registrarEjercicio
-		// registrar un ejercicio Realizado
 		// crear un ejercicio realizado y agregarlo a la lista de ejercicios realizados del entrenamiento del dia
 		EjercicioRealizado ej = new EjercicioRealizado(entrenamientoDiario(), repeticiones, peso, ejercicio, series);
 		ejercicioRealizados.add(ej);
 	}
 
-	public void comenzarDia() {
+	public void terminarDia() {
 		// Increment the day or reset if it exceeds the total number of days.
 		if (diaActual == dias.size() - 1) {
 			// If it's the last day, reset to the first day.
@@ -147,5 +144,9 @@ public class Rutina extends Observado{
 
 	public ArrayList<EjercicioRealizado> getEjerciciosRealizados() {
 		return ejercicioRealizados;
+	}
+
+	public ArrayList<Ejercicio> getEjerciciosdelDia() {
+		return entrenamientos.get(diaActual).getEjercicios();
 	}
 }

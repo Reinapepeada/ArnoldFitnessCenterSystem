@@ -2,10 +2,12 @@ package control;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import modelo.Ejercicio;
 import modelo.VOs.SocioVo;
 import vistas.VistaActualizarObjetivo;
 import vistas.VistaBienvenida;
@@ -165,7 +167,7 @@ public class WindowManagerSingleton {
 	}
 
 	public void disponibilizarVistaComenzarEntrenamiento() {
-		vComenzarEntrenamiento.actualizarTabla(co.getEntrenamientoDiario().getEjercicios());
+		vComenzarEntrenamiento.actualizarTabla(co.getEjerciciosDia());
 		vComenzarEntrenamiento.setVisible(true);
 		vComenzarEntrenamiento.setSize(500, 500);
 		vComenzarEntrenamiento.setLocation(0, 0);
@@ -226,7 +228,7 @@ public class WindowManagerSingleton {
 	}
 	public void disponibilizarVistaDiaEntrenamiento() {
 		vDiaEntrenamiento.setCObjetivo(co);
-		vDiaEntrenamiento.setListaEjercicios(co.getEntrenamientoDiario().getEjercicios());
+		vDiaEntrenamiento.setListaEjercicios(co.getEjerciciosDia());
 		vDiaEntrenamiento.setVisible(true);
 		vDiaEntrenamiento.setSize(500, 500);
 		vDiaEntrenamiento.setLocation(0, 0);
