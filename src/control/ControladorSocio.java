@@ -38,7 +38,7 @@ public class ControladorSocio {
 			WindowManagerSingleton.getInstance().disponibilizarVistaMenuSocio();
 
 		} catch (CredencialesInvalidasException e) {
-			// e.printStackTrace();
+			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, e.getMessage());
 		}
 	}
