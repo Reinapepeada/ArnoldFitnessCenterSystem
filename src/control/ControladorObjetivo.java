@@ -35,13 +35,13 @@ public class ControladorObjetivo {
 
 
     public void diseñarRutina(List<Dia> dias) {
-        try {
+        // try {
             this.r = FactoryRutina.crearRutina(os, dias);
 
-        } catch (RutinaInexistenteException e) {
-            // Handle the exception here
-            System.out.println("RutinaInexistenteException: " + e.getMessage());
-        }
+        // } catch (RutinaInexistenteException e) {
+        //     // Handle the exception here
+        //     System.out.println("RutinaInexistenteException: " + e.getMessage());
+        // }
     }
 
     

@@ -2,7 +2,11 @@ package modelo.moduloObjetivo;
 
 import modelo.moduloMediciones.BalanzaSystemAdapter;
 import modelo.moduloMediciones.Medida;
+
+import java.util.ArrayList;
+
 import modelo.Socio;
+import modelo.enums.Exigencia;
 
 public class BajarPeso extends ObjetivoStrategy {
 	private double pesoInicial;
@@ -11,9 +15,13 @@ public class BajarPeso extends ObjetivoStrategy {
 	private double pesoIdeal;
 	private double durMaxima=1.5;
     private double durMinima=1;
+	private ArrayList<Exigencia> exigencias;
 
 	public BajarPeso(double duracion,  double peso, double altura) {
 		super(duracion, 0, 3);
+		this.setExigenciaBaja();
+		this.setExigenciaMedia();
+		this.setExigenciaAlta();
 		this.pesoInicial = peso;
 		this.alturaInicial = altura;
 	}

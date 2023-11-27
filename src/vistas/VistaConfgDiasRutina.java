@@ -85,7 +85,7 @@ public class VistaConfgDiasRutina extends JFrame {
 
 
     private void registrarDiasSeleccionados() {
-        try {
+       
             co.diseñarRutina(diasSeleccionados);
             // avisar que se creo todo bien
             JOptionPane.showMessageDialog(null, "¡Rutina Diseñada a tu medida!", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
@@ -93,10 +93,7 @@ public class VistaConfgDiasRutina extends JFrame {
             System.out.println("Rutina: " + co.getRutina().toString());
             // volver a la vista de inicio de sesion
             WindowManagerSingleton.getInstance().disponibilizarVistaIniciarSesion();
-        } catch (Exception e) {
-            // Handle the exception here
-            JOptionPane.showMessageDialog(null, "Error al diseñar la rutina", "Mensaje", JOptionPane.ERROR_MESSAGE);
-        }
+        
     }
 
     // Método para obtener el ArrayList con los días seleccionados

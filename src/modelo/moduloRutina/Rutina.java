@@ -11,7 +11,7 @@ public class Rutina {
 	private ObjetivoStrategy objetivo;
 	private List<Entrenamiento> entrenamientos;
 	private List<Dia> dias;
-	private int diaEntre;
+	private int diaActual;
 	private int semanas;
 
 	public Rutina(ObjetivoStrategy objetivo, List<Dia> dias) {
@@ -30,17 +30,16 @@ public class Rutina {
 	}
 
 	public Entrenamiento entrenamientoDiario() {
-		Entrenamiento ent = entrenamientos.remove(diaEntre);
-		this.diaEntre += 1;
+		Entrenamiento ent = entrenamientos.remove(diaActual);
 		return ent;
 	}
 
-	public void registrarEjercicio(int series, int repeticiones, float peso, boolean completado) {
-		// TODO: Implementar el registro del ejercicio
-	}
+	
 
 	public void comenzarDia() {
-		// TODO: Implementar el inicio del día
+		this.diaActual += 1;
+
+
 	}
 
 	public ObjetivoStrategy getObjetivo() {
@@ -77,6 +76,6 @@ public class Rutina {
 
 	public String toString() {
 		return "Rutina [objetivo=" + objetivo + ", entrenamientos=" + entrenamientos + ", dias=" + dias + ", diaEntre="
-				+ diaEntre + ", semanas=" + semanas + "]";
+				+ diaActual + ", semanas=" + semanas + "]";
 	}
 }

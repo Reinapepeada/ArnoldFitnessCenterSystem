@@ -1,5 +1,6 @@
 package modelo.moduloObjetivo;
 import modelo.Socio;
+import modelo.enums.Exigencia;
 import modelo.moduloMediciones.BalanzaSystemAdapter;
 import modelo.moduloMediciones.Medida;
 
@@ -16,6 +17,7 @@ public class Tonificar extends ObjetivoStrategy {
 
     public Tonificar(double duracion,  double peso, double altura, double porcenInitGrsa, double porcenInitMus) {
         super(duracion, 4, 5);
+        this.setExigenciaAlta();
         this.porcentajeGrsa = porcenInitGrsa;
         this.porcentjesMus = porcenInitMus;
         this.alturaInicial = altura;
