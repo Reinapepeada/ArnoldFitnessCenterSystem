@@ -48,7 +48,7 @@ public class VistaEjerciciosCompletados extends JFrame {
 
 		Object[] titulos = { "Ejercicio", "Series", "Repeticiones", "Peso" };
 		modelotablaEjerciciosRealizados.setColumnIdentifiers(titulos);
-
+		
 		/* MATRIZ DE EJERCICIOS */
 		for (EjercicioRealizado ej : Rutina.ejercicioRealizados){ // esto va a tener que iterar sobre el listado de ejercicios de rutina, segun el dia
 			Object[] fila = new Object[4];

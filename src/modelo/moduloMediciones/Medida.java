@@ -11,7 +11,7 @@ public class Medida {
     private AdapterMedida medicion;
 
     //Constructor
-    public Medida(double altura, double peso,double porcetajeGrasa, double porcentajeMusculo, AdapterMedida medicion) {
+    public Medida(double altura, double peso,double porcetajeGrasa, double porcentajeMusculo) {
         this.altura = altura;
         this.peso = peso;
         this.porcetajeGrasa = porcetajeGrasa;

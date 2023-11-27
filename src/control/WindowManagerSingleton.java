@@ -93,6 +93,9 @@ public class WindowManagerSingleton {
 				
 		vDiaEntrenamiento.setCObjetivo(co);
 
+		// vista registrar medida set controlador
+		vGestionarMedidas.setCSocio(cs);
+
 		// // vista comenzar un entrenamiento del dia
 		// vComenzarEntrenamiento.setCEjercicio(ce);
 		

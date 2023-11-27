@@ -15,6 +15,8 @@ import modelo.Socio;
 import modelo.VOs.SocioVo;
 import modelo.excepciones.CredencialesInvalidasException;
 import modelo.excepciones.SocioExistenteException;
+import modelo.moduloMediciones.BalanzaSystemAdapter;
+import modelo.moduloMediciones.Medida;
 
 
 public class ControladorSocio {
@@ -69,6 +71,10 @@ public class ControladorSocio {
 	public Socio getSocioActual() {
 		System.out.println("getSocioActual: "+this.a);
 		return this.a;
+	}
+
+	public void registrarMedidaSocio( double altura ,double peso, double masaMuscular, double grasaCorporal) {
+		a.agregarMedida(new Medida( altura,peso, masaMuscular, grasaCorporal));
 	}
 
 }

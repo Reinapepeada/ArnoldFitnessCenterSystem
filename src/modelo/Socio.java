@@ -43,6 +43,7 @@ public class Socio extends Observado{
 		this.sexo = sexo;
 		this.altura = altura;
 		this.peso = peso;
+		this.medidas = new ArrayList<Medida>();
 	}
 
 	// Socio.registrarSocio("Jake", "Peralta", "jperalta@uade.edu.ar", "40123456",
@@ -88,13 +89,33 @@ public class Socio extends Observado{
 		throw new CredencialesInvalidasException("Las credenciales ingresadas son invalidas.");
 	}
 
-	protected boolean soyEsteUsuario(String dni) {
-		return this.dni == dni;
-	}
-
 	protected boolean soyEsteUsuario(String dni, String password) {
 		return this.dni.equals(dni) && this.password.equals(password);
 	}
+
+
+	
+	
+	public  boolean verificarTrofeo (){
+		// TODO Auto-generated method stub
+		int contadorVeces = 0; 
+		for (Medida med : medidas) {
+			LocalDate fechaMedida = med.getDate();
+			// Check if the month of the medida is the same as the current month
+			if (fechaMedida.getMonth() == LocalDate.now().getMonth()) {
+				contadorVeces++;
+				if(contadorVeces >= 3 ){
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	public void agregarMedida(Medida medida) {
+		this.medidas.add(medida);
+	}
+	// getters y setters//7
 
 	public String obtenerDNI() {
 		return this.dni;
@@ -218,21 +239,6 @@ public class Socio extends Observado{
 
 	public SocioVo getVO() {
 		return new SocioVo(this.nombre, this.apellido, this.email, this.dni, this.edad, this.sexo, this.password,this.altura, this.peso);
-	}
-	public  boolean verificarTrofeo (){
-		// TODO Auto-generated method stub
-		int contadorVeces = 0; 
-		for (Medida med : medidas) {
-			LocalDate fechaMedida = med.getDate();
-			// Check if the month of the medida is the same as the current month
-			if (fechaMedida.getMonth() == LocalDate.now().getMonth()) {
-				contadorVeces++;
-				if(contadorVeces >= 3 ){
-					return true;
-				}
-			}
-		}
-		return false;
 	}
 	//Implementacion de observadores 
 	@Override

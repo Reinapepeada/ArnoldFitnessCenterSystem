@@ -25,7 +25,7 @@ public class BalanzaSystemAdapter implements AdapterMedida {
         double porcentajeGrasa = porcentajeGrasaAct + getRandomValue();
         double porcentajeMusculo =porcentMusc + getRandomValue();
 
-        Medida med = new Medida(peso, altura, porcentajeGrasa, porcentajeMusculo, null);
+        Medida med = new Medida(peso, altura, porcentajeGrasa, porcentajeMusculo);
 
         return med;
     }
