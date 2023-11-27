@@ -37,12 +37,15 @@ public class Entrenamiento {
 				for (Ejercicio ejercicio : ControladorEjercicio.ejercicios) {
 					if(ejercicio.getNivelAerobico() <=4 && ejercicio.getExigenciaMuscular() == Exigencia.ALTA && !estaGrupo(ejercicio.getGrupoMuscular())){
 						ejerciciosEntrenamiento.add(ejercicio);
+						
 					}
 				}
+				
             case "BajarPeso":
 				for (Ejercicio ejercicio : ControladorEjercicio.ejercicios) {
 					if((ejercicio.getNivelAerobico() >=3 && !estaGrupo(ejercicio.getGrupoMuscular()))){
 						ejerciciosEntrenamiento.add(ejercicio);
+					
 					}
 				}
 
@@ -50,6 +53,7 @@ public class Entrenamiento {
 				for (Ejercicio ejercicio : ControladorEjercicio.ejercicios) {
 					if(((ejercicio.getNivelAerobico() >=2 || ejercicio.getNivelAerobico() <=4)  && (ejercicio.getExigenciaMuscular() == Exigencia.MEDIA || ejercicio.getExigenciaMuscular() == Exigencia.BAJA) && !estaGrupo(ejercicio.getGrupoMuscular()))){
 						ejerciciosEntrenamiento.add(ejercicio);
+						
 					}
 				}
 		}

@@ -35,7 +35,7 @@ public class ControladorSocio {
 			// SwingUtilities.getWindowAncestor(usuario);
 			// vistaInicioSesion.setVisible(false);
 			verListadoSocios(usuarios);
-			WindowManagerSingleton.getInstance().disponibilizarVistaMenuPrincipal();
+			WindowManagerSingleton.getInstance().disponibilizarVistaMenuSocio();
 
 		} catch (CredencialesInvalidasException e) {
 			// e.printStackTrace();
@@ -46,8 +46,7 @@ public class ControladorSocio {
 	public void registrarSocio(SocioVo svo) {
 
 		try {
-			a=a.registrarSocio(svo.getNombre(), svo.getApellido(), svo.getEmail(), svo.getDni(), svo.getEdad(),
-					svo.getSexo(), svo.getPassword(), svo.getAltura(), svo.getPeso());
+			a=a.registrarSocio(svo.getNombre(), svo.getApellido(), svo.getEmail(), svo.getDni(), svo.getEdad(), svo.getSexo(), svo.getPassword(), svo.getAltura(), svo.getPeso());
 			JOptionPane.showMessageDialog(null, "¡El Socio se ha creado con Exito!");
 			
 		} catch (SocioExistenteException e) {
@@ -57,8 +56,7 @@ public class ControladorSocio {
 
 	public void verListadoSocios(ArrayList<Socio> usuarios) {
 		for (Socio x : usuarios) {
-			System.out.println("Socio: " + x.getNombre() + " - DNI: " + x.getDni() + " - Password: -" + x.getPassword()
-					+ "-" + "Peso: " + x.getPeso());
+			System.out.println("Socio: " + x.getNombre() + " - DNI: " + x.getDni() + " - Password: -" + x.getPassword() + "-" + "Peso: " + x.getPeso());
 		}
 
 	}
@@ -69,6 +67,7 @@ public class ControladorSocio {
 	}
 
 	public Socio getSocioActual() {
+		System.out.println("getSocioActual: "+this.a);
 		return this.a;
 	}
 

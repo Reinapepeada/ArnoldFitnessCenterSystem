@@ -11,7 +11,7 @@ public class SocioVo {
     private double altura;
     private double peso;
 
-    public SocioVo(String nombre, String apellido, String email, String dni, String edad, String sexo, String password,
+    public SocioVo(String nombre, String apellido, String email, String dni, String edad, String sexo, String password, Double altura2, Double peso2,
             double altura, double peso) 
             {
         this.edad = edad;

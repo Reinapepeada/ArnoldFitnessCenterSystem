@@ -5,9 +5,6 @@ import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
-import java.util.List;
-
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -17,15 +14,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import control.ControladorObjetivo;
-import control.ControladorSocio;
 import control.WindowManagerSingleton;
-import modelo.Socio;
-import modelo.VOs.SocioVo;
-import modelo.moduloObjetivo.BajarPeso;
-import modelo.moduloObjetivo.ObjetivoStrategy;
 
 public class VistaSetMedidasObjetivo extends JFrame{
-
 	
 	private ControladorObjetivo co;
 	private double maxDuracion;
@@ -71,7 +62,6 @@ public class VistaSetMedidasObjetivo extends JFrame{
 				// cierro la ventana actual
 				dispose();
 				
-               	
 			}
 		}
 
