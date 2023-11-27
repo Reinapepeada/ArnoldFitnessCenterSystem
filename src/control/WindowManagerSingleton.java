@@ -227,6 +227,4 @@ public class WindowManagerSingleton {
 		vDiaEntrenamiento.setSize(500, 500);
 		vDiaEntrenamiento.setLocation(0, 0);
 	}
-
-
 }
