@@ -1,6 +1,7 @@
 package modelo;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import control.ControladorSocio;
@@ -11,8 +12,11 @@ import modelo.excepciones.CredencialesInvalidasException;
 import modelo.moduloMediciones.Medida;
 import modelo.moduloObjetivo.ObjetivoStrategy;
 import modelo.moduloRutina.Rutina;
+import modelo.moduloTrofeo.Observado;
+import modelo.moduloTrofeo.TrofeoObservador;
 
-public class Socio {
+public class Socio extends Observado{
+	private ArrayList<TrofeoObservador> observadores = new ArrayList<TrofeoObservador>();
 	private String edad;
 	private String nombre;
 	private String apellido;
@@ -238,5 +242,26 @@ public class Socio {
 			}
 		}
 		return false;
+	}
+
+	//Implementacion de observadores 
+	@Override
+	public void agregarObservador(TrofeoObservador obs) {
+		// Agrega observadores 
+		observadores.add(obs);
+	}
+
+	@Override
+	public void sacarbservador(TrofeoObservador obs) {
+		// Elimina observadores
+		observadores.remove(obs);
+	}
+
+	@Override
+	public void notificar() {
+		// Notifica a los observadores
+		for (TrofeoObservador obs : observadores) {
+			obs.chequearTrofeo(this);
+		}
 	}
 }

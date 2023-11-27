@@ -6,9 +6,16 @@ import modelo.moduloObjetivo.ObjetivoStrategy;
 import modelo.Socio;
 
 public class TrofeoDedicacion extends TrofeoObservador {
+
 	private String nombre;
-	private ObjetivoStrategy objetivo;
-	private Notificador notificador = new Notificador(new NotificacionPorFirbase());
+    private ObjetivoStrategy objetivo;
+    private Notificador notificador;
+
+    public TrofeoDedicacion(String nombre, ObjetivoStrategy objetivo, Notificador notificador) {
+        this.nombre = nombre;
+        this.objetivo = objetivo;
+        this.notificador = notificador;
+    }
 
 	
 	@Override
@@ -18,8 +25,8 @@ public class TrofeoDedicacion extends TrofeoObservador {
 		if(objetivo.verificarObjetivo(soc)){
 			notificador.notificar(this);
 		}
-
 	}
+
 	public String getNombre() {
 		return nombre;
 	}

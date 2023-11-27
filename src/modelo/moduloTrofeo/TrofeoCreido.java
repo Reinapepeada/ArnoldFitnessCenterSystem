@@ -7,7 +7,12 @@ import modelo.moduloNNN.Notificador;
 public class TrofeoCreido extends TrofeoObservador {
 	private Socio socio;
 	private String nombre;
-	private Notificador notificador = new Notificador(new NotificacionPorFirbase());
+	private Notificador notificador ;
+	public TrofeoCreido(String nombre, Socio socio, Notificador notificador) {
+		this.nombre = nombre;
+		this.socio = socio;
+		this.notificador = notificador;
+	}
 
 	@Override
 	public void chequearTrofeo(Socio soc) {

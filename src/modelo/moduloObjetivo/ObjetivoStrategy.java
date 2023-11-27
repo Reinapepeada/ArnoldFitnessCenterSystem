@@ -1,12 +1,16 @@
 package modelo.moduloObjetivo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import modelo.moduloRutina.Rutina;
+import modelo.moduloTrofeo.Observado;
+import modelo.moduloTrofeo.TrofeoObservador;
 import modelo.enums.Exigencia;
 import modelo.Socio;
 
-public abstract class ObjetivoStrategy {
+public abstract class ObjetivoStrategy extends Observado {
+	private ArrayList<TrofeoObservador> observadores = new ArrayList<TrofeoObservador>();
 	private double duracion;
 	private int nAerobicMin;
 	private int nAerobicMax;
@@ -68,9 +72,25 @@ public abstract class ObjetivoStrategy {
 	public double getDurMaxima() {
 		return durMaxima;
 	}
-
 	
 	public double getDurMinima() {
 		return durMinima;
+	}
+
+	//Implementacion de observadores 
+	@Override
+	public void agregarObservador(TrofeoObservador trofeo) {
+		observadores.add(trofeo);
+	}
+	@Override
+	public void sacarbservador(TrofeoObservador trofeo) {
+		observadores.remove(trofeo);
+	}
+	@Override
+	public void notificar() {
+		for (TrofeoObservador trofeoObservador : observadores) {
+			// trofeoObservador.chequearTrofeo();
+			// nercesito sabes como pasar el socio 
+		}
 	}
 }

@@ -1,8 +1,13 @@
 package modelo.moduloNNN;
-public class AdapterFirebase {
+
+import modelo.moduloTrofeo.TrofeoObservador;
+
+public class AdapterFirebase implements AdapterNotificacionFirebase {
     
-    public static void enviaNotificacion(String n){
-        System.out.println("Notificacion enviada por Firebase: el trofeo es " + n );
-        // agregar el trofeo que se queire notificar 
+    @Override
+    public void enviaNotificacion(TrofeoObservador obs) {
+        // Implementation for sending a notification through Firebase
+        // You may need to use the Firebase SDK or any other related code here
+        System.out.println("Sending Firebase notification for trofeo: " + );
     }
 }

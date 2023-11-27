@@ -48,13 +48,7 @@ public class Tonificar extends ObjetivoStrategy {
     public String getNombreObjetivo(){
 		return "Tonificar";
 	}
-
-	@Override
-	public void chequearTrofeo() {
-		// TODO Auto-generated method stub
-		
-	}
-
+    
     public void setDuracionEntrenamiento(double duracionEntrenamiento) {
         this.duracionEntrenamiento = duracionEntrenamiento;
     }

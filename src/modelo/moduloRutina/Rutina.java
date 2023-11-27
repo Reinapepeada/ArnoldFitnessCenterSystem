@@ -4,14 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import modelo.Entrenamiento;
+import modelo.EntrenamientoRealizado;
 import modelo.enums.Dia;
 import modelo.moduloObjetivo.ObjetivoStrategy;
 import modelo.moduloTrofeo.Observado;
 import modelo.moduloTrofeo.TrofeoObservador;
+
 // import modelo.Entrenamiento;
 
-public class Rutina{
-	private ArrayList<
+public class Rutina extends Observado{
+	private ArrayList<TrofeoObservador> observadores = new ArrayList<TrofeoObservador>();
+	private ArrayList<EntrenamientoRealizado> entreRealizados;
 	private ObjetivoStrategy objetivo;
 	private List<Entrenamiento> entrenamientos;
 	private List<Dia> dias;
@@ -34,9 +37,11 @@ public class Rutina{
 	}
 
 	public Entrenamiento entrenamientoDiario() {
-		Entrenamiento ent = entrenamientos.remove(diaEntre);
-		this.diaEntre +=1;
-		return ent;
+		// TODO - implement Rutina.entrenamientoDiario
+		// revisar: que hace el Entrenamiento diario 
+
+
+		return null;
 	}
 
 	public void registrarEjercicio(
@@ -48,6 +53,7 @@ public class Rutina{
 	}
 
 	public void comenzarDia() {
+
 
 	}
 
@@ -83,18 +89,24 @@ public class Rutina{
 		this.semanas = semanas;
 	}
 
+
+	//Implementacion de observadores 
 	@Override
 	public void agregarObservador(TrofeoObservador obs) {
+		// Agrega observadores 
 		observadores.add(obs);
 	}
 
 	@Override
 	public void sacarbservador(TrofeoObservador obs) {
+		// Elimina observadores
 		observadores.remove(obs);
 	}
 
 	@Override
 	public void notificar() {
-		
+		for (TrofeoObservador trofeoObservador : observadores) {
+			trofeoObservador.chequearTrofeo();
+		}
 	}
 }

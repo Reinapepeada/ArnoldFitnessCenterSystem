@@ -7,4 +7,6 @@ public abstract class TrofeoObservador {
     private Notificador notificador;
 
     public abstract void chequearTrofeo(Socio soc);
+
+    
 }
