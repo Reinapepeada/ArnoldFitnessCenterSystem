@@ -47,7 +47,7 @@ public class VistaIniciarSesion extends JFrame {
 		
 		
 		Container contBotones=new Container();
-		contBotones.setLayout(new GridLayout(4,2,2,4));
+		contBotones.setLayout(new GridLayout(1,2,2,4));
 		
 		//CONSTRUCCION DEL BOTON INICIAR SESION//
 		JButton btnIniciarSesion=new JButton("Iniciar Sesion");

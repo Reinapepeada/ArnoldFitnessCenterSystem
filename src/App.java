@@ -1,29 +1,11 @@
 
-import control.ControladorEjercicio;
-import control.ControladorObjetivo;
-import control.ControladorSocio;
 import control.WindowManagerSingleton;
 import modelo.Socio;
 import modelo.excepciones.SocioExistenteException;
-import vistas.VistaActualizarObjetivo;
 import modelo.Ejercicio;
-import modelo.Entrenamiento;
-import modelo.Socio;
-import modelo.VOs.SocioVo;
 import modelo.enums.Exigencia;
 import modelo.enums.GrupoMuscular;
 import modelo.excepciones.EjercicioExistenteException;
-import modelo.excepciones.SocioExistenteException;
-import modelo.moduloObjetivo.ObjetivoStrategy;
-import modelo.moduloObjetivo.Tonificar;
-import vistas.VistaBienvenida;
-import vistas.VistaGestionarMedidas;
-import vistas.VistaGestionarObjetivo;
-import vistas.VistaIniciarSesion;
-
-import vistas.VistaMenuSocio;
-import vistas.VistaRegistrarSocio;
-import vistas.VistaSeleccionarObjetivo;
 
 public class App {
     public static void main(String[] args) throws Exception {

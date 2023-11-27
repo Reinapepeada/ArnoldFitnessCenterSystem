@@ -5,25 +5,17 @@ import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
-import java.util.List;
-
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-
 import control.ControladorObjetivo;
 import control.ControladorSocio;
 import control.WindowManagerSingleton;
-import modelo.Socio;
 import modelo.VOs.SocioVo;
-import modelo.enums.Objetivo;
 import modelo.moduloObjetivo.BajarPeso;
 import modelo.moduloObjetivo.Mantener;
-import modelo.moduloObjetivo.ObjetivoStrategy;
 import modelo.moduloObjetivo.Tonificar;
 
 public class VistaSeleccionarObjetivo extends JFrame {
@@ -72,13 +64,9 @@ public class VistaSeleccionarObjetivo extends JFrame {
 					//System.out.println(co);
 					//System.out.println(bp);
 					co.asignarObjetivo(bp);
-					System.out.println("Duracion Max: "+bp.getDurMaxima());
-					System.out.println("Duracion Min: "+bp.getDurMinima());
-					double max = bp.getDurMaxima();
-					double min = bp.getDurMinima();
 					// invoco la vista para setear las medidas
 					WindowManagerSingleton w=WindowManagerSingleton.getInstance();
-					w.disponibilizarVistaSetMedidasObjetivo(max,min);
+					w.disponibilizarVistaSetMedidasObjetivo(bp.getDurMaxima(),bp.getDurMinima());
 					break;
 					case "Mantener":
 					Mantener m = new Mantener(0, vo.getPeso(), 0);
@@ -96,10 +84,7 @@ public class VistaSeleccionarObjetivo extends JFrame {
 					break;
 					default:
 					break;
-					
-					
 				}
-				
 			}
 		}
         //INSTANCIACION DEL MANEJADOR//
@@ -120,6 +105,4 @@ public class VistaSeleccionarObjetivo extends JFrame {
 	public void setCObjetivo(ControladorObjetivo co) {
 		this.co = co;
 	}
-	
-	
 }
