@@ -22,7 +22,7 @@ public class VistaIniciarSesion extends JFrame {
     private JTextField usuario;
 	private JPasswordField contrasena;
 	
-	public VistaIniciarSesion(ControladorSocio cs) {
+	public VistaIniciarSesion() {
 		super ("Arnold Fitness Center - Inicio de sesion");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setLayout(new BorderLayout());

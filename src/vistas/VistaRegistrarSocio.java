@@ -3,6 +3,7 @@ package vistas;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
 import control.ControladorSocio;
+import control.WindowManagerSingleton;
 import modelo.VOs.SocioVo;
 
 public class VistaRegistrarSocio extends JFrame{
@@ -132,7 +134,7 @@ public class VistaRegistrarSocio extends JFrame{
 		class HandlerRegistrarSocio implements ActionListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				
 				String nombreSocio = nombre.getText();
 				String apellidoSocio = apellido.getText();
 				String emailSocio = email.getText();
@@ -144,11 +146,15 @@ public class VistaRegistrarSocio extends JFrame{
 				System.out.println("pesoSocio: "+pesoSocio);
 				double alturaSocio = (double) altura.getValue();
 				
-				SocioVo svo = cs.getSocioVOActual();
-				cs.registrarSocio(svo);
-				}
-			}
 				
+				SocioVo svo = new SocioVo(nombreSocio, apellidoSocio, emailSocio, dniSocio, edadSocio, sexoSocio, passwordSocio,alturaSocio, pesoSocio, alturaSocio, alturaSocio);
+				System.out.println("svo: "+svo.getPeso());
+				cs.registrarSocio(svo);
+				System.out.println("paso ");
+				WindowManagerSingleton.getInstance().disponibilizarVistaSeleccionarObjetivo();
+			}
+		}
+		
 		//INSTANCIACION DEL MANEJADOR//
 		HandlerRegistrarSocio handlerBtnRegistrarSocio=new HandlerRegistrarSocio();
 				

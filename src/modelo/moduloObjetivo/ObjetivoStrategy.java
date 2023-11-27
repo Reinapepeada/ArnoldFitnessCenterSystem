@@ -29,8 +29,6 @@ public abstract class ObjetivoStrategy extends TrofeoObservador {
 	@Override
     public abstract void chequearTrofeo();
 
-	
-	
 	public double getDuracion() {
 		return duracion;
 	}
@@ -73,7 +71,6 @@ public abstract class ObjetivoStrategy extends TrofeoObservador {
 		return durMaxima;
 	}
 
-	
 	public double getDurMinima() {
 		return durMinima;
 	}

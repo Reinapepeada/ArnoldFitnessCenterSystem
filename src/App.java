@@ -49,11 +49,20 @@ public class App {
 		}
 
         try{
+
+            //EJERCICIOS TONIFICAR QUE NO ENTRAN
+            Ejercicio ej16 = new Ejercicio();
+            ej16.agregarEjercicio("Aperturas de Pecho", 5, 3, 5, 70, Exigencia.ALTA, GrupoMuscular.PECHO);
+            
+            Ejercicio ej17 = new Ejercicio();
+            ej17.agregarEjercicio("Squat", 4, 5, 50, 0, Exigencia.MEDIA, GrupoMuscular.PIERNAS);
+
+            //EJERCICIOS TONIFICAR QUE SI ENTRAN
             Ejercicio ej1 = new Ejercicio();
             ej1.agregarEjercicio("Pecho Plano", 2, 3, 5, 70, Exigencia.ALTA, GrupoMuscular.PECHO);
             
             Ejercicio ej2 = new Ejercicio();
-            ej2.agregarEjercicio("Saltar Soga", 8, 5, 50, 0, Exigencia.BAJA, GrupoMuscular.PIERNAS);
+            ej2.agregarEjercicio("Saltar Soga", 4, 5, 50, 0, Exigencia.ALTA, GrupoMuscular.PIERNAS);
 
             Ejercicio ej3 = new Ejercicio();
             ej3.agregarEjercicio("Curl Biceps", 2, 3, 10, 15, Exigencia.ALTA, GrupoMuscular.BRAZOS);
@@ -62,7 +71,54 @@ public class App {
             ej4.agregarEjercicio("Chin Ups", 3, 5, 5, 0, Exigencia.ALTA, GrupoMuscular.ESPALDA);
 
             Ejercicio ej5 = new Ejercicio();
-            ej5.agregarEjercicio("Press Arnold", 1, 4, 10, 20, Exigencia.ALTA, GrupoMuscular.HOMBRO);
+            ej5.agregarEjercicio("Press Arnold", 2, 4, 10, 20, Exigencia.ALTA, GrupoMuscular.HOMBRO);
+            
+            //EJERCICIOS BAJARPESO QUE NO ENTRAN
+            Ejercicio ej18 = new Ejercicio();
+            ej18.agregarEjercicio("Aperturas EN T", 2, 3, 5, 70, Exigencia.ALTA, GrupoMuscular.PECHO);
+            
+            Ejercicio ej19 = new Ejercicio();
+            ej19.agregarEjercicio("Sentadilla Bulgara", 1, 5, 50, 0, Exigencia.MEDIA, GrupoMuscular.PIERNAS);
+
+            //EJERCICIOS BAJARPESO QUE SI ENTRAN
+            Ejercicio ej6 = new Ejercicio();
+            ej6.agregarEjercicio("Apertura de Pecho", 3, 3, 5, 70, Exigencia.ALTA, GrupoMuscular.PECHO);
+            
+            Ejercicio ej7 = new Ejercicio();
+            ej7.agregarEjercicio("Prensa a 45", 4, 5, 50, 0, Exigencia.ALTA, GrupoMuscular.PIERNAS);
+
+            Ejercicio ej8 = new Ejercicio();
+            ej8.agregarEjercicio("Curl con Barra", 3, 3, 10, 15, Exigencia.ALTA, GrupoMuscular.BRAZOS);
+
+            Ejercicio ej9 = new Ejercicio();
+            ej9.agregarEjercicio("Remo", 3, 4, 5, 0, Exigencia.ALTA, GrupoMuscular.ESPALDA);
+
+            Ejercicio ej10 = new Ejercicio();
+            ej10.agregarEjercicio("Press Militar", 5, 4, 10, 20, Exigencia.ALTA, GrupoMuscular.HOMBRO);
+            
+            //EJERCICIOS MANTENER QUE NO ENTRAN
+            Ejercicio ej20 = new Ejercicio();
+            ej20.agregarEjercicio("Cruces de Polea", 5, 3, 5, 70, Exigencia.MEDIA, GrupoMuscular.PECHO);
+            
+            Ejercicio ej21 = new Ejercicio();
+            ej21.agregarEjercicio("Step Up", 3, 5, 50, 0, Exigencia.ALTA, GrupoMuscular.PIERNAS);
+
+            //EJERCICIOS MANTENER QUE SI ENTRAN
+            Ejercicio ej11 = new Ejercicio();
+            ej11.agregarEjercicio("Flexion de Arquero", 3, 3, 5, 70, Exigencia.BAJA, GrupoMuscular.PECHO);
+            
+            Ejercicio ej12 = new Ejercicio();
+            ej12.agregarEjercicio("Deadlift", 4, 5, 50, 0, Exigencia.MEDIA, GrupoMuscular.PIERNAS);
+
+            Ejercicio ej13 = new Ejercicio();
+            ej13.agregarEjercicio("Spider", 3, 3, 10, 15, Exigencia.MEDIA, GrupoMuscular.BRAZOS);
+
+            Ejercicio ej14 = new Ejercicio();
+            ej14.agregarEjercicio("Dominadas", 3, 4, 5, 0, Exigencia.BAJA, GrupoMuscular.ESPALDA);
+
+            Ejercicio ej15 = new Ejercicio();
+            ej15.agregarEjercicio("YTWL", 5, 4, 2, 20, Exigencia.MEDIA, GrupoMuscular.HOMBRO);
+            
         } catch (EjercicioExistenteException e){
             e.printStackTrace();
         }

@@ -66,10 +66,5 @@ public class VistaBienvenida extends JFrame {
 
 	}
 
-	public void setCSocio(ControladorSocio cs){
-		this.cs = cs;
-
-	}
-
     
 }
