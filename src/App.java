@@ -2,6 +2,8 @@
 import control.WindowManagerSingleton;
 import modelo.Socio;
 import modelo.excepciones.SocioExistenteException;
+import modelo.moduloObjetivo.BajarPeso;
+import modelo.moduloObjetivo.Tonificar;
 import modelo.Ejercicio;
 import modelo.enums.Exigencia;
 import modelo.enums.GrupoMuscular;
@@ -12,6 +14,9 @@ public class App {
         
         App app = new App();
         app.init();
+        //INSTANCIAR RUTINAS DE TESTING
+        Tonificar t = new Tonificar(2.5, 75.0, 175.0, 20.54, 24.48);
+        BajarPeso bp = new BajarPeso(1.0, 85.0, 185.0);
 
         //INSTANCIAR USUARIOS
         try{
@@ -19,14 +24,12 @@ public class App {
             //Usuario1
             Socio soc1 = new Socio();
             soc1.registrarSocio("Jake", "Peralta", "jperalta@uade.edu.ar", "40123456", "32", "Masculino", "Hola123", 175.0, 75.0);
-            //SocioVo svo1 = new SocioVo("Jake", "Peralta", "jperalta@uade.edu.ar", "40123456", "32", "Masculino", "Hola123", 175, 75);
-            //cs.registrarSocio(svo1);
+            soc1.setObjetivo(t);
             
             //usuario2
             Socio soc2  = new Socio();
             soc2.registrarSocio("Raymond", "Holt", "rholt@uade.edu.ar", "20123456", "55", "Masculino", "Hola123", 185.0, 85.0);
-            //SocioVo svo2 = new SocioVo("Raymond", "Holt", "rholt@uade.edu.ar", "20123456", "55", "Masculino", "Hola123", 185, 85);
-            //cs.registrarSocio(svo2);
+            soc2.setObjetivo(bp);
         } catch (SocioExistenteException e) {
 			e.printStackTrace();
 		}

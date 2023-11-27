@@ -20,8 +20,9 @@ import modelo.Socio;
 public class VistaComenzarEntrenamiento extends JFrame{
 
     private JTable tablaDesgaste= new JTable();
+    ControladorEjercicio ce;
 
-    public VistaComenzarEntrenamiento(ControladorSocio cs, Socio a) {
+    public VistaComenzarEntrenamiento() {
         super ("Arnold Fitness Center - Dia de Entrenamiento!");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setLayout(new BorderLayout());
@@ -68,12 +69,15 @@ public class VistaComenzarEntrenamiento extends JFrame{
 		tablaDesgaste.setModel(modeloTablaDesgasteArticulos);
 		JScrollPane scrollTabla=new JScrollPane(tablaDesgaste);
 		
-		
-		
 		panelCentral.add(scrollTabla,BorderLayout.CENTER);
     }
 
-    public VistaComenzarEntrenamiento() {
+    public void setCEjercicio(ControladorEjercicio cs){
+        this.ce = ce;
+        //refrescar tabla
+
+        repaint();
+        revalidate();
     }
 
 }

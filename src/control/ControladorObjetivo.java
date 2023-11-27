@@ -18,6 +18,7 @@ public class ControladorObjetivo {
         
         Socio s = cs.getSocioActual();
         System.out.println(s.toString());
+        System.out.println("Objetivo Asignado: "+x.toString());
         s.setObjetivo(x);
         this.os = x;
     }   

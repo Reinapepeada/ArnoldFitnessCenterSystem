@@ -5,6 +5,8 @@ import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -13,6 +15,7 @@ import javax.swing.JPanel;
 import control.ControladorObjetivo;
 import control.ControladorSocio;
 import control.WindowManagerSingleton;
+import modelo.Socio;
 import modelo.VOs.SocioVo;
 import modelo.moduloObjetivo.BajarPeso;
 import modelo.moduloObjetivo.Mantener;
@@ -28,6 +31,7 @@ public class VistaSeleccionarObjetivo extends JFrame {
 
 	ControladorSocio cs;
 	ControladorObjetivo co;
+	///Socio s = cs.getSocioActual();
 
 	public VistaSeleccionarObjetivo() {
         super ("Arnold Fitness Center - Seleccionar Objetivo");
@@ -35,6 +39,9 @@ public class VistaSeleccionarObjetivo extends JFrame {
 		this.setLayout(new BorderLayout());
 		JPanel panel1=new JPanel();
 		panel1.setLayout(new GridLayout(2,1,2,2));
+
+		//panel1.add(new JLabel("Objetivo Actual: "+s.getObjetivo().getClass().getSimpleName())); //REVISAR
+		this.add(panel1,BorderLayout.NORTH);
 
         Container contObjetivo=new Container();
 		contObjetivo.setLayout(new GridLayout(1,2,2,2));
@@ -98,6 +105,14 @@ public class VistaSeleccionarObjetivo extends JFrame {
 		
 	    this.add(panel1,BorderLayout.CENTER);
     }
+
+	public void actualizarControladorSocio(ControladorSocio cs) {
+        this.cs = cs;
+        // Asegúrate de que la vista se redibuje
+        repaint();
+        revalidate();
+    }
+
 	public void setCSocio(ControladorSocio cs) {
 		this.cs = cs;
 	}

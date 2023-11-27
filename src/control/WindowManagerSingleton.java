@@ -73,6 +73,8 @@ public class WindowManagerSingleton {
 		vSetMedidasObjetivo.setCObjetivo(co);
 		vSetMedidasMantener.setCObjetivo(co);
 
+		//vComenzarEntrenamiento.setCEjercicio(ce);
+
 		// seteamos los controladores en los controladores
 		co.setCSocio(cs);
 	}
@@ -181,6 +183,7 @@ public class WindowManagerSingleton {
 	}
 
 	public void disponibilizarVistaComenzarEntrenamiento() {
+		vComenzarEntrenamiento.setCEjercicio(ce);
 		vComenzarEntrenamiento.setVisible(true);
 		vComenzarEntrenamiento.setSize(500, 500);
 		vComenzarEntrenamiento.setLocation(0, 0);
@@ -194,6 +197,7 @@ public class WindowManagerSingleton {
 	}
 
 	public void disponibilizarVistaSeleccionarObjetivo() {
+		vSeleccionarObjetivo.actualizarControladorSocio(cs);
 		vSeleccionarObjetivo.setSize(500, 500);
 		vSeleccionarObjetivo.setLocation(0, 0);
 		vSeleccionarObjetivo.setVisible(true);

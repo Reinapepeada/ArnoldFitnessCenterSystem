@@ -147,7 +147,7 @@ public class VistaRegistrarSocio extends JFrame{
 				double pesoSocio = (double) peso.getValue();
 				double alturaSocio = (double) altura.getValue();
 				
-				SocioVo svo = new SocioVo(nombreSocio, apellidoSocio, emailSocio, dniSocio, edadSocio, sexoSocio, passwordSocio,alturaSocio, pesoSocio, alturaSocio, alturaSocio);
+				SocioVo svo = new SocioVo(nombreSocio, apellidoSocio, emailSocio, dniSocio, edadSocio, sexoSocio, passwordSocio,alturaSocio, pesoSocio);
 				cs.registrarSocio(svo);
 
 				WindowManagerSingleton.getInstance().disponibilizarVistaSeleccionarObjetivo();
@@ -172,3 +172,5 @@ public class VistaRegistrarSocio extends JFrame{
 
 	}
 }
+
+//24.48

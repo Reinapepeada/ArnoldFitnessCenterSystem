@@ -55,7 +55,7 @@ public class VistaMenuSocio extends JFrame{
 		contBotones.setLayout(new GridLayout(3,1,2,4));
 		
 		//CONSTRUCCION DEL BOTON INICIAR SESION//
-		JButton btnGestionarObjetivo=new JButton("<html> Gestionar Objetivo </html>");
+		JButton btnGestionarObjetivo=new JButton("<html> Actualizar Objetivo </html>");
 		JButton btnGestionarMedidas=new JButton("<html> Gestionar Medidas </html>");
 		JButton btnComenzarEntrenamiento=new JButton("<html> Comenzar Entrenamiento del Dia! </html>");
 		
@@ -64,7 +64,7 @@ public class VistaMenuSocio extends JFrame{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				WindowManagerSingleton.getInstance().disponibilizarVistaGestionarObjetivo();
+				WindowManagerSingleton.getInstance().disponibilizarVistaSeleccionarObjetivo();
 			}
 		}
 		

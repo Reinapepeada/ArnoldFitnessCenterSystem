@@ -74,4 +74,5 @@ public abstract class ObjetivoStrategy extends TrofeoObservador {
 	public double getDurMinima() {
 		return durMinima;
 	}
+
 }
