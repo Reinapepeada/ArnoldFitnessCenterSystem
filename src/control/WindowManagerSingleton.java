@@ -218,6 +218,8 @@ public class WindowManagerSingleton {
 		vEjsCompletados.setVisible(true);
 		vEjsCompletados.setSize(500, 500);
 		vEjsCompletados.setLocation(0, 0);
+
+	}
 	public void disponibilizarVistaDiaEntrenamiento() {
 		vDiaEntrenamiento.setCObjetivo(co);
 		vDiaEntrenamiento.setListaEjercicios(co.getEntrenamientoDiario().getEjercicios());
