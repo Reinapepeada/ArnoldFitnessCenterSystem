@@ -162,7 +162,7 @@ public class WindowManagerSingleton {
 	}
 
 	public void disponibilizarVistaComenzarEntrenamiento() {
-		vComenzarEntrenamiento.setCEjercicio(ce);
+		vComenzarEntrenamiento.actualizarTabla(co.getEntrenamientoDiario().getEjercicios());
 		vComenzarEntrenamiento.setVisible(true);
 		vComenzarEntrenamiento.setSize(500, 500);
 		vComenzarEntrenamiento.setLocation(0, 0);

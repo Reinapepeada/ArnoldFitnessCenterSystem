@@ -50,8 +50,6 @@ public class VistaEjerciciosCompletados extends JFrame {
 
 		/* MATRIZ DE EJERCICIOS */
 		for (EjercicioRealizado ej : Rutina.ejercicioRealizados){ // esto va a tener que iterar sobre el listado de ejercicios de rutina, segun el dia
-
-
 			Object[] fila = new Object[4];
 			fila[0] = ej.getNombre();
 			fila[1] = ej.getSeries();
