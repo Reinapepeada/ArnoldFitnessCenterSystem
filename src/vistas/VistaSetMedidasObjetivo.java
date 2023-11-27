@@ -5,26 +5,19 @@ import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Arrays;
-import java.util.List;
-
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import control.ControladorObjetivo;
-import control.ControladorSocio;
-import modelo.Socio;
-import modelo.VOs.SocioVo;
-import modelo.moduloObjetivo.BajarPeso;
-import modelo.moduloObjetivo.ObjetivoStrategy;
+import control.WindowManagerSingleton;
 
 public class VistaSetMedidasObjetivo extends JFrame{
-
-	private ControladorSocio cs;
-	private SocioVo svo;
+	
 	private ControladorObjetivo co;
 	private double maxDuracion;
 	private double minDuracion;
@@ -37,8 +30,6 @@ public class VistaSetMedidasObjetivo extends JFrame{
 		JPanel panel1=new JPanel();
 		panel1.setLayout(new GridLayout(2,1,2,2));
 
-        List<Double> ListaDuracion = Arrays.asList(minDuracion, maxDuracion);
-        Double[] doubleArray = ListaDuracion.toArray(new Double[0]);
 
         Container contDuracionEntrenamiento=new Container();
 		contDuracionEntrenamiento.setLayout(new GridLayout(1,2,2,2));
@@ -63,7 +54,14 @@ public class VistaSetMedidasObjetivo extends JFrame{
 				System.out.println("Duracion Seleccionada: "+dur);
 				
                 co.setDuracion(dur);
-               	
+
+				//cartelito que informa que ya seteaste tu objetivo
+				JOptionPane.showMessageDialog(null, "Objetivo Seteado Correctamente", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
+				// envio a la interfaz de inicio de sesion
+				WindowManagerSingleton.getInstance().disponibilizarVistaConfgDiasRutina();
+				// cierro la ventana actual
+				dispose();
+				
 			}
 		}
 
@@ -80,21 +78,18 @@ public class VistaSetMedidasObjetivo extends JFrame{
 
     }
 
-	public void setCSocio(ControladorSocio cs) {
-		this.cs = cs;
-		this.svo=cs.getSocioVOActual();
-	}
+	
 
-	public void setCO(ControladorObjetivo co) {
-		this.co = co;
-	}
 
-    public void setMaxDuracion(double max) {
-		this.duracion.addItem(max);
+    public void actualizarDuracionComboBox(double max, double min) {
+        duracion.setModel(new DefaultComboBoxModel<>(new Double[]{min, max}));
+        // Asegúrate de que la vista se redibuje
+        repaint();
+        revalidate();
     }
 
-    public void setMinDuracion(double min) {
-		this.duracion.addItem(min);
+    public void setCObjetivo(ControladorObjetivo co2) {
+		this.co = co2;
     }
 
 }

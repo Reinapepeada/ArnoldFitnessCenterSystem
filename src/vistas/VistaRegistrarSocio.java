@@ -3,10 +3,12 @@ package vistas;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,6 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
 import control.ControladorSocio;
+import control.WindowManagerSingleton;
 import modelo.VOs.SocioVo;
 
 public class VistaRegistrarSocio extends JFrame{
@@ -25,10 +28,10 @@ public class VistaRegistrarSocio extends JFrame{
 	private JTextField email;
 	private JTextField dni;
 	private JTextField edad;
-    private JTextField sexo;
 	private JPasswordField password;
     private JSpinner peso;
 	private JSpinner altura;
+	private JComboBox<String> sexoCombo;
 	private ControladorSocio cs;
 
 	public VistaRegistrarSocio() {
@@ -78,12 +81,13 @@ public class VistaRegistrarSocio extends JFrame{
 		contEdad.add(edad);
 		panel1.add(contEdad);
 
-        Container contSexo=new Container();
+		Container contSexo=new Container();
 		contSexo.setLayout(new GridLayout(1,2,2,2));
-		JLabel labelSexo=new JLabel("<html>Sexo</html>");
-		sexo=new JTextField();
-		contSexo.add(labelSexo);
-		contSexo.add(sexo);
+		JLabel labelObjetivo=new JLabel("<html>Sexo</html>");
+		sexoCombo = new JComboBox<>(new String[]{"Masculino", "Femenino", "Otro"});
+		sexoCombo.setSelectedItem(null);
+		contSexo.add(labelObjetivo);
+		contSexo.add(sexoCombo);
 		panel1.add(contSexo);
 
 		Container contPassword = new Container();
@@ -132,23 +136,24 @@ public class VistaRegistrarSocio extends JFrame{
 		class HandlerRegistrarSocio implements ActionListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				
 				String nombreSocio = nombre.getText();
 				String apellidoSocio = apellido.getText();
 				String emailSocio = email.getText();
 				String dniSocio = dni.getText();
 				String edadSocio = edad.getText();
-				String sexoSocio = sexo.getText();
+				String sexoSocio = (String) sexoCombo.getSelectedItem();
 				String passwordSocio = new String(password.getPassword());
 				double pesoSocio = (double) peso.getValue();
-				System.out.println("pesoSocio: "+pesoSocio);
 				double alturaSocio = (double) altura.getValue();
 				
-				SocioVo svo = cs.getSocioVOActual();
+				SocioVo svo = new SocioVo(nombreSocio, apellidoSocio, emailSocio, dniSocio, edadSocio, sexoSocio, passwordSocio,alturaSocio, pesoSocio);
 				cs.registrarSocio(svo);
-				}
+
+				WindowManagerSingleton.getInstance().disponibilizarVistaSeleccionarObjetivo();
 			}
-				
+		}
+		
 		//INSTANCIACION DEL MANEJADOR//
 		HandlerRegistrarSocio handlerBtnRegistrarSocio=new HandlerRegistrarSocio();
 				

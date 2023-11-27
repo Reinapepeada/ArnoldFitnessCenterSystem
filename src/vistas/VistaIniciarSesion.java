@@ -22,7 +22,7 @@ public class VistaIniciarSesion extends JFrame {
     private JTextField usuario;
 	private JPasswordField contrasena;
 	
-	public VistaIniciarSesion(ControladorSocio cs) {
+	public VistaIniciarSesion() {
 		super ("Arnold Fitness Center - Inicio de sesion");
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setLayout(new BorderLayout());
@@ -47,7 +47,7 @@ public class VistaIniciarSesion extends JFrame {
 		
 		
 		Container contBotones=new Container();
-		contBotones.setLayout(new GridLayout(4,2,2,4));
+		contBotones.setLayout(new GridLayout(1,2,2,4));
 		
 		//CONSTRUCCION DEL BOTON INICIAR SESION//
 		JButton btnIniciarSesion=new JButton("Iniciar Sesion");

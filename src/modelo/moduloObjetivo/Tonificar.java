@@ -1,5 +1,6 @@
 package modelo.moduloObjetivo;
 import modelo.Socio;
+import modelo.enums.Exigencia;
 import modelo.moduloMediciones.BalanzaSystemAdapter;
 import modelo.moduloMediciones.Medida;
 

@@ -30,7 +30,6 @@ public class Socio extends Observado{
 	private float porcentajeMusculo;
 	private List<Medida> medidas;
 	private ObjetivoStrategy objetivo;
-	private Rutina rutina;
 
 	public Socio(String nombre, String apellido, String email, String dni, String edad, String sexo, String password,
 			Double altura, Double peso) {
@@ -52,13 +51,14 @@ public class Socio extends Observado{
 	public Socio() {
 	}
 
-    public void registrarSocio(String nombre, String apellido, String email, String dni, String edad, String sexo, String password, Double altura, Double peso) throws SocioExistenteException{
+	public Socio registrarSocio(String nombre, String apellido, String email, String dni, String edad, String sexo,
+			String password, Double altura, Double peso) throws SocioExistenteException {
 		if (buscarSocio(dni) == null) {
 			Socio socio = new Socio(nombre, apellido, email, dni, edad, sexo, password, altura, peso);
 			ControladorSocio.usuarios.add(socio);
 			// System.out.println("\nListado Usuarios: \n");
 			// ControladorSocio.verListadoSocios(ControladorSocio.usuarios);
-			return;
+			return socio;
 		}
 		throw new SocioExistenteException("Error. Ya existe un Socio con el numero de documento ingresado.");
 	}
@@ -204,14 +204,6 @@ public class Socio extends Observado{
 		this.objetivo = objetivo;
 	}
 
-	public Rutina getRutina() {
-		return this.rutina;
-	}
-
-	public void setRutina(Rutina rutina) {
-		this.rutina = rutina;
-	}
-
 	public void cambiarObjetivo(ObjetivoStrategy objetivo) {
 		this.objetivo = objetivo;
 	}
@@ -225,8 +217,7 @@ public class Socio extends Observado{
 	}
 
 	public SocioVo getVO() {
-		return new SocioVo(this.nombre, this.apellido, this.email, this.dni, this.edad, this.sexo,
-				this.altura, this.peso);
+		return new SocioVo(this.nombre, this.apellido, this.email, this.dni, this.edad, this.sexo, this.password,this.altura, this.peso);
 	}
 	public  boolean verificarTrofeo (){
 		// TODO Auto-generated method stub

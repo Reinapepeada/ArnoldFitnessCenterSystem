@@ -5,7 +5,6 @@ import java.util.List;
 
 import modelo.EjercicioRealizado;
 import modelo.Entrenamiento;
-import modelo.EntrenamientoRealizado;
 import modelo.Socio;
 import modelo.enums.Dia;
 import modelo.moduloObjetivo.ObjetivoStrategy;
@@ -16,11 +15,11 @@ import modelo.moduloTrofeo.TrofeoObservador;
 
 public class Rutina extends Observado{
 	private ArrayList<TrofeoObservador> observadores = new ArrayList<TrofeoObservador>();
-	private ArrayList<EjercicioRealizado> ejercicioRealizados;
+	private ArrayList<EjercicioRealizado> ejercicioRealizados; // lo usariamos para el trofeo de constacia 
 	private ObjetivoStrategy objetivo;
 	private List<Entrenamiento> entrenamientos;
 	private List<Dia> dias;
-	private int diaEntre; // valor de la posicion del entrenamiento, cunado se llega al limete se resetea y se se pasa a la proxima semana
+	private int diaActual;
 	private int semanas;
 
 	public Rutina(ObjetivoStrategy objetivo, List<Dia> dias) {
@@ -29,12 +28,12 @@ public class Rutina extends Observado{
 	}
 
 	public void reforzarRutina() {
-		if(semanas == 0){
-			// cambiar valores de peso,series y repeticiones 
+		if (semanas == 0) {
+			// cambiar valores de peso,series y repeticioes 
 			for (Entrenamiento ent : entrenamientos) {
 				ent.reforzarEntrenamiento();
 			}
-			semanas +=4;
+			semanas += 4;
 		}
 	}
 
@@ -42,7 +41,7 @@ public class Rutina extends Observado{
 		// TODO - implement Rutina.entrenamientoDiario
 		// revisar: que hace el Entrenamiento diario 
 		// devolver el entrenamiento del dia
-		return entrenamientos.get(diaEntre);
+		return entrenamientos.get(diaActual);
 	}
 
 	public void registrarEjercicio(
@@ -59,14 +58,13 @@ public class Rutina extends Observado{
 	}
 
 	public void comenzarDia() {
-		// crear el entrenamiento realizado del dia 
-		EntrenamientoRealizado entRealizado = new EntrenamientoRealizado(entrenamientoDiario());
-
+		//aumetar dia  
+		this.diaActual ++;
 	}
 	
 	public boolean verificarConstancia(){
 		// TODO Auto-generated method stub
-		
+		// este metodo lo usariamos para el trofeo de constacia
 		return false;
 
 	}
@@ -120,8 +118,12 @@ public class Rutina extends Observado{
 	@Override
 	public void notificar(Socio soc) {
 		for (TrofeoObservador trofeoObservador : observadores) {
-			trofeoObservador.chequearTrofeo(soc);
-			// necesito saber como recuperar el socio 
+			trofeoObservador.chequearTrofeo(soc); 
 		}
+	}
+
+	public String toString() {
+		return "Rutina [objetivo=" + objetivo + ", entrenamientos=" + entrenamientos + ", dias=" + dias + ", diaEntre="
+				+ diaActual + ", semanas=" + semanas + "]";
 	}
 }
