@@ -70,10 +70,10 @@ public class WindowManagerSingleton {
 		vComenzarEntrenamiento = new VistaComenzarEntrenamiento();
 		vConfgDiasRutina = new VistaConfgDiasRutina();
 		vEjsCompletados = new VistaEjerciciosCompletados();
-		
+
 		//instanciamos la vista de dia de entrenamiento
 		vDiaEntrenamiento = new VistaDiaEntrenamiento();
-		
+
 		// seteamos los controladores en las vistas
 		vRegistrarSocio.setCSocio(cs);
 		//
@@ -88,18 +88,17 @@ public class WindowManagerSingleton {
 		vSetMedidasMantener.setCObjetivo(co);
 		// vista de conf dias de rutina
 		vConfgDiasRutina.setCObjetivo(co);
-		
+
 		// vista de dia de entrenamiento
-		
+				
 		vDiaEntrenamiento.setCObjetivo(co);
-		
+
 		// // vista comenzar un entrenamiento del dia
-		vEjsCompletados.setCEjercicio(ce);
 		// vComenzarEntrenamiento.setCEjercicio(ce);
 		
 		// seteamos los controladores en los controladores
 		co.setCSocio(cs);
-		
+	
 		
 	}
 
@@ -216,7 +215,6 @@ public class WindowManagerSingleton {
 	}
 
 	public void disponibilizarVistaEjerciciosCompeltados() {
-		vEjsCompletados.actualizarTabla(co.getEjerciosRealizados());
 		vEjsCompletados.setVisible(true);
 		vEjsCompletados.setSize(500, 500);
 		vEjsCompletados.setLocation(0, 0);
@@ -229,5 +227,4 @@ public class WindowManagerSingleton {
 		vDiaEntrenamiento.setSize(500, 500);
 		vDiaEntrenamiento.setLocation(0, 0);
 	}
-
 }

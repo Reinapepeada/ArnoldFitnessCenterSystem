@@ -3,7 +3,6 @@ package vistas;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GridLayout;
-import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -55,7 +54,7 @@ public class VistaEjerciciosCompletados extends JFrame {
 			fila[0] = ej.getNombre();
 			fila[1] = ej.getSeries();
 			fila[2] = ej.getRepeticiones();
-			fila[3] = ej.getPesoAsignado();
+			fila[3] = ej.getPeso();
             
 			modelotablaEjerciciosRealizados.addRow(fila);
         }
@@ -72,32 +71,5 @@ public class VistaEjerciciosCompletados extends JFrame {
         revalidate();
 
 	}
-
-	 // Método para actualizar la tabla con una lista de ejercicios
-    public void actualizarTabla(ArrayList<EjercicioRealizado> ejerciciosRealizados) {
-        DefaultTableModel modeloTablaEjerciciosRealizados = new DefaultTableModel() {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-        };
-
-        Object[] titulos = {"Ejercicio", "Series", "Repeticiones", "Peso"};
-        modeloTablaEjerciciosRealizados.setColumnIdentifiers(titulos);
-
-        for (EjercicioRealizado ej : ejerciciosRealizados) {
-            Object[] fila = new Object[4];
-            fila[0] = ej.getNombre();
-            fila[1] = ej.getSeries();
-            fila[2] = ej.getRepeticiones();
-            fila[3] = ej.getPesoAsignado();
-
-            modeloTablaEjerciciosRealizados.addRow(fila);
-        }
-
-        tablaEjerciciosRealizados.setModel(modeloTablaEjerciciosRealizados);
-        repaint();
-        revalidate();
-    }
 
 }
