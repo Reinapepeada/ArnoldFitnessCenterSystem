@@ -40,9 +40,7 @@ public class ControladorObjetivo {
         return r;
     }
 
-    public Entrenamiento getEntrenamientoDiario() {
-        return r.entrenamientoDiario();
-    }
+    
 
     public void registrarEjercicio(int series, int repeticiones, double peso, Ejercicio indiceEjercicio) {
         r.registrarEjercicio(series, repeticiones, peso, indiceEjercicio);
@@ -83,6 +81,14 @@ public class ControladorObjetivo {
 
     public void reforzarRutina() {
         r.reforzarRutina();
+    }
+
+    public ArrayList<Ejercicio> getEjerciciosDia() {
+        return r.getEjerciciosdelDia();
+    }
+
+    public void terminarDia() {
+        r.terminarDia();
     }
 
 }
