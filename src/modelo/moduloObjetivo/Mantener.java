@@ -3,6 +3,7 @@ package modelo.moduloObjetivo;
 import modelo.moduloMediciones.BalanzaSystemAdapter;
 import modelo.moduloMediciones.Medida;
 import modelo.Socio;
+import modelo.enums.Exigencia;
 
 public class Mantener extends ObjetivoStrategy {
     private double pesoInicial;
@@ -15,6 +16,8 @@ public class Mantener extends ObjetivoStrategy {
 	
     public Mantener(double duracion,  double pesoInicial, double tol){
         super(duracion, 2, 4);
+        this.setExigenciaBaja();
+        this.setExigenciaMedia();
         this.pesoInicial = pesoInicial;
         this.toleraciaVsPesoInicial = tol;
     }

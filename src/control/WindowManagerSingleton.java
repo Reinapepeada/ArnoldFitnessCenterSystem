@@ -10,6 +10,7 @@ import modelo.VOs.SocioVo;
 import vistas.VistaActualizarObjetivo;
 import vistas.VistaBienvenida;
 import vistas.VistaComenzarEntrenamiento;
+import vistas.VistaConfgDiasRutina;
 import vistas.VistaGestionarMedidas;
 import vistas.VistaGestionarObjetivo;
 import vistas.VistaIniciarSesion;
@@ -18,6 +19,7 @@ import vistas.VistaRegistrarSocio;
 import vistas.VistaSeleccionarObjetivo;
 import vistas.VistaSetMedidasMantener;
 import vistas.VistaSetMedidasObjetivo;
+
 
 public class WindowManagerSingleton {
 
@@ -34,6 +36,7 @@ public class WindowManagerSingleton {
 	private VistaSetMedidasMantener vSetMedidasMantener;
 	private VistaSetMedidasObjetivo vSetMedidasObjetivo;
 	private VistaComenzarEntrenamiento vComenzarEntrenamiento;
+	private VistaConfgDiasRutina vConfgDiasRutina;
 
 	// controladores
 	private ControladorSocio cs;
@@ -59,8 +62,10 @@ public class WindowManagerSingleton {
 		vSetMedidasMantener = new VistaSetMedidasMantener();
 		vSetMedidasObjetivo = new VistaSetMedidasObjetivo();
 		vComenzarEntrenamiento = new VistaComenzarEntrenamiento();
-		
-		//seteamos los controladores en las vistas
+		vConfgDiasRutina = new VistaConfgDiasRutina();
+
+
+		// seteamos los controladores en las vistas
 		vRegistrarSocio.setCSocio(cs);
 		//
 		vIniciarSesion.setCSocio(cs);
@@ -72,11 +77,16 @@ public class WindowManagerSingleton {
 		//
 		vSetMedidasObjetivo.setCObjetivo(co);
 		vSetMedidasMantener.setCObjetivo(co);
+		// vista de conf dias de rutina
+		vConfgDiasRutina.setCObjetivo(co);
 
-		//vComenzarEntrenamiento.setCEjercicio(ce);
-
+		// // vista comenzar un entrenamiento del dia
+		// vComenzarEntrenamiento.setCEjercicio(ce);
+		
 		// seteamos los controladores en los controladores
 		co.setCSocio(cs);
+	
+		
 	}
 
 	public static WindowManagerSingleton getInstance() {
@@ -229,6 +239,11 @@ public class WindowManagerSingleton {
 		vBienvenida.setLocation(0, 0);
 	}
 
-	// ocultar vistas
+	public void disponibilizarVistaConfgDiasRutina() {
+		vConfgDiasRutina.setVisible(true);
+		vConfgDiasRutina.setSize(500, 500);
+		vConfgDiasRutina.setLocation(0, 0);
+	}
+
 
 }

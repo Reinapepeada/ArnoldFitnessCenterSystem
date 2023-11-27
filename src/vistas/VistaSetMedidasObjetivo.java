@@ -58,7 +58,7 @@ public class VistaSetMedidasObjetivo extends JFrame{
 				//cartelito que informa que ya seteaste tu objetivo
 				JOptionPane.showMessageDialog(null, "Objetivo Seteado Correctamente", "Mensaje", JOptionPane.INFORMATION_MESSAGE);
 				// envio a la interfaz de inicio de sesion
-				WindowManagerSingleton.getInstance().disponibilizarVistaIniciarSesion();
+				WindowManagerSingleton.getInstance().disponibilizarVistaConfgDiasRutina();
 				// cierro la ventana actual
 				dispose();
 				
