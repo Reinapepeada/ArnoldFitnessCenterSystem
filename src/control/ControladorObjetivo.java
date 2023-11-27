@@ -1,18 +1,25 @@
 package control;
 
+import java.util.List;
+
 import javax.swing.JComboBox;
 
 import modelo.Socio;
 import modelo.VOs.SocioVo;
+import modelo.enums.Dia;
 import modelo.moduloObjetivo.BajarPeso;
 import modelo.moduloObjetivo.Mantener;
 import modelo.moduloObjetivo.ObjetivoStrategy;
 import modelo.moduloObjetivo.Tonificar;
+import modelo.moduloRutina.FactoryRutina;
+import modelo.moduloRutina.Rutina;
+import modelo.excepciones.RutinaInexistenteException;
 
 public class ControladorObjetivo {
 
     ControladorSocio cs;
     ObjetivoStrategy os;
+    Rutina r;
 
     public void asignarObjetivo(ObjetivoStrategy x) {
         
@@ -21,7 +28,23 @@ public class ControladorObjetivo {
         s.setObjetivo(x);
         this.os = x;
     }   
-  
+
+    public Rutina getRutina() {
+        return r;
+    }
+
+
+    public void diseñarRutina(List<Dia> dias) {
+        try {
+            this.r = FactoryRutina.crearRutina(os, dias);
+
+        } catch (RutinaInexistenteException e) {
+            // Handle the exception here
+            System.out.println("RutinaInexistenteException: " + e.getMessage());
+        }
+    }
+
+    
 
     public void setDuracionTolerancia(double duracionEntrenamiento, double tol) {
         os.setDuracion(duracionEntrenamiento);
