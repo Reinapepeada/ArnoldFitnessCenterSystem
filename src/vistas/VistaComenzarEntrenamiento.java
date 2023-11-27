@@ -36,8 +36,6 @@ public VistaComenzarEntrenamiento() {
     panel1.add(new JLabel("Semana: " + "TBD" + " Dia: " + "TBD"));
     this.add(panel1, BorderLayout.NORTH);
 
-    
-
     DefaultTableModel modeloTablaEntrenamiento = new DefaultTableModel() {
         @Override
         public boolean isCellEditable(int row, int column) {
