@@ -66,7 +66,11 @@ public class Rutina extends Observado{
 
 	public void comenzarDia() {
 		//aumetar dia  
-		this.diaActual ++;
+		if (diaActual == dias.size()){
+			this.diaActual = 0;
+		}else{
+			this.diaActual ++;
+		}
 	}
 	
 	public boolean verificarConstancia(){
