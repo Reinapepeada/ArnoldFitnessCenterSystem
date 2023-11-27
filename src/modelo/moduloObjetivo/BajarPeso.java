@@ -12,7 +12,6 @@ public class BajarPeso extends ObjetivoStrategy {
 	private double pesoInicial;
 	private double alturaInicial;
 	private double duracionEntrenamiento;
-	private double pesoIdeal;
 	private double durMaxima=1.5;
     private double durMinima=1;
 	private ArrayList<Exigencia> exigencias;
@@ -24,23 +23,26 @@ public class BajarPeso extends ObjetivoStrategy {
 		this.setExigenciaAlta();
 		this.pesoInicial = peso;
 		this.alturaInicial = altura;
+		// this.duracionEntrenamiento = duracionEntrenamiento;
 	}
 	
 	@Override
-	public double calcularMedidaIdeal() {
-        // Fórmula del IMC: peso / (altura^2)
-        return this.getPesoInicial() / (this.getAlturaInicial() * this.getAlturaInicial());
+	public boolean medidaIdeal(Socio soc) {
+        // TODO - verificar con la medida actual contra la medida medida ideal
+		BalanzaSystemAdapter balanza = new BalanzaSystemAdapter();
+        Medida medidaActual = balanza.tomarMedidas(soc); // deberia ir la medida actual
+		if(calcularBMI() >= medidaActual.getBMi()){
+			return true;
+		}
+		return false;
+	}
+	public double calcularBMI(){
+		return this.getPesoInicial() / (this.getAlturaInicial() * this.getAlturaInicial());
 	}
 
 	@Override
 	public boolean verificarObjetivo(Socio soc){
-		// TODO - verificar con la medida actual contra la medida medida ideal
-		BalanzaSystemAdapter balanza = new BalanzaSystemAdapter();
-        Medida medidaActual = balanza.tomarMedidas(soc); // deberia ir la medida actual
-		if(calcularMedidaIdeal() >= medidaActual.getBMi()){
-			return true;
-		}
-		return false;
+		return medidaIdeal(soc);
 	}
 
 	public String getNombreObjetivo(){
@@ -54,11 +56,6 @@ public class BajarPeso extends ObjetivoStrategy {
 	public double getPesoInicial() {
 		return this.pesoInicial;
 	}
-
-	@Override
-	public void chequearTrofeo() {
-		// TODO Auto-generated method stub
-	}
 	public void setDuracionEntrenamiento(double duracionEntrenamiento) {
         this.duracionEntrenamiento = duracionEntrenamiento;
     }
@@ -66,8 +63,6 @@ public class BajarPeso extends ObjetivoStrategy {
 	public double getDurMaxima() {
 		return durMaxima;
 	}
-
-	
 	
 	public double getDurMinima() {
 		return durMinima;

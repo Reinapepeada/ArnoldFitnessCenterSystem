@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.swing.JComboBox;
 
+import modelo.Ejercicio;
+import modelo.Entrenamiento;
 import modelo.Socio;
 import modelo.VOs.SocioVo;
 import modelo.enums.Dia;
@@ -14,6 +16,8 @@ import modelo.moduloObjetivo.Tonificar;
 import modelo.moduloRutina.FactoryRutina;
 import modelo.moduloRutina.Rutina;
 import modelo.excepciones.RutinaInexistenteException;
+
+
 
 public class ControladorObjetivo {
 
@@ -34,6 +38,18 @@ public class ControladorObjetivo {
         return r;
     }
 
+    public Entrenamiento getEntrenamientoDiario() {
+        return r.entrenamientoDiario();
+    }
+
+    public void registrarEjercicio(int series, int repeticiones, double peso, Ejercicio indiceEjercicio) {
+        r.registrarEjercicio(series, repeticiones, peso, indiceEjercicio);
+    }
+
+    public void getEjerciosRealizados() {
+        r.getEjerciciosRealizados();
+    }
+
 
     public void diseñarRutina(List<Dia> dias) {
         // try {
@@ -44,8 +60,6 @@ public class ControladorObjetivo {
         //     System.out.println("RutinaInexistenteException: " + e.getMessage());
         // }
     }
-
-    
 
     public void setDuracionTolerancia(double duracionEntrenamiento, double tol) {
         os.setDuracion(duracionEntrenamiento);

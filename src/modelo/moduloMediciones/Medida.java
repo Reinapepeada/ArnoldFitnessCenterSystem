@@ -1,10 +1,13 @@
 package modelo.moduloMediciones;
+import java.time.LocalDate;
+
 
 public class Medida {
     private double porcetajeGrasa;
     private double porcentajeMusculo;
     private double altura;
     private double peso;
+    public LocalDate dia;
     private AdapterMedida medicion;
 
     //Constructor
@@ -14,6 +17,7 @@ public class Medida {
         this.porcetajeGrasa = porcetajeGrasa;
         this.porcentajeMusculo = porcentajeMusculo;
         this.medicion = medicion;
+        this.dia = LocalDate.now();
     }
     // public Medida(){
     //     this.medicion = new BalanzaSystemAdapter();
@@ -32,6 +36,9 @@ public class Medida {
     }   
     public double getPorcentajeMusculo(){
         return this.porcentajeMusculo;
+    }
+    public LocalDate getDate(){
+        return this.dia;
     }
 
     public double getBMi(){

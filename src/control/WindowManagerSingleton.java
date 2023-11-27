@@ -12,6 +12,7 @@ import vistas.VistaBienvenida;
 import vistas.VistaComenzarEntrenamiento;
 import vistas.VistaConfgDiasRutina;
 import vistas.VistaEjerciciosCompletados;
+import vistas.VistaDiaEntrenamiento;
 import vistas.VistaGestionarMedidas;
 import vistas.VistaGestionarObjetivo;
 import vistas.VistaIniciarSesion;
@@ -20,6 +21,7 @@ import vistas.VistaRegistrarSocio;
 import vistas.VistaSeleccionarObjetivo;
 import vistas.VistaSetMedidasMantener;
 import vistas.VistaSetMedidasObjetivo;
+
 
 
 public class WindowManagerSingleton {
@@ -39,6 +41,8 @@ public class WindowManagerSingleton {
 	private VistaComenzarEntrenamiento vComenzarEntrenamiento;
 	private VistaConfgDiasRutina vConfgDiasRutina;
 	private VistaEjerciciosCompletados vEjsCompletados;
+	// vista de dia de entrenamiento
+	private VistaDiaEntrenamiento vDiaEntrenamiento;
 
 	// controladores
 	private ControladorSocio cs;
@@ -67,6 +71,8 @@ public class WindowManagerSingleton {
 		vConfgDiasRutina = new VistaConfgDiasRutina();
 		vEjsCompletados = new VistaEjerciciosCompletados();
 
+		//instanciamos la vista de dia de entrenamiento
+		vDiaEntrenamiento = new VistaDiaEntrenamiento();
 
 		// seteamos los controladores en las vistas
 		vRegistrarSocio.setCSocio(cs);
@@ -82,6 +88,10 @@ public class WindowManagerSingleton {
 		vSetMedidasMantener.setCObjetivo(co);
 		// vista de conf dias de rutina
 		vConfgDiasRutina.setCObjetivo(co);
+
+		// vista de dia de entrenamiento
+				
+		vDiaEntrenamiento.setCObjetivo(co);
 
 		// // vista comenzar un entrenamiento del dia
 		// vComenzarEntrenamiento.setCEjercicio(ce);
@@ -111,51 +121,7 @@ public class WindowManagerSingleton {
 		this.co = co;
 	}
 
-	//// setter vistas
-
-	public void setVBienvenida(VistaBienvenida vBienvenida) {
-		this.vBienvenida = vBienvenida;
-	}
-
-	public void setVIniciarSesion(VistaIniciarSesion vIniciarSesion) {
-		this.vIniciarSesion = vIniciarSesion;
-	}
-
-	public void setVSeleccionarObjetivo(VistaSeleccionarObjetivo vSeleccionarObjetivo) {
-		this.vSeleccionarObjetivo = vSeleccionarObjetivo;
-	}
-
-	public void setVGestionarObjetivo(VistaGestionarObjetivo vGestionarObjetivo) {
-		this.vGestionarObjetivo = vGestionarObjetivo;
-	}
-
-	public void setVActualizarObjetivo(VistaActualizarObjetivo vActualizarObjetivo) {
-		this.vActualizarObjetivo = vActualizarObjetivo;
-	}
-
-	public void setVGestionarMedidas(VistaGestionarMedidas vGestionarMedidas) {
-		this.vGestionarMedidas = vGestionarMedidas;
-	}
-
-	public void setVRegistrarSocio(VistaRegistrarSocio vRegistrarSocio) {
-		this.vRegistrarSocio = vRegistrarSocio;
-	}
-
-	public void setVMenuSocio(VistaMenuSocio vMenuSocio) {
-		this.vMenuSocio = vMenuSocio;
-	}
-
-	public void setVSetMedidasMantener(VistaSetMedidasMantener vSetMedidasMantener) {
-		this.vSetMedidasMantener = vSetMedidasMantener;
-	}
-
-	public void setVSetMedidasObjetivo(VistaSetMedidasObjetivo vSetMedidasObjetivo) {
-		this.vSetMedidasObjetivo = vSetMedidasObjetivo;
-	}
-
-	public void setVComenzarEntrenamiento(VistaComenzarEntrenamiento vComenzarEntrenamiento) {
-		this.vComenzarEntrenamiento = vComenzarEntrenamiento;
-	}
+	
 
 	//// getter vistas
 
@@ -252,6 +218,12 @@ public class WindowManagerSingleton {
 		vEjsCompletados.setVisible(true);
 		vEjsCompletados.setSize(500, 500);
 		vEjsCompletados.setLocation(0, 0);
+	public void disponibilizarVistaDiaEntrenamiento() {
+		vDiaEntrenamiento.setCObjetivo(co);
+		vDiaEntrenamiento.setListaEjercicios(co.getEntrenamientoDiario().getEjercicios());
+		vDiaEntrenamiento.setVisible(true);
+		vDiaEntrenamiento.setSize(500, 500);
+		vDiaEntrenamiento.setLocation(0, 0);
 	}
 
 

@@ -10,9 +10,7 @@ import modelo.moduloObjetivo.ObjetivoStrategy;
 
 public class Entrenamiento {
 	private ObjetivoStrategy objetivo;
-	//public static List<Ejercicio> ejerciciosEntrenamiento;
-
-	public static ArrayList<Ejercicio> ejerciciosEntrenamiento = new ArrayList<Ejercicio>();
+	private ArrayList<Ejercicio> ejerciciosEntrenamiento= new ArrayList<Ejercicio>();
 
 	public Entrenamiento(ObjetivoStrategy objetivo) {
 		this.objetivo = objetivo;
@@ -82,11 +80,11 @@ public class Entrenamiento {
 		this.objetivo = objetivo;
 	}
 
-	public List<Ejercicio> getEjercicios() {
+	public ArrayList<Ejercicio> getEjercicios() {
 		return ejerciciosEntrenamiento;
 	}
 
-	public void setEjercicios(List<Ejercicio> ejercicios) {
-		Entrenamiento.ejerciciosEntrenamiento = (ArrayList<Ejercicio>) ejercicios;
+	public void setEjercicios(ArrayList<Ejercicio> ejercicios) {
+		this.ejerciciosEntrenamiento = ejercicios;
 	}
 }

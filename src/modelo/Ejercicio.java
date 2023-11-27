@@ -10,7 +10,7 @@ public class Ejercicio {
 	private int nivelAerobico;
 	private int series;
 	private int repeticiones;
-	private int pesoAsignado;
+	private double pesoAsignado;
 	private Exigencia exigenciaMuscular;
 	private GrupoMuscular grupoMuscular;
 
@@ -81,11 +81,11 @@ public class Ejercicio {
 		this.repeticiones = repeticiones;
 	}
 
-	public int getPesoAsignado() {
+	public double getPesoAsignado() {
 		return pesoAsignado;
 	}
 
-	public void setPesoAsignado(int pesoAsignado) {
+	public void setPesoAsignado(double pesoAsignado) {
 		this.pesoAsignado = pesoAsignado;
 	}
 

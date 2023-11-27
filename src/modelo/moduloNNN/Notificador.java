@@ -1,4 +1,8 @@
 package modelo.moduloNNN;
+
+import modelo.moduloTrofeo.TrofeoDedicacion;
+import modelo.moduloTrofeo.TrofeoObservador;
+
 public class Notificador{
     private StrategyNotificacion notificacion;
     
