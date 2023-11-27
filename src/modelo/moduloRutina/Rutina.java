@@ -130,12 +130,7 @@ public class Rutina extends Observado{
 		observadores.remove(obs);
 	}
 
-	@Override
-	public void notificar(Socio soc) {
-		for (TrofeoObservador trofeoObservador : observadores) {
-			trofeoObservador.chequearTrofeo(soc); 
-		}
-	}
+
 
 	public String toString() {
 		return "Rutina [objetivo=" + objetivo + ", entrenamientos=" + entrenamientos + ", dias=" + dias + ", diaEntre="
@@ -145,13 +140,7 @@ public class Rutina extends Observado{
 	public ArrayList<EjercicioRealizado> getEjerciciosRealizados() {
 		return ejercicioRealizados;
 	}
-
-	@Override
-	public void setTrofeo() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'setTrofeo'");
-	}
-
+	
 	@Override
 	public String getNombre() {
 		// TODO Auto-generated method stub

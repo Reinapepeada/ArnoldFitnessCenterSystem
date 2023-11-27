@@ -5,6 +5,7 @@ import java.util.List;
 
 import modelo.moduloRutina.Rutina;
 import modelo.moduloTrofeo.Observado;
+import modelo.moduloTrofeo.TrofeoDedicacion;
 import modelo.moduloTrofeo.TrofeoObservador;
 import modelo.Ejercicio;
 import modelo.enums.Exigencia;
@@ -92,11 +93,13 @@ public abstract class ObjetivoStrategy extends Observado {
 	public void sacarbservador(TrofeoObservador trofeo) {
 		observadores.remove(trofeo);
 	}
-	@Override
-	public void notificar(Socio soc) {
-		this.soc = soc;
-		for (TrofeoObservador trofeoObservador : observadores) {
-			trofeoObservador.chequearTrofeo(soc);  // 'soc' needs to be an instance of 'Socio'
-		}
-	}
+
+    // public Object getSemanasCumplidas() {
+        
+	// 	return ;
+    // }
+
+    
+
+	
 }

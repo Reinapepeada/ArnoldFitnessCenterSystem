@@ -15,10 +15,12 @@ import modelo.moduloMediciones.Medida;
 import modelo.moduloObjetivo.ObjetivoStrategy;
 import modelo.moduloRutina.Rutina;
 import modelo.moduloTrofeo.Observado;
+import modelo.moduloTrofeo.TrofeoCreido;
 import modelo.moduloTrofeo.TrofeoObservador;
 
 public class Socio extends Observado{
 	private ArrayList<TrofeoObservador> observadores = new ArrayList<TrofeoObservador>();
+	private ArrayList<String> trofeos = new ArrayList<String>();
 	private String edad;
 	private String nombre;
 	private String apellido;
@@ -96,35 +98,23 @@ public class Socio extends Observado{
 	}
 
 
-	public  boolean verificarTrofeo (){
-		// TODO Auto-generated method stub
-		int contadorVeces = 0; 
-		for (Medida med : medidas) {
-			LocalDate fechaMedida = med.getDate();
-			// Check if the month of the medida is the same as the current month
-			if (fechaMedida.getMonth() == LocalDate.now().getMonth()) {
-				contadorVeces++;
-				if(contadorVeces >= 3 ){
-					
-					JOptionPane.showMessageDialog(null, "¡Haz Recibido un Trofeo!");
-					setTrofeo();
-					return true;
-				}
-			}
-		}
-		return false;
-	}
+	
 
-	public void setTrofeo(TrofeoObservador trofeo){
-		observadores.add(trofeo);
-	}
-
-	public ArrayList<TrofeoObservador> getTrofeos(){
-		return this.observadores;
+	public ArrayList<String> getTrofeos(){
+		return this.trofeos;
 	}
 
 	public void agregarMedida(Medida medida) {
 		this.medidas.add(medida);
+		creidoSIoNO();
+	}
+
+	// revisa si se le agina trofeo por creido
+
+	public boolean creidoSIoNO(){
+		
+		return observadores.get(0).chequearTrofeo() ;
+
 	}
 	// getters y setters//7
 
@@ -268,17 +258,10 @@ public class Socio extends Observado{
 		observadores.remove(obs);
 	}
 
-	@Override
-	public void notificar(Socio soc) {
-		// Notifica a los observadores
-		for (TrofeoObservador obs : observadores) {
-			obs.chequearTrofeo(this);
-		}
+	public void concederTrofeo(TrofeoCreido trofeoCreido) {
+
+		trofeos.add(trofeoCreido.getNombre());
 	}
 
-	@Override
-	public void setTrofeo() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'setTrofeo'");
-	}
+	
 }

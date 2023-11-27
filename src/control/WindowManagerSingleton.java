@@ -241,7 +241,7 @@ public class WindowManagerSingleton {
 
 	public void disponibilizarVistaVerTrofeos() {
 		vVerTrofeos.setCSocio(cs);
-		vVerTrofeos.actualizarTabla(cs.getSocioActual().getTrofeos());
+		vVerTrofeos.actualizarTabla(cs.countTrofeos());
 		vVerTrofeos.setVisible(true);
 		vVerTrofeos.setSize(500, 500);
 		vVerTrofeos.setLocation(0, 0);

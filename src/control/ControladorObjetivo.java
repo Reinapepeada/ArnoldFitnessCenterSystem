@@ -50,6 +50,7 @@ public class ControladorObjetivo {
         return r.getEjerciciosRealizados();
     }
 
+    
 
     public void diseñarRutina(List<Dia> dias) {
         // try {
