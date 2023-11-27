@@ -13,7 +13,8 @@ public class Tonificar extends ObjetivoStrategy {
     private double durMinima=2;
 
     public Tonificar(double duracion,  double peso, double altura) {
-        super(duracion, 4, 5);
+        super(duracion, 0, 4);
+        this.setExigenciaAlta();
         this.alturaInicial = altura;
         this.pesoInicial = peso;
         // this.duracionEntrenamiento = duracionEntrenamiento;

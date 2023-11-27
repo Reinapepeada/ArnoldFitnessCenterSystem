@@ -40,8 +40,7 @@ public class Mantener extends ObjetivoStrategy {
         return medidaIdeal(soc);
         
     }
-        
-
+    
     public void setTolerancia(double tolerancia){
         this.tolerancia = tolerancia;
     }
@@ -72,14 +71,9 @@ public class Mantener extends ObjetivoStrategy {
     public double getDurMaxima() {
 		return durMaxima;
 	}
-
-	
 	
 	public double getDurMinima() {
 		return durMinima;
 	}
 
-
-   
-    
 }

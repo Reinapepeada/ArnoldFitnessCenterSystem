@@ -53,6 +53,11 @@ public class Entrenamiento {
 		try{
 			ejerciciosEntrenamiento = new ArrayList<Ejercicio>();
 			for (Ejercicio ejercicio : ControladorEjercicio.ejercicios) {
+				System.out.println("ejercicio.getNivelAerobico: "+ejercicio.getNivelAerobico());
+				System.out.println("objetivo.getnAerobicMin(): "+ objetivo.getnAerobicMin());
+				System.out.println("objetivo.getnAerobicMax(): "+ objetivo.getnAerobicMax());
+				System.out.println("objetivo.getExigencia().contains(ejercicio.getExigenciaMuscular()): "+ objetivo.getExigencia().contains(ejercicio.getExigenciaMuscular()));
+				System.out.println("!estaGrupo(ejercicio.getGrupoMuscular()): "+ !estaGrupo(ejercicio.getGrupoMuscular()));
 				if (ejercicio.getNivelAerobico() >= objetivo.getnAerobicMin()
 					&& ejercicio.getNivelAerobico() <= objetivo.getnAerobicMax()
 					&& objetivo.getExigencia().contains(ejercicio.getExigenciaMuscular())
