@@ -51,8 +51,6 @@ public class ControladorObjetivo {
         // }
     }
 
-    
-
     public void setDuracionTolerancia(double duracionEntrenamiento, double tol) {
         os.setDuracion(duracionEntrenamiento);
         if (os instanceof Mantener) {
