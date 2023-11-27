@@ -15,6 +15,8 @@ import modelo.moduloRutina.FactoryRutina;
 import modelo.moduloRutina.Rutina;
 import modelo.excepciones.RutinaInexistenteException;
 
+
+
 public class ControladorObjetivo {
 
     ControladorSocio cs;

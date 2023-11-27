@@ -1,9 +1,15 @@
 package modelo.moduloTrofeo;
 
+import modelo.Socio;
 import modelo.moduloNNN.Notificador; 
 
 public abstract class TrofeoObservador {
-    private Notificador notificador;
+    protected Notificador notificador;
 
-    protected abstract void chequearTrofeo();
+    // Constructor
+    public TrofeoObservador(Notificador notificador) {
+        this.notificador = notificador;
+    }
+
+    public abstract void chequearTrofeo(Socio soc);
 }

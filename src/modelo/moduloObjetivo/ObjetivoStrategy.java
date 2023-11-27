@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import modelo.moduloRutina.Rutina;
-import modelo.enums.Exigencia;
+import modelo.moduloTrofeo.Observado;
 import modelo.moduloTrofeo.TrofeoObservador;
 import modelo.Ejercicio;
+import modelo.enums.Exigencia;
 import modelo.Socio;
 
-public abstract class ObjetivoStrategy extends TrofeoObservador {
+public abstract class ObjetivoStrategy extends Observado {
+	private ArrayList<TrofeoObservador> observadores = new ArrayList<TrofeoObservador>();
 	private double duracion;
 	private int nAerobicMin;
 	private int nAerobicMax;
@@ -17,6 +19,7 @@ public abstract class ObjetivoStrategy extends TrofeoObservador {
 	private ArrayList<Exigencia> exigencias= new ArrayList<Exigencia>(); 
 	private double durMaxima;
     private double durMinima;
+	private Socio soc;
 	
 	protected ObjetivoStrategy(double duracion, int nMin, int nMax){
 		this.duracion = duracion;
@@ -25,11 +28,8 @@ public abstract class ObjetivoStrategy extends TrofeoObservador {
 	}
 	
 	//metodos para implemetar en los objetivos 
-	abstract double calcularMedidaIdeal();
-	abstract boolean verificarObjetivo(Socio soc);
-	
-	@Override
-    public abstract void chequearTrofeo();
+	abstract boolean medidaIdeal(Socio soc);
+	public abstract boolean verificarObjetivo(Socio soc);
 
 	public double getDuracion() {
 		return duracion;
@@ -79,8 +79,24 @@ public abstract class ObjetivoStrategy extends TrofeoObservador {
 	public double getDurMaxima() {
 		return durMaxima;
 	}
-
 	public double getDurMinima() {
 		return durMinima;
+	}
+
+	//Implementacion de observadores 
+	@Override
+	public void agregarObservador(TrofeoObservador trofeo) {
+		observadores.add(trofeo);
+	}
+	@Override
+	public void sacarbservador(TrofeoObservador trofeo) {
+		observadores.remove(trofeo);
+	}
+	@Override
+	public void notificar(Socio soc) {
+		this.soc = soc;
+		for (TrofeoObservador trofeoObservador : observadores) {
+			trofeoObservador.chequearTrofeo(soc);  // 'soc' needs to be an instance of 'Socio'
+		}
 	}
 }
