@@ -52,14 +52,16 @@ public class VistaMenuSocio extends JFrame{
 		panel1.setLayout(new GridLayout(1,1,2,2));
 
 		Container contBotones=new Container();
-		contBotones.setLayout(new GridLayout(4,1,2,4));
+		contBotones.setLayout(new GridLayout(5,1,2,4));
 		
 		//CONSTRUCCION DEL BOTON INICIAR SESION//
 		JButton btnGestionarObjetivo=new JButton("<html> Actualizar Objetivo </html>");
 		JButton btnGestionarMedidas=new JButton("<html> Gestionar Medidas </html>");
 		JButton btnComenzarEntrenamiento=new JButton("<html> Comenzar Entrenamiento del Dia! </html>");
 		JButton btnEjerciciosCompletados=new JButton("<html> Ejercicios Completados </html>");
+		JButton btnVerTrofeos=new JButton("<html> Ver Trofeos </html>");
 		
+
         //CLASE INTERNA//
 		class HandlerBtnGestionarObjetivo implements ActionListener{
 
@@ -93,22 +95,33 @@ public class VistaMenuSocio extends JFrame{
 			}
 		}
 
+		class HandlerBtnVerTrofeos implements ActionListener{
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				WindowManagerSingleton.getInstance().disponibilizarVistaVerTrofeos();
+			}
+		}
+
 		//INSTANCIACION DEL MANEJADOR//
 		HandlerBtnGestionarObjetivo handlerBtnGestionarObjetivo = new HandlerBtnGestionarObjetivo();
 		HandlerBtnGestionarMedidas handlerBtnGestionarMedidas = new HandlerBtnGestionarMedidas();
         HandlerBtnComenzarEntrenamiento handlerBtnComenzarEntrenamiento = new HandlerBtnComenzarEntrenamiento();
 		HandlerBtnEjerciciosCompletados handlerBtnEjerciciosCompletados = new HandlerBtnEjerciciosCompletados();
+		HandlerBtnVerTrofeos handlerBtnVerTrofeos = new HandlerBtnVerTrofeos();
 
 		//ASIGNACION DEL MANEJADOR AL BOTON//
 		btnGestionarObjetivo.addActionListener(handlerBtnGestionarObjetivo);
 		btnGestionarMedidas.addActionListener(handlerBtnGestionarMedidas);
         btnComenzarEntrenamiento.addActionListener(handlerBtnComenzarEntrenamiento);
 		btnEjerciciosCompletados.addActionListener(handlerBtnEjerciciosCompletados);
+		btnVerTrofeos.addActionListener(handlerBtnVerTrofeos);
 		
 		contBotones.add(btnGestionarObjetivo);
 		contBotones.add(btnGestionarMedidas);
         contBotones.add(btnComenzarEntrenamiento);
 		contBotones.add(btnEjerciciosCompletados);
+		contBotones.add(btnVerTrofeos);
 		
 		panel1.add(contBotones);
 		

@@ -46,14 +46,9 @@ public class Rutina extends Observado{
 		// TODO - implement Rutina.entrenamientoDiario
 		// revisar: que hace el Entrenamiento diario 
 		// devolver el entrenamiento del dia
-<<<<<<< Updated upstream
-		comenzarDia();
-		return entrenamientos.get(diaActual);
-=======
 		Entrenamiento ent = entrenamientos.get(diaActual);
 		comenzarDia();
 		return ent;
->>>>>>> Stashed changes
 	}
 
 	public void registrarEjercicio(
@@ -152,5 +147,11 @@ public class Rutina extends Observado{
 
 	public ArrayList<EjercicioRealizado> getEjerciciosRealizados() {
 		return ejercicioRealizados;
+	}
+
+	@Override
+	public void setTrofeo() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'setTrofeo'");
 	}
 }

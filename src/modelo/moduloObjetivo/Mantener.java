@@ -76,4 +76,10 @@ public class Mantener extends ObjetivoStrategy {
 		return durMinima;
 	}
 
+    @Override
+    public void setTrofeo() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setTrofeo'");
+    }
+
 }

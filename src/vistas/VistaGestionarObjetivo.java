@@ -23,9 +23,6 @@ public class VistaGestionarObjetivo extends JFrame {
 
 	public VistaGestionarObjetivo() {
 		super("Arnold Fitness Center - Menu Socio");
-		
-		
-
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setLayout(new BorderLayout());
 		JPanel panel1 = new JPanel();

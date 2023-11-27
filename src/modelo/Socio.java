@@ -94,8 +94,6 @@ public class Socio extends Observado{
 	}
 
 
-	
-	
 	public  boolean verificarTrofeo (){
 		// TODO Auto-generated method stub
 		int contadorVeces = 0; 
@@ -263,5 +261,11 @@ public class Socio extends Observado{
 		for (TrofeoObservador obs : observadores) {
 			obs.chequearTrofeo(this);
 		}
+	}
+
+	@Override
+	public void setTrofeo() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'setTrofeo'");
 	}
 }

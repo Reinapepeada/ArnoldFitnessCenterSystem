@@ -21,6 +21,7 @@ import vistas.VistaRegistrarSocio;
 import vistas.VistaSeleccionarObjetivo;
 import vistas.VistaSetMedidasMantener;
 import vistas.VistaSetMedidasObjetivo;
+import vistas.VistaVerTrofeos;
 
 
 
@@ -43,6 +44,7 @@ public class WindowManagerSingleton {
 	private VistaEjerciciosCompletados vEjsCompletados;
 	// vista de dia de entrenamiento
 	private VistaDiaEntrenamiento vDiaEntrenamiento;
+	private VistaVerTrofeos vVerTrofeos;
 
 	// controladores
 	private ControladorSocio cs;
@@ -70,6 +72,7 @@ public class WindowManagerSingleton {
 		vComenzarEntrenamiento = new VistaComenzarEntrenamiento();
 		vConfgDiasRutina = new VistaConfgDiasRutina();
 		vEjsCompletados = new VistaEjerciciosCompletados();
+		vVerTrofeos = new VistaVerTrofeos();
 
 		//instanciamos la vista de dia de entrenamiento
 		vDiaEntrenamiento = new VistaDiaEntrenamiento();
@@ -95,6 +98,8 @@ public class WindowManagerSingleton {
 
 		// vista registrar medida set controlador
 		vGestionarMedidas.setCSocio(cs);
+
+		vVerTrofeos.setCSocio(cs);
 
 		// // vista comenzar un entrenamiento del dia
 		// vComenzarEntrenamiento.setCEjercicio(ce);
@@ -230,5 +235,11 @@ public class WindowManagerSingleton {
 		vDiaEntrenamiento.setVisible(true);
 		vDiaEntrenamiento.setSize(500, 500);
 		vDiaEntrenamiento.setLocation(0, 0);
+	}
+
+	public void disponibilizarVistaVerTrofeos() {
+		vVerTrofeos.setVisible(true);
+		vVerTrofeos.setSize(500, 500);
+		vVerTrofeos.setLocation(0, 0);
 	}
 }
