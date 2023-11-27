@@ -27,7 +27,7 @@ public class VistaActualizarObjetivo extends JFrame {
 
 	BajarPeso instanciaBP = new BajarPeso(0, 0, 0);
 	Mantener instanciaM = new Mantener(2, 0, 0);
-	Tonificar instanciaT = new Tonificar(4, 0, 0,0,0);
+	Tonificar instanciaT = new Tonificar(4, 0, 0);
 
 	ControladorSocio cs;
 	ControladorObjetivo co;
@@ -82,7 +82,7 @@ public class VistaActualizarObjetivo extends JFrame {
 					w2.disponibilizarVistaSetMedidasMantener(m.getDurMaxima(),m.getDurMinima());
 					break;
 					case "Tonificar":
-					Tonificar t = new Tonificar(0, vo.getPeso(), vo.getAltura(),0,0);
+					Tonificar t = new Tonificar(0, vo.getPeso(), vo.getAltura());
 					co.asignarObjetivo(t);
 					// invoco la vista para setear las medidas
 					WindowManagerSingleton w3=WindowManagerSingleton.getInstance();
