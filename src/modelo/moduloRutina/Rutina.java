@@ -9,7 +9,7 @@ import modelo.Entrenamiento;
 
 public class Rutina {
 	private ObjetivoStrategy objetivo;
-	private List<Entrenamiento> entrenamientos;
+	public static List<Entrenamiento> entrenamientos;
 	private List<Dia> dias;
 	private int diaActual;
 	private int semanas;

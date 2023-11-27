@@ -15,11 +15,13 @@ import javax.swing.table.DefaultTableModel;
 import control.ControladorEjercicio;
 import control.ControladorSocio;
 import modelo.Ejercicio;
+import modelo.Entrenamiento;
 import modelo.Socio;
+import modelo.moduloRutina.Rutina;
 
 public class VistaComenzarEntrenamiento extends JFrame {
 
-	private JTable tablaDesgaste = new JTable();
+	private JTable tablaEntrenamiento = new JTable();
 	
 	ControladorEjercicio ce;
 
@@ -38,7 +40,7 @@ public class VistaComenzarEntrenamiento extends JFrame {
 
 		this.add(panelCentral, BorderLayout.CENTER);
 
-		DefaultTableModel modeloTablaDesgasteArticulos = new DefaultTableModel() {
+		DefaultTableModel modelotablaEntrenamientoArticulos = new DefaultTableModel() {
 			@Override
 			public boolean isCellEditable(int row, int column) {
 				return false;
@@ -46,17 +48,21 @@ public class VistaComenzarEntrenamiento extends JFrame {
 		};
 
 		Object[] titulos = { "Ejercicio", "Series", "Repeticiones", "Peso" };
-		modeloTablaDesgasteArticulos.setColumnIdentifiers(titulos);
+		modelotablaEntrenamientoArticulos.setColumnIdentifiers(titulos);
 
 		/* MATRIZ DE EJERCICIOS */
 
-		for (Ejercicio ej : ControladorEjercicio.ejercicios) { // esto va a tener que iterar sobre el listado de
-																// ejercicios de rutina, segun el dia
+		//for (Entrenamiento ent : Rutina.entrenamientos) { // esto va a tener que iterar sobre el listado de ejercicios de rutina, segun el dia
+			for (Ejercicio ej : Entrenamiento.ejerciciosEntrenamiento){
+
+
 			Object[] fila = new Object[4];
 			fila[0] = ej.getNombre();
 			fila[1] = ej.getSeries();
 			fila[2] = ej.getRepeticiones();
 			fila[3] = ej.getPesoAsignado();
+
+            
 			/*
 			 * TipoArticuloView ta= av.obtenerTipoArticulo();
 			 * fila[0]= ta;
@@ -66,10 +72,11 @@ public class VistaComenzarEntrenamiento extends JFrame {
 			 * fila[1]= av.obtenerEstadoDesgaste() + " DIAS PENDIENTES";
 			 * }
 			 */
-			modeloTablaDesgasteArticulos.addRow(fila);
-		}
-		tablaDesgaste.setModel(modeloTablaDesgasteArticulos);
-		JScrollPane scrollTabla = new JScrollPane(tablaDesgaste);
+			modelotablaEntrenamientoArticulos.addRow(fila);
+            }
+		//}
+		tablaEntrenamiento.setModel(modelotablaEntrenamientoArticulos);
+		JScrollPane scrollTabla = new JScrollPane(tablaEntrenamiento);
 
 		panelCentral.add(scrollTabla, BorderLayout.CENTER);
 	}

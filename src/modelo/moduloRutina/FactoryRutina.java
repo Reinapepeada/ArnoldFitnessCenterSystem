@@ -16,6 +16,7 @@ public class FactoryRutina {
         System.out.println(dias.size());
 
         if (dias.size() < 5) {
+            System.out.println("dias.size() < 5");
             for (int i = 0; i < dias.size(); i++) {
                 // por cada iteracion crear un entrenamiento con cada grupo muscular
                 Entrenamiento entrenamiento = new Entrenamiento(objetivo);
@@ -27,6 +28,7 @@ public class FactoryRutina {
             return rut;
         }
         if (dias.size() == 5) {
+            System.out.println("dias.size() == 5");
             for (GrupoMuscular grupoMuscular : GrupoMuscular.values()) {
                 // por cada iteracion crear un entrenamiento con cada grupo muscular
                 Entrenamiento entrenamiento = new Entrenamiento(objetivo);
@@ -37,6 +39,7 @@ public class FactoryRutina {
             rut.setEntrenamientos(entrenamientos);
             return rut;
         } else {
+            System.out.println("else");
             // hay que repetir los grupos musculares teniendo encuenta que si se pasa de 5
             // dias se repiten los grupos musculares
             for (int i = 0; i < dias.size(); i++) {

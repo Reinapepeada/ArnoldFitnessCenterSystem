@@ -10,7 +10,9 @@ import modelo.moduloObjetivo.ObjetivoStrategy;
 
 public class Entrenamiento {
 	private ObjetivoStrategy objetivo;
-	private List<Ejercicio> ejerciciosEntrenamiento;
+	//public static List<Ejercicio> ejerciciosEntrenamiento;
+
+	public static ArrayList<Ejercicio> ejerciciosEntrenamiento = new ArrayList<Ejercicio>();
 
 	public Entrenamiento(ObjetivoStrategy objetivo) {
 		this.objetivo = objetivo;
@@ -34,11 +36,12 @@ public class Entrenamiento {
 		ejerciciosEntrenamiento = new ArrayList<Ejercicio>();
 		//guardar en una
 		for (Ejercicio ejercicio : ControladorEjercicio.ejercicios) {
-			if (ejercicio.getNivelAerobico() >= objetivo.getnAerobicMin()
-					&& ejercicio.getNivelAerobico() <= objetivo.getnAerobicMax()
-					&& objetivo.getExigencia().contains(ejercicio.getExigenciaMuscular())
-					&& ejercicio.getGrupoMuscular() == grupoMuscular) {
+			if (ejercicio.getNivelAerobico() >= objetivo.getnAerobicMin() 
+				&& ejercicio.getNivelAerobico() <= objetivo.getnAerobicMax() 
+				&& objetivo.getExigencia().contains(ejercicio.getExigenciaMuscular()) 
+				&& ejercicio.getGrupoMuscular() == grupoMuscular) {
 				ejerciciosEntrenamiento.add(ejercicio);
+				System.out.println("Agregue Ejercicio por Musculo");
 			}
 			if (ejerciciosEntrenamiento.size() == 5) {
 				break;
@@ -50,14 +53,14 @@ public class Entrenamiento {
 	public void asignarEjerciciosMixtos() {
 		// TODO - implement Entrenamiento.asignarEjercicios
 		try{
-
 			ejerciciosEntrenamiento = new ArrayList<Ejercicio>();
 			for (Ejercicio ejercicio : ControladorEjercicio.ejercicios) {
 				if (ejercicio.getNivelAerobico() >= objetivo.getnAerobicMin()
-						&& ejercicio.getNivelAerobico() <= objetivo.getnAerobicMax()
-						&& objetivo.getExigencia().contains(ejercicio.getExigenciaMuscular())
-						&& !estaGrupo(ejercicio.getGrupoMuscular())) {
+					&& ejercicio.getNivelAerobico() <= objetivo.getnAerobicMax()
+					&& objetivo.getExigencia().contains(ejercicio.getExigenciaMuscular())
+					&& !estaGrupo(ejercicio.getGrupoMuscular())) {
 					ejerciciosEntrenamiento.add(ejercicio);
+					System.out.println("Agregue Ejercicio Mixto");
 				}
 			}
 		}catch(Exception e){
@@ -84,6 +87,6 @@ public class Entrenamiento {
 	}
 
 	public void setEjercicios(List<Ejercicio> ejercicios) {
-		this.ejerciciosEntrenamiento = ejercicios;
+		Entrenamiento.ejerciciosEntrenamiento = (ArrayList<Ejercicio>) ejercicios;
 	}
 }

@@ -11,6 +11,7 @@ import vistas.VistaActualizarObjetivo;
 import vistas.VistaBienvenida;
 import vistas.VistaComenzarEntrenamiento;
 import vistas.VistaConfgDiasRutina;
+import vistas.VistaEjerciciosCompletados;
 import vistas.VistaGestionarMedidas;
 import vistas.VistaGestionarObjetivo;
 import vistas.VistaIniciarSesion;
@@ -37,6 +38,7 @@ public class WindowManagerSingleton {
 	private VistaSetMedidasObjetivo vSetMedidasObjetivo;
 	private VistaComenzarEntrenamiento vComenzarEntrenamiento;
 	private VistaConfgDiasRutina vConfgDiasRutina;
+	private VistaEjerciciosCompletados vEjsCompletados;
 
 	// controladores
 	private ControladorSocio cs;
@@ -63,6 +65,7 @@ public class WindowManagerSingleton {
 		vSetMedidasObjetivo = new VistaSetMedidasObjetivo();
 		vComenzarEntrenamiento = new VistaComenzarEntrenamiento();
 		vConfgDiasRutina = new VistaConfgDiasRutina();
+		vEjsCompletados = new VistaEjerciciosCompletados();
 
 
 		// seteamos los controladores en las vistas
@@ -243,6 +246,12 @@ public class WindowManagerSingleton {
 		vConfgDiasRutina.setVisible(true);
 		vConfgDiasRutina.setSize(500, 500);
 		vConfgDiasRutina.setLocation(0, 0);
+	}
+
+	public void disponibilizarVistaEjerciciosCompeltados() {
+		vEjsCompletados.setVisible(true);
+		vEjsCompletados.setSize(500, 500);
+		vEjsCompletados.setLocation(0, 0);
 	}
 
 

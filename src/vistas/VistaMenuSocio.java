@@ -52,12 +52,13 @@ public class VistaMenuSocio extends JFrame{
 		panel1.setLayout(new GridLayout(1,1,2,2));
 
 		Container contBotones=new Container();
-		contBotones.setLayout(new GridLayout(3,1,2,4));
+		contBotones.setLayout(new GridLayout(4,1,2,4));
 		
 		//CONSTRUCCION DEL BOTON INICIAR SESION//
 		JButton btnGestionarObjetivo=new JButton("<html> Actualizar Objetivo </html>");
 		JButton btnGestionarMedidas=new JButton("<html> Gestionar Medidas </html>");
 		JButton btnComenzarEntrenamiento=new JButton("<html> Comenzar Entrenamiento del Dia! </html>");
+		JButton btnEjerciciosCompletados=new JButton("<html> Ejercicios Completados </html>");
 		
         //CLASE INTERNA//
 		class HandlerBtnGestionarObjetivo implements ActionListener{
@@ -84,19 +85,30 @@ public class VistaMenuSocio extends JFrame{
 			}
 		}
 
+		class HandlerBtnEjerciciosCompletados implements ActionListener{
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				WindowManagerSingleton.getInstance().disponibilizarVistaEjerciciosCompeltados();
+			}
+		}
+
 		//INSTANCIACION DEL MANEJADOR//
 		HandlerBtnGestionarObjetivo handlerBtnGestionarObjetivo = new HandlerBtnGestionarObjetivo();
 		HandlerBtnGestionarMedidas handlerBtnGestionarMedidas = new HandlerBtnGestionarMedidas();
         HandlerBtnComenzarEntrenamiento handlerBtnComenzarEntrenamiento = new HandlerBtnComenzarEntrenamiento();
-		
+		HandlerBtnEjerciciosCompletados handlerBtnEjerciciosCompletados = new HandlerBtnEjerciciosCompletados();
+
 		//ASIGNACION DEL MANEJADOR AL BOTON//
 		btnGestionarObjetivo.addActionListener(handlerBtnGestionarObjetivo);
 		btnGestionarMedidas.addActionListener(handlerBtnGestionarMedidas);
         btnComenzarEntrenamiento.addActionListener(handlerBtnComenzarEntrenamiento);
+		btnEjerciciosCompletados.addActionListener(handlerBtnEjerciciosCompletados);
 		
 		contBotones.add(btnGestionarObjetivo);
 		contBotones.add(btnGestionarMedidas);
         contBotones.add(btnComenzarEntrenamiento);
+		contBotones.add(btnEjerciciosCompletados);
 		
 		panel1.add(contBotones);
 		
