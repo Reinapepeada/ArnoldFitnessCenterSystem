@@ -19,4 +19,19 @@ public class EjercicioRealizado {
         return this.ejercicio;
     }
 
+    public String getNombre() {
+		return ejercicio.getNombre();
+	}
+
+    public int getRepeticiones() {
+		return repeticiones;
+	}
+
+    public double getPeso() {
+		return peso;
+	}
+
+    public int getSeries() {
+		return series;
+	}
 }

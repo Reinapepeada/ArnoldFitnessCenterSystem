@@ -51,9 +51,9 @@ public class VistaComenzarEntrenamiento extends JFrame {
 		modelotablaEntrenamientoArticulos.setColumnIdentifiers(titulos);
 
 		/* MATRIZ DE EJERCICIOS */
-
+        /*
 		//for (Entrenamiento ent : Rutina.entrenamientos) { // esto va a tener que iterar sobre el listado de ejercicios de rutina, segun el dia
-			for (Ejercicio ej : Entrenamiento.ejerciciosEntrenamiento){
+		for (Ejercicio ej : Entrenamiento.ejerciciosEntrenamiento){
 
 
 			Object[] fila = new Object[4];
@@ -71,14 +71,14 @@ public class VistaComenzarEntrenamiento extends JFrame {
 			 * }else {
 			 * fila[1]= av.obtenerEstadoDesgaste() + " DIAS PENDIENTES";
 			 * }
-			 */
+			
 			modelotablaEntrenamientoArticulos.addRow(fila);
-            }
-		//}
+        }
 		tablaEntrenamiento.setModel(modelotablaEntrenamientoArticulos);
 		JScrollPane scrollTabla = new JScrollPane(tablaEntrenamiento);
 
 		panelCentral.add(scrollTabla, BorderLayout.CENTER);
+        */
 	}
 
 	public void setCEjercicio(ControladorEjercicio ce) {
