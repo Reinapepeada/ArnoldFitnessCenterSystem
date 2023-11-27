@@ -3,6 +3,7 @@ package vistas;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -54,7 +55,7 @@ public class VistaEjerciciosCompletados extends JFrame {
 			fila[0] = ej.getNombre();
 			fila[1] = ej.getSeries();
 			fila[2] = ej.getRepeticiones();
-			fila[3] = ej.getPeso();
+			fila[3] = ej.getPesoAsignado();
             
 			modelotablaEjerciciosRealizados.addRow(fila);
         }
@@ -64,12 +65,29 @@ public class VistaEjerciciosCompletados extends JFrame {
 		panelCentral.add(scrollTabla, BorderLayout.CENTER);
 	}
 
-	public void setCEjercicio(ControladorEjercicio ce) {
-		this.ce = ce;
-		// refrescar tabla
-		repaint();
+    public void actualizarTabla(ArrayList<EjercicioRealizado> ejerciciosRealizados) {
+        DefaultTableModel modeloTablaEjerciciosRealizados = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+
+        Object[] titulos = {"Ejercicio", "Series", "Repeticiones", "Peso"};
+        modeloTablaEjerciciosRealizados.setColumnIdentifiers(titulos);
+
+        for (EjercicioRealizado ej : ejerciciosRealizados) {
+            Object[] fila = new Object[4];
+            fila[0] = ej.getNombre();
+            fila[1] = ej.getSeries();
+            fila[2] = ej.getRepeticiones();
+            fila[3] = ej.getPesoAsignado();
+
+            modeloTablaEjerciciosRealizados.addRow(fila);
+        }
+
+        tablaEjerciciosRealizados.setModel(modeloTablaEjerciciosRealizados);
+        repaint();
         revalidate();
-
-	}
-
+    }
 }
