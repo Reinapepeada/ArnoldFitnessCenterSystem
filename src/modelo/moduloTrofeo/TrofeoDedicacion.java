@@ -24,17 +24,13 @@ public class TrofeoDedicacion extends TrofeoObservador {
 		// si se cumple se notifica al notificador
 		if(objetivo.verificarObjetivo(soc)){
 			notificador.notificar(this.getNombre());
-			setTrofeo(this);
-			JOptionPane.showMessageDialog(null, "¡Haz Recibido un Trofeo a la Dedicacion!");
 		}
 	}
 
 	public String getNombre() {
-		return nombre;
+		return this.nombre;
 	}
 	
-	public void setTrofeo(TrofeoObservador trofeo){
-		Observado.observadores.add(trofeo.getNombre());
-	}
+
 
 }

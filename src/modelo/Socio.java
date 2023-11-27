@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import control.ControladorSocio;
 import modelo.excepciones.SocioExistenteException;
 import modelo.VOs.SocioVo;
@@ -103,11 +105,22 @@ public class Socio extends Observado{
 			if (fechaMedida.getMonth() == LocalDate.now().getMonth()) {
 				contadorVeces++;
 				if(contadorVeces >= 3 ){
+					
+					JOptionPane.showMessageDialog(null, "¡Haz Recibido un Trofeo!");
+					setTrofeo();
 					return true;
 				}
 			}
 		}
 		return false;
+	}
+
+	public void setTrofeo(TrofeoObservador trofeo){
+		observadores.add(trofeo);
+	}
+
+	public ArrayList<TrofeoObservador> getTrofeos(){
+		return this.observadores;
 	}
 
 	public void agregarMedida(Medida medida) {

@@ -23,17 +23,11 @@ public class TrofeoConstancia extends TrofeoObservador {
 		// si se cumple se notifica al notificador
 		if(rutina.verificarConstancia()){
 			notificador.notificar(this.getNombre());
-			setTrofeo(this);
-			JOptionPane.showMessageDialog(null, "¡Haz Recibido un Trofeo a la Constancia!");
 		}
 	}
 
 	public String getNombre(){
 		return this.nombre;
-	}
-	
-	public void setTrofeo(TrofeoObservador trofeo){
-		Observado.observadores.add(trofeo.getNombre());
 	}
 
 }

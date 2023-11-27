@@ -20,16 +20,10 @@ public class TrofeoCreido extends TrofeoObservador {
 		// si se cumple se notifica al notificador
 		if(socio.verificarTrofeo()){
 			notificador.notificar(this.getNombre());
-			setTrofeo(this);
-			JOptionPane.showMessageDialog(null, "¡Haz Recibido un Trofeo Creido!");
 		}
 	}
 	public String getNombre(){
 		return this.nombre;
-	}
-
-	public void setTrofeo(TrofeoObservador trofeo){
-		Observado.observadores.add(trofeo.getNombre());
 	}
 
 }

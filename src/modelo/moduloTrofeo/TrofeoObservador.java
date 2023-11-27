@@ -13,7 +13,5 @@ public abstract class TrofeoObservador {
 
     public abstract void chequearTrofeo(Socio soc);
 
-    public String getNombre() {
-        return null;
-    }
+    public abstract String getNombre();
 }

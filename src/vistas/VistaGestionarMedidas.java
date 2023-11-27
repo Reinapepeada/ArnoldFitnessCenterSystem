@@ -21,7 +21,7 @@ public class VistaGestionarMedidas extends JFrame {
 
 
         super("Ingreso de Medidas");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setSize(300, 200);
 
         // Crear componentes

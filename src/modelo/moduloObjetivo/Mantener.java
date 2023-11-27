@@ -82,4 +82,10 @@ public class Mantener extends ObjetivoStrategy {
         throw new UnsupportedOperationException("Unimplemented method 'setTrofeo'");
     }
 
+    @Override
+    public String getNombre() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getNombre'");
+    }
+
 }

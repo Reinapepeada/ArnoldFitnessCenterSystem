@@ -63,7 +63,6 @@ public class ControladorSocio {
 
 	}
 
-
 	public SocioVo getSocioVOActual() {
 		return a.getVO();
 	}
