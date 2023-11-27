@@ -49,21 +49,19 @@ public class Rutina extends Observado{
 		return entrenamientos.get(diaActual);
 	}
 
-	public void registrarEjercicio(
-			int series,
-			int repeticiones,
-			double peso,
-			Ejercicio ejercicio
-			) {
+	public void registrarEjercicio(int series,int repeticiones,double peso,Ejercicio ejercicio,Socio soc) {
 		// Entrenamiento 
 		// TODO - implement Rutina.registrarEjercicio
 		// registrar un ejercicio Realizado
 		// crear un ejercicio realizado y agregarlo a la lista de ejercicios realizados del entrenamiento del dia
 		EjercicioRealizado ej = new EjercicioRealizado(entrenamientoDiario(), repeticiones, peso, ejercicio, series);
 		ejercicioRealizados.add(ej);
+		if(entrenamientoDiario().getEjercicios().indexOf(ejercicio) + 1 == entrenamientoDiario().getEjercicios().size() ){
+			this.notificar(soc);  
+		}
 	}
 
-	public void comenzarDia() {
+	public void cambiarDia() {
 		//aumetar dia  
 		if (diaActual == dias.size()){
 			this.diaActual = 0;
@@ -145,4 +143,6 @@ public class Rutina extends Observado{
 	public ArrayList getEjerciciosRealizados() {
 		return ejercicioRealizados;
 	}
+
+
 }

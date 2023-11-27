@@ -15,7 +15,7 @@ public class App {
         App app = new App();
         app.init();
         //INSTANCIAR RUTINAS DE TESTING
-        Tonificar t = new Tonificar(2.5, 75.0, 175.0, 20.54, 24.48);
+        Tonificar t = new Tonificar(2.5, 75.0, 175.0);
         BajarPeso bp = new BajarPeso(1.0, 85.0, 185.0);
 
         //INSTANCIAR USUARIOS

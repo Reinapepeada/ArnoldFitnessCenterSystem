@@ -3,7 +3,7 @@ package vistas;
 import javax.swing.*;
 
 import control.ControladorObjetivo;
-import control.ControladorSocio;
+// import control.ControladorSocio;
 import control.WindowManagerSingleton;
 
 import java.awt.*;
@@ -85,7 +85,6 @@ public class VistaConfgDiasRutina extends JFrame {
 
 
     private void registrarDiasSeleccionados() {
-       
             co.diseñarRutina(diasSeleccionados);
             // avisar que se creo todo bien
             JOptionPane.showMessageDialog(null, "¡Rutina Diseñada a tu medida!", "Mensaje", JOptionPane.INFORMATION_MESSAGE);

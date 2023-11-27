@@ -43,7 +43,11 @@ public class ControladorObjetivo {
     }
 
     public void registrarEjercicio(int series, int repeticiones, double peso, Ejercicio indiceEjercicio) {
-        r.registrarEjercicio(series, repeticiones, peso, indiceEjercicio);
+        r.registrarEjercicio(series, repeticiones, peso, indiceEjercicio,cs.getSocioActual());
+        //
+    }
+    public void cambiarDia(){
+        r.cambiarDia();
     }
 
     public void getEjerciosRealizados() {
