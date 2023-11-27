@@ -16,7 +16,7 @@ import modelo.moduloTrofeo.TrofeoObservador;
 
 public class Rutina extends Observado{
 	private ArrayList<TrofeoObservador> observadores = new ArrayList<TrofeoObservador>();
-	private ArrayList<EjercicioRealizado> ejercicioRealizados; // lo usariamos para el trofeo de constacia 
+	private ArrayList<EjercicioRealizado> ejercicioRealizados= new ArrayList<EjercicioRealizado>(); // lo usariamos para el trofeo de constacia 
 	private ObjetivoStrategy objetivo;
 	private ArrayList<Entrenamiento> entrenamientos= new ArrayList<Entrenamiento>();
 	private List<Dia> dias;
@@ -52,8 +52,7 @@ public class Rutina extends Observado{
 	public void registrarEjercicio(
 			int series,
 			int repeticiones,
-			float peso,
-			boolean completado,
+			double peso,
 			Ejercicio ejercicio
 			) {
 		// Entrenamiento 
@@ -141,5 +140,9 @@ public class Rutina extends Observado{
 	public String toString() {
 		return "Rutina [objetivo=" + objetivo + ", entrenamientos=" + entrenamientos + ", dias=" + dias + ", diaEntre="
 				+ diaActual + ", semanas=" + semanas + "]";
+	}
+
+	public ArrayList getEjerciciosRealizados() {
+		return ejercicioRealizados;
 	}
 }

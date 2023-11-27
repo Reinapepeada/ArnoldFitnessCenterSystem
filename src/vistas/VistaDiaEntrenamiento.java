@@ -16,7 +16,7 @@ public class VistaDiaEntrenamiento extends JFrame {
     private ArrayList<Ejercicio> listaEjercicios = new ArrayList<>();
     private int indiceEjercicioActual;
     private ControladorObjetivo co;
-
+    
     private JTextField campoRepeticiones;
     private JTextField campoSeries;
     private JTextField campoPeso;
@@ -108,6 +108,9 @@ public class VistaDiaEntrenamiento extends JFrame {
         ejercicioActual.setRepeticiones(repeticiones);
         ejercicioActual.setSeries(series);
         ejercicioActual.setPesoAsignado(peso);
+
+        co.registrarEjercicio(series, repeticiones, peso,ejercicioActual);
+        
 
         JOptionPane.showMessageDialog(this, "Ejercicio registrado correctamente.");
 

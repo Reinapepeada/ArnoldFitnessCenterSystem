@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.swing.JComboBox;
 
+import modelo.Ejercicio;
 import modelo.Entrenamiento;
 import modelo.Socio;
 import modelo.VOs.SocioVo;
@@ -38,6 +39,14 @@ public class ControladorObjetivo {
 
     public Entrenamiento getEntrenamientoDiario() {
         return r.entrenamientoDiario();
+    }
+
+    public void registrarEjercicio(int series, int repeticiones, double peso, Ejercicio indiceEjercicio) {
+        r.registrarEjercicio(series, repeticiones, peso, indiceEjercicio);
+    }
+
+    public void getEjerciosRealizados() {
+        r.getEjerciciosRealizados();
     }
 
 
