@@ -117,6 +117,10 @@ public class Socio extends Observado{
 	}
 	// getters y setters//7
 
+	public Medida getUltimaMedida() {
+		return this.medidas.get(this.medidas.size() - 1);
+	}
+
 	public String obtenerDNI() {
 		return this.dni;
 	}

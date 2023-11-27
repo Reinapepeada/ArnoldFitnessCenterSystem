@@ -77,4 +77,8 @@ public class ControladorSocio {
 		a.agregarMedida(new Medida( altura,peso, masaMuscular, grasaCorporal));
 	}
 
+	public Medida obtenerUltimMedida() {
+		return a.getUltimaMedida();
+	}
+
 }

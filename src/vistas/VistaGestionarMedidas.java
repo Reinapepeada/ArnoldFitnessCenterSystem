@@ -3,6 +3,8 @@ package vistas;
 import control.ControladorSocio;
 import modelo.Socio;
 import modelo.VOs.SocioVo;
+import modelo.moduloMediciones.Medida;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -56,7 +58,12 @@ public class VistaGestionarMedidas extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 guardarMedidas();
                 //cartel que indica que se guardaron las medidas
-                JOptionPane.showMessageDialog(null, "Medidas guardadas con éxito");
+                Medida m=cs.obtenerUltimMedida();
+                JOptionPane.showMessageDialog(null, "Medidas guardadas con éxito: \n" +
+                        "Peso: " + m.getPeso() + "\n" +
+                        "Altura: " + m.getAltura() + "\n" +
+                        "Porcentaje de Grasa: " + m.getPorcentajeGrasa() + "\n" +
+                        "Porcentaje de Músculo: " + m.getPorcentajeMusculo() + "\n");
             }
         });
     }

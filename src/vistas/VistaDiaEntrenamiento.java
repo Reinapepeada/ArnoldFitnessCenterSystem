@@ -123,6 +123,14 @@ public class VistaDiaEntrenamiento extends JFrame {
         } else {
             JOptionPane.showMessageDialog(this, "Se han registrado todos los ejercicios.");
             WindowManagerSingleton.getInstance().disponibilizarVistaMenuSocio();
+            if (indiceEjercicioActual >= listaEjercicios.size()) {
+                int opcion = JOptionPane.showConfirmDialog(this, "¿Deseas reforzar la rutina?", "Reforzar Rutina", JOptionPane.YES_NO_OPTION);
+                if (opcion == JOptionPane.YES_OPTION) {
+                    co.reforzarRutina();
+                } else {
+                    // Lógica para no reforzar la rutina
+                }
+            }
         }
     }
 

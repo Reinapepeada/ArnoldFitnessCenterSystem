@@ -81,4 +81,8 @@ public class ControladorObjetivo {
         
     }
 
+    public void reforzarRutina() {
+        r.reforzarRutina();
+    }
+
 }

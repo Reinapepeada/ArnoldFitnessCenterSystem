@@ -8,7 +8,6 @@ public class Medida {
     private double altura;
     private double peso;
     public LocalDate dia;
-    private AdapterMedida medicion;
 
     //Constructor
     public Medida(double altura, double peso,double porcetajeGrasa, double porcentajeMusculo) {
@@ -16,7 +15,6 @@ public class Medida {
         this.peso = peso;
         this.porcetajeGrasa = porcetajeGrasa;
         this.porcentajeMusculo = porcentajeMusculo;
-        this.medicion = medicion;
         this.dia = LocalDate.now();
     }
     // public Medida(){

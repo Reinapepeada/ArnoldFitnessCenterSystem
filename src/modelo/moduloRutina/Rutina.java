@@ -46,6 +46,7 @@ public class Rutina extends Observado{
 		// TODO - implement Rutina.entrenamientoDiario
 		// revisar: que hace el Entrenamiento diario 
 		// devolver el entrenamiento del dia
+		comenzarDia();
 		return entrenamientos.get(diaActual);
 	}
 
@@ -64,24 +65,25 @@ public class Rutina extends Observado{
 	}
 
 	public void comenzarDia() {
-		//aumetar dia  
-		if (diaActual == dias.size()){
+		// Increment the day or reset if it exceeds the total number of days.
+		if (diaActual == dias.size() - 1) {
+			// If it's the last day, reset to the first day.
 			this.diaActual = 0;
-		}else{
-			this.diaActual ++;
+			// If it's the last day of the week, decrement the remaining weeks.
+			if (semana > 0) {
+				semana--;
+			}
+		} else {
+			// Increment the day.
+			this.diaActual++;
 		}
 	}
 	
-	public boolean verificarConstancia(){
-		// TODO Auto-generated method stub
+	public boolean verificarConstancia() {
+		
 		// este metodo lo usariamos para el trofeo de constacia
 		// ver ejerciciosRealizados contra semana * dias * cantidad de ejercicios por entrenamiento 
-		if (semana * dias.size() * 5 == ejercicioRealizados.size()){
-			return true;
-		}
-
-		return false;
-
+		return semana * dias.size() * 5 == ejercicioRealizados.size();
 	}
 
 	public ObjetivoStrategy getObjetivo() {
