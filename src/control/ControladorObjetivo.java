@@ -1,10 +1,12 @@
 package control;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JComboBox;
 
 import modelo.Ejercicio;
+import modelo.EjercicioRealizado;
 import modelo.Entrenamiento;
 import modelo.Socio;
 import modelo.VOs.SocioVo;
@@ -46,8 +48,8 @@ public class ControladorObjetivo {
         r.registrarEjercicio(series, repeticiones, peso, indiceEjercicio);
     }
 
-    public void getEjerciosRealizados() {
-        r.getEjerciciosRealizados();
+    public ArrayList<EjercicioRealizado> getEjerciosRealizados() {
+        return r.getEjerciciosRealizados();
     }
 
 

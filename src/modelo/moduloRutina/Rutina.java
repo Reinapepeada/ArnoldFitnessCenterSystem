@@ -142,7 +142,7 @@ public class Rutina extends Observado{
 				+ diaActual + ", semanas=" + semanas + "]";
 	}
 
-	public ArrayList getEjerciciosRealizados() {
+	public ArrayList<EjercicioRealizado> getEjerciciosRealizados() {
 		return ejercicioRealizados;
 	}
 }
