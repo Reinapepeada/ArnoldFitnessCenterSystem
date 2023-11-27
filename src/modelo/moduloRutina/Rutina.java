@@ -157,4 +157,9 @@ public class Rutina extends Observado{
 		// TODO Auto-generated method stub
 		throw new UnsupportedOperationException("Unimplemented method 'getNombre'");
 	}
+
+    public ArrayList<Ejercicio> getEjerciciosdelDia() {
+
+		return entrenamientoDiario().getEjercicios();
+    }
 }
