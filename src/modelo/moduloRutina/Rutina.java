@@ -8,8 +8,12 @@ import modelo.EjercicioRealizado;
 import modelo.Entrenamiento;
 import modelo.Socio;
 import modelo.enums.Dia;
+import modelo.moduloNNN.AdapterFirebase;
+import modelo.moduloNNN.NotificacionPorFirbase;
+import modelo.moduloNNN.Notificador;
 import modelo.moduloObjetivo.ObjetivoStrategy;
 import modelo.moduloTrofeo.Observado;
+import modelo.moduloTrofeo.TrofeoConstancia;
 import modelo.moduloTrofeo.TrofeoObservador;
 
 // import modelo.Entrenamiento;
@@ -61,7 +65,12 @@ public class Rutina extends Observado{
 			// cambiar de dia
 			this.cambiarDia();
 			System.out.println(this.diaActual);
+			NotificacionPorFirbase not = new NotificacionPorFirbase(new AdapterFirebase());
+			Notificador Not = new Notificador(not);
+			TrofeoConstancia obs = new TrofeoConstancia(this,Not);
+			agregarObservador(obs);
 			this.notificar(soc);  
+			sacarbservador(obs);
 		}
 	}
 
@@ -78,7 +87,7 @@ public class Rutina extends Observado{
 		// TODO Auto-generated method stub
 		// este metodo lo usariamos para el trofeo de constacia
 		// ver ejerciciosRealizados contra semana * dias * cantidad de ejercicios por entrenamiento 
-		if (semana * dias.size() * 5 == ejercicioRealizados.size()){
+		if (entrenamientos.size() * 4 == ejercicioRealizados.size()){
 			return true;
 		}
 
