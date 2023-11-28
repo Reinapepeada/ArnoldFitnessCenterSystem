@@ -215,6 +215,7 @@ public class WindowManagerSingleton {
 	}
 
 	public void disponibilizarVistaEjerciciosCompeltados() {
+		vEjsCompletados.actualizarTabla(co.getEjerciosRealizados());
 		vEjsCompletados.setVisible(true);
 		vEjsCompletados.setSize(500, 500);
 		vEjsCompletados.setLocation(0, 0);
