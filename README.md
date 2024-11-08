@@ -6,10 +6,9 @@ Bienvenido al proyecto de Arnold Fitness Center: una aplicación de gestión de 
 Esta aplicación ha sido diseñada para ofrecer una experiencia de usuario intuitiva mediante vistas personalizadas en Java. Todo el sistema se estructura con principios de Programación Orientada a Objetos (POO) y patrones de diseño de software, asegurando que el código sea modular y escalable. Gracias a una arquitectura bien organizada, es fácil de expandir con nuevas funcionalidades manteniendo una alta cohesión y bajo acoplamiento. 💪
 
 ## ✨ Características
-### 🎨 Interfaces Gráficas Personalizadas: Vistas diseñadas específicamente para mejorar la experiencia del usuario y facilitar la navegación.
-### 🏗️ Arquitectura Orientada a Clases: Clases bien definidas, ideales para una aplicación escalable y de fácil mantenimiento.
-### 🛠️ Patrones de Diseño Implementados: Utilizamos patrones como MVC, Singleton, Factory, Adapter y Observer para asegurar modularidad y reutilización.
-### 🔔 Sistema de Notificaciones: A través del patrón Observer, los usuarios reciben actualizaciones en tiempo real sobre clases, eventos y novedades en el gimnasio.
+#### 🎨 Interfaces Gráficas Personalizadas
+#### 🏗️ Arquitectura Orientada a Clases
+#### 🔔 Sistema de Notificaciones
 
 ## 📂 Estructura del Proyecto
 #### src/: Contiene el código fuente de la aplicación, con subcarpetas organizadas por funcionalidad:
