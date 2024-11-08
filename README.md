@@ -12,10 +12,14 @@ Esta aplicación ha sido diseñada para ofrecer una experiencia de usuario intui
 ### 🔔 Sistema de Notificaciones: A través del patrón Observer, los usuarios reciben actualizaciones en tiempo real sobre clases, eventos y novedades en el gimnasio.
 
 ## 📂 Estructura del Proyecto
-src/: Contiene el código fuente de la aplicación, con subcarpetas organizadas por funcionalidad:
-control/: Controladores que gestionan la lógica de la aplicación y la comunicación entre vistas y modelos.
-modelo/: Clases de negocio y modelos de datos que representan las entidades de la aplicación.
-vistas/: Vistas de usuario personalizadas, desarrolladas en Java.
+#### src/: Contiene el código fuente de la aplicación, con subcarpetas organizadas por funcionalidad:
+#### control/
+Controladores que gestionan la lógica de la aplicación y la comunicación entre vistas y modelos.
+#### modelo/
+Clases de negocio y modelos de datos que representan las entidades de la aplicación.
+#### vistas/
+Vistas de usuario personalizadas, desarrolladas en Java.
+
 ## 📐 Patrones de Diseño Utilizados
 ### 🎛️ MVC (Modelo-Vista-Controlador) 
 Separa la lógica de negocio de la interfaz de usuario para facilitar la gestión y reutilización del código.
